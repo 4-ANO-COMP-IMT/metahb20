@@ -1,5 +1,5 @@
-import { EntityError } from "../../helpers/errors/domainErrors";
-import { GENRES } from "../enums/genresEnum";
+import { EntityError } from "../../helpers/errors/domainErrors.js";
+import { GENRES } from "../enums/genresEnum.js";
 
 export class User {
   userId;
@@ -8,30 +8,30 @@ export class User {
   favoriteGenres;
   favoriteBook;
   friends;
-  static USERID_LENGTH = 32;
+  static USERID_LENGTH = 36;
   static NAME_MIN_LENGTH = 2;
   static NAME_MAX_LENGTH = 100; // Corrigi o valor para algo mais razoável
-  static EMAIL_MAX_LENGTH = 100;
+  static EMAIL_MAX_LENGTH = 50;
   static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   constructor(userId, name, email, favoriteGenres, favoriteBook, friends) {
     if (!User.validateUserId(userId)) {
-      throw new EntityError("UserId");
+      throw new EntityError("userId");
     }
     this.userId = userId;
 
     if (!User.validateName(name)) {
-      throw new EntityError("Name");
+      throw new EntityError("name");
     }
     this.name = name;
 
     if (!User.validateEmail(email)) {
-      throw new EntityError("Email");
+      throw new EntityError("email");
     }
     this.email = email;
 
     if (!User.validateFavoriteGenres(favoriteGenres)) {
-      throw new EntityError("FavoriteGenres");
+      throw new EntityError("favoriteGenres");
     }
     this.favoriteGenres = favoriteGenres;
 
@@ -39,12 +39,12 @@ export class User {
       favoriteBook !== undefined &&
       !User.validateFavoriteBook(favoriteBook)
     ) {
-      throw new EntityError("FavoriteBook");
+      throw new EntityError("favoriteBook");
     }
     this.favoriteBook = favoriteBook;
 
     if (friends !== undefined && !Array.isArray(friends)) {
-      throw new EntityError("Friends");
+      throw new EntityError("friends");
     }
     this.friends = friends;
   }
@@ -84,5 +84,32 @@ export class User {
   static validateFavoriteBook(favoriteBook) {
     if (typeof favoriteBook !== "string") return false;
     else return true; // Ou outras validações específicas que você queira
+  }
+
+  static validateFriends(friends) {
+    if (!Array.isArray(friends)) return false;
+    else return true; // Ou outras validações específicas que você queira
+  }
+
+  toJSON() {
+    return {
+      userId: this.userId,
+      name: this.name,
+      email: this.email,
+      favoriteGenres: this.favoriteGenres,
+      favoriteBook: this.favoriteBook,
+      friends: this.friends,
+    };
+  }
+
+  static fromJson(json) {
+    return new User(
+      json.userId,
+      json.name,
+      json.email,
+      json.favoriteGenres,
+      json.favoriteBook,
+      json.friends
+    );
   }
 }
