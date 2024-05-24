@@ -1,4 +1,5 @@
 import { User } from "../../../../src/shared/domain/entities/user.js";
+import { GENRES } from "../../../../src/shared/domain/enums/genresEnum.js";
 import { expect, test, describe } from "vitest";
 import { EntityError } from "../../../../src/shared/helpers/errors/domainErrors.js";
 
@@ -8,7 +9,7 @@ describe("[User Entity Tests]", () => {
       "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
       "Mildred McGee",
       "etozis@pedar.va",
-      "Terror",
+      GENRES.TERROR,
       "1984",
       ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
     );
@@ -22,7 +23,7 @@ describe("[User Entity Tests]", () => {
           "93bc6ada-c0d1-7054-66ab-e17414c48ae",
           "Mildred McGee",
           "etozis@pedar.va",
-          "Terror",
+          GENRES.TERROR,
           "1984",
           ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
         )
@@ -36,7 +37,7 @@ describe("[User Entity Tests]", () => {
           "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
           "M",
           "etozis@pedar.va",
-          "Terror",
+          GENRES.TERROR,
           "1984",
           ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
         )
@@ -50,7 +51,7 @@ describe("[User Entity Tests]", () => {
           "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
           "Mildred McGee",
           "etozispedar.va",
-          "Terror",
+          GENRES.TERROR,
           "1984",
           ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
         )
@@ -64,7 +65,7 @@ describe("[User Entity Tests]", () => {
           "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
           "Mildred McGee",
           "etozisaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@pedar.va",
-          "Terror",
+          GENRES.TERROR,
           "1984",
           ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
         )
@@ -88,9 +89,14 @@ describe("[User Entity Tests]", () => {
   test("Assert throws error userId is not string", () => {
     expect(
       () =>
-        new User(25, "Mildred McGee", "etozis@pedar.va", "Terror", "1984", [
-          "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
-        ])
+        new User(
+          25,
+          "Mildred McGee",
+          "etozis@pedar.va",
+          GENRES.TERROR,
+          "1984",
+          ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
+        )
     ).toThrowError("Field userId is not valid");
   });
 
@@ -101,7 +107,7 @@ describe("[User Entity Tests]", () => {
           undefined,
           "Mildred McGee",
           "etozis@pedar.va",
-          "Terror",
+          GENRES.TERROR,
           "1984",
           ["93bc6ada-c0d1-7054-66ab-e17414c48ae3"]
         )

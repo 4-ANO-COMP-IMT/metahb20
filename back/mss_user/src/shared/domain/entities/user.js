@@ -7,14 +7,13 @@ export class User {
   email;
   favoriteGenres;
   favoriteBook;
-  friends;
   static USERID_LENGTH = 36;
   static NAME_MIN_LENGTH = 2;
   static NAME_MAX_LENGTH = 100; // Corrigi o valor para algo mais razoável
   static EMAIL_MAX_LENGTH = 50;
   static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  constructor(userId, name, email, favoriteGenres, favoriteBook, friends) {
+  constructor(userId, name, email, favoriteGenres, favoriteBook) {
     if (!User.validateUserId(userId)) {
       throw new EntityError("userId");
     }
@@ -42,11 +41,6 @@ export class User {
       throw new EntityError("favoriteBook");
     }
     this.favoriteBook = favoriteBook;
-
-    if (friends !== undefined && !Array.isArray(friends)) {
-      throw new EntityError("friends");
-    }
-    this.friends = friends;
   }
 
   static validateUserId(id) {
@@ -86,11 +80,6 @@ export class User {
     else return true; // Ou outras validações específicas que você queira
   }
 
-  static validateFriends(friends) {
-    if (!Array.isArray(friends)) return false;
-    else return true; // Ou outras validações específicas que você queira
-  }
-
   toJSON() {
     return {
       userId: this.userId,
@@ -98,7 +87,6 @@ export class User {
       email: this.email,
       favoriteGenres: this.favoriteGenres,
       favoriteBook: this.favoriteBook,
-      friends: this.friends,
     };
   }
 
@@ -108,8 +96,7 @@ export class User {
       json.name,
       json.email,
       json.favoriteGenres,
-      json.favoriteBook,
-      json.friends
+      json.favoriteBook
     );
   }
 }
