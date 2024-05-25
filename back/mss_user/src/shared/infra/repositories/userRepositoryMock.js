@@ -3,7 +3,7 @@ import { GENRES } from "../../domain/enums/genresEnum.js";
 
 export class UserRepositoryMock {
   constructor() {
-    users = [
+    this.users = [
       new User(
         "d5135e3e-646a-55e7-a38d-9724159b7f9f",
         "Beulah Watkins",
@@ -36,5 +36,10 @@ export class UserRepositoryMock {
         "A Revolução dos bichos"
       ),
     ];
+  }
+
+  async createUser(user) {
+    this.users.push(user);
+    return user;
   }
 }
