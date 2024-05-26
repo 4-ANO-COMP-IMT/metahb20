@@ -5,35 +5,35 @@ class UserViewmodel {
   name;
   email;
   favoriteGenres;
-  favoriteBooks;
+  favoriteBook;
 
   constructor(user) {
     this.userId = user.userId;
     this.name = user.name;
     this.email = user.email;
     this.favoriteGenres = user.favoriteGenres;
-    this.favoriteBooks = user.favoriteBooks;
+    this.favoriteBook = user.favoriteBook;
   }
 
   toJSON() {
     return {
-      userId: self.userId,
-      name: self.name,
-      email: self.email,
-      favoriteGenres: self.favoriteGenres,
-      favoriteBooks: self.favoriteBooks,
+      userId: this.userId,
+      name: this.name,
+      email: this.email,
+      favoriteGenres: this.favoriteGenres,
+      favoriteBook: this.favoriteBook,
     };
   }
 }
 
-class CreateUserViewmodel {
+export class CreateUserViewmodel {
   constructor(user) {
     this.user = user;
   }
 
   toJSON() {
     return {
-      user: UserViewmodel(user).toJSON(),
+      user: new UserViewmodel(this.user).toJSON(),
       message: "the user was created",
     };
   }
