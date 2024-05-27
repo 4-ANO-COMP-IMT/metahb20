@@ -23,7 +23,7 @@ class HttpRequest {
         );
       }
     } else {
-      const overlappingKeys = Object.keys(this.query_params).filter(
+      const overlappingKeys = Object.keys(this.queryParams).filter(
         (key) => key in this.headers
       );
       if (overlappingKeys.length > 0) {
@@ -45,7 +45,7 @@ class HttpRequest {
     return `HttpRequest (body=${JSON.stringify(
       this.body
     )}, headers=${JSON.stringify(this.headers)}, query_params=${JSON.stringify(
-      this.query_params
+      this.queryParams
     )}, data=${JSON.stringify(this.data)})`;
   }
 }

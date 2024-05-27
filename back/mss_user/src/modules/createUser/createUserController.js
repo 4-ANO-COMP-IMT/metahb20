@@ -65,8 +65,11 @@ export class CreateUserController {
         request.data.favoriteBook
       );
 
-      const viewmodel = new CreateUserViewmodel(user);
-      const response = new Created(viewmodel.toJSON());
+      const viewmodel = {
+        user: user.toJSON(),
+        message: "the user was created",
+      };
+      const response = new Created(viewmodel);
       return response;
     } catch (error) {
       if (error instanceof EntityError) {
