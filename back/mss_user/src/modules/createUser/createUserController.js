@@ -1,4 +1,3 @@
-import { CreateUserUsecase } from "./createUserUsecase.js";
 import { CreateUserViewmodel } from "./createUserViemmodel.js";
 import {
   MissingParameters,
@@ -11,8 +10,7 @@ import {
   Created,
   InternalServerError,
 } from "../../shared/helpers/externalInterfaces/httpCodes";
-import { User } from "../../shared/domain/entities/user.js";
-
+import { GENRES } from "../../shared/domain/enums/genresEnum.js";
 export class CreateUserController {
   constructor(usecase) {
     this.usecase = usecase;
@@ -21,7 +19,7 @@ export class CreateUserController {
   async call(request) {
     try {
       if (request.data.name === undefined) {
-        throw new MissingParameters("id");
+        throw new MissingParameters("name");
       }
       if (request.data.email === undefined) {
         throw new MissingParameters("email");

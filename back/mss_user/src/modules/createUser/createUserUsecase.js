@@ -1,5 +1,4 @@
 import { User } from "../../shared/domain/entities/user.js";
-import { UserRepositoryMock } from "../../shared/infra/repositories/userRepositoryMock.js";
 import { v4 as uuidv4 } from "uuid";
 
 export class CreateUserUsecase {

@@ -1,5 +1,3 @@
-import { GENRES } from "../../shared/domain/enums/genresEnum.js";
-
 class UserViewmodel {
   userId;
   name;
