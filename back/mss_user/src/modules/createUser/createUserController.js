@@ -1,4 +1,3 @@
-import { CreateUserViewmodel } from "./createUserViemmodel.js";
 import {
   MissingParameters,
   WrongTypeParameter,
@@ -9,7 +8,7 @@ import {
   BadRequest,
   Created,
   InternalServerError,
-} from "../../shared/helpers/externalInterfaces/httpCodes";
+} from "../../shared/helpers/externalInterfaces/httpCodes.js";
 import { GENRES } from "../../shared/domain/enums/genresEnum.js";
 export class CreateUserController {
   constructor(usecase) {
