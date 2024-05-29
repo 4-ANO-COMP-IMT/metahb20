@@ -42,4 +42,8 @@ export class UserRepositoryMock {
     this.users.push(user);
     return user;
   }
+
+  async getUser(id) {
+    return this.users.find((user) => user.id === id);
+  }
 }
