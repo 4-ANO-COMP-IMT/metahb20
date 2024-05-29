@@ -12,7 +12,6 @@ describe("Create User Presenter Tests", () => {
     };
     const event = new HttpRequest(example);
     const response = await createUserPresenter(event);
-    console.log(response);
     expect(response.statusCode).toEqual(201);
     expect(response.body.message).toEqual("the user was created");
   });
