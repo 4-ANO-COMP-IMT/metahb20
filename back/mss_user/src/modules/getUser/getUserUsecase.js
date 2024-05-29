@@ -12,7 +12,7 @@ export class GetUserUsecase {
       throw new EntityError("userId");
     }
 
-    const user = this.repo.getUser(id);
+    const user = await this.repo.getUser(id);
     if (user === null) {
       throw new NoItemsFound("userId");
     }
