@@ -6,14 +6,14 @@ import { GENRES } from '../shared/domain/enums/genresEnum';
 class Cadastro extends React.Component{
     render(){
         return (
-            <div className='container-sm border rounded mt-2'>
-                <div className='row justify-content-center'>
+            <div className='container-sm mt-2 border border-dark rounded '>
+                <div className='row justify-content-center border'>
                     <div className='col-6'>
-                        <h1 className='display-5 text-center'>Cadastro</h1>
+                        <h1 className='display-5 text-center '>Cadastro</h1>
                     </div>
                 </div>
 
-                <div className='row justify-content-center'>
+                <div className='row justify-content-center '>
                     <div className='col-6'>
                         <form>
                             <div className='form-group'>
