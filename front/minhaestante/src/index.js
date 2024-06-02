@@ -4,9 +4,7 @@ import './pages/Cadastro';
 import Cadastro from './pages/Cadastro';
 
 const App = () => {
-  return <Cadastro/>;
-}
+	return <Cadastro />;
+};
 
-ReactDOM.render(
-<App />, 
-document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
