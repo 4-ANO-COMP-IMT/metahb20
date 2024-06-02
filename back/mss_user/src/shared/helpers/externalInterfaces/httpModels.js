@@ -59,17 +59,6 @@ class HttpResponse {
     this.statusCode = statusCode || httpStatusCodes.OK;
     this.body = body || {};
     this.headers = headers;
-
-    const dataJson = {};
-    if (typeof body === "object") {
-      Object.assign(dataJson, body);
-    }
-    if (typeof body === "string") {
-      Object.assign(dataJson, { body });
-    }
-
-    Object.assign(dataJson, headers);
-    this.data = dataJson;
   }
 
   toString() {

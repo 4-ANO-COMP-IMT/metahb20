@@ -22,4 +22,20 @@ describe("Test user repository", () => {
     expect(newUser).toEqual(user);
     expect(newLegnth).toEqual(currentLength + 1);
   });
+
+  test("Test getUser", async () => {
+    const id = "d5135e3e-646a-55e7-a38d-9724159b7f9f";
+
+    const user = await repo.getUser(id);
+
+    expect(user.name).toEqual("Beulah Watkins");
+  });
+
+  test("Test getUser user not found", async () => {
+    const id = "d5135e3e-646a-55e7-a38d-9724159b7f9a";
+
+    const user = await repo.getUser(id);
+
+    expect(user).toBeNull;
+  });
 });
