@@ -21,7 +21,7 @@ describe('Tests for DeleteUser controller', () => {
 		expect(response?.body['user']['email']).toEqual('nen@pukaon.dj');
 		expect(response?.body['user']['favoriteGenres']).toEqual('Conto');
 		expect(response?.body['user']['favoriteBook']).toEqual('1984');
-		expect(response?.body['message']).toEqual('the user was retrieved');
+		expect(response?.body['message']).toEqual('the user was deleted');
 	});
 
 	test('Test deleteUser Controller missing userId', async () => {

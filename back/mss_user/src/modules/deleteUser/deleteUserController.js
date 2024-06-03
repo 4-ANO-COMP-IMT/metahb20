@@ -34,7 +34,7 @@ export class DeleteUserController {
 
 			const viewmodel = {
 				user: user.toJSON(),
-				message: 'the user was retrieved',
+				message: 'the user was deleted',
 			};
 
 			const response = new OK(viewmodel);

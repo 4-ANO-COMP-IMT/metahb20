@@ -10,7 +10,7 @@ describe('Delete User Presenter Tests', () => {
 		const event = new HttpRequest(example);
 		const response = await deleteUserPresenter(event);
 		expect(response.statusCode).toEqual(200);
-		expect(response.body.message).toEqual('the user was retrieved');
+		expect(response.body.message).toEqual('the user was deleted');
 		expect(response.body['user']['name']).toEqual('Beulah Watkins');
 		expect(response.body['user']['email']).toEqual('nen@pukaon.dj');
 		expect(response.body['user']['favoriteGenres']).toEqual('Conto');
