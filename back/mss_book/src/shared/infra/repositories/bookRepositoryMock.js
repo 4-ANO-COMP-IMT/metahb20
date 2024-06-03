@@ -50,4 +50,8 @@ export class BookRepositoryMock {
       ),
     ];
   }
+
+  async getBook(id) {
+    return this.books.find((book) => book.bookId === id);
+  }
 }
