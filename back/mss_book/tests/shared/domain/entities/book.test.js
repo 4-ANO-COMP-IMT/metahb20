@@ -12,7 +12,7 @@ describe("Tests for Book entity", () => {
       "George Orwellr",
       200,
       GENRES.FICCAO,
-      new Date(-649029540000),
+      -649029540000,
       "Secker and Warburg",
       5
     );
@@ -28,7 +28,7 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
@@ -44,7 +44,7 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
@@ -60,7 +60,7 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
@@ -76,7 +76,7 @@ describe("Tests for Book entity", () => {
         "G",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
@@ -92,11 +92,11 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         0,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
-    }).toThrow(EntityError);
+    }).toThrow("Field pages is not valid");
   });
 
   test("Test Create Book with invalid genre", () => {
@@ -108,11 +108,11 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         "FICCAO",
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       );
-    }).toThrow(EntityError);
+    }).toThrow("Field genre is not valid");
   });
 
   test("Test Create Book with invalid publishDate", () => {
@@ -124,11 +124,11 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        "new Date(-649029540000)",
+        "-649029540000",
         "Secker and Warburg",
         5
       );
-    }).toThrow(EntityError);
+    }).toThrow("Field publishDate is not valid");
   });
 
   test("Test Create Book with invalid publisher", () => {
@@ -140,10 +140,41 @@ describe("Tests for Book entity", () => {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "S",
         5
       );
     }).toThrow(EntityError);
+  });
+
+  test("Test Create Book with invalid rating", () => {
+    expect(() => {
+      new Book(
+        "367f3e10-4649-5e8e-acc6-4669644a520e",
+        "1984",
+        1,
+        "George Orwellr",
+        200,
+        GENRES.FICCAO,
+        -649029540000,
+        "Secker and Warburg",
+        6
+      );
+    }).toThrow("Field rating is not valid");
+  });
+
+  test("Test Create Book assert publishDate is Date type", () => {
+    const book = new Book(
+      "367f3e10-4649-5e8e-acc6-4669644a520e",
+      "1984",
+      1,
+      "George Orwellr",
+      200,
+      GENRES.FICCAO,
+      -649029540000,
+      "Secker and Warburg",
+      5
+    );
+    expect(book.publishDate).toBeInstanceOf(Date);
   });
 });
