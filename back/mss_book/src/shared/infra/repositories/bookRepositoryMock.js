@@ -11,7 +11,7 @@ export class BookRepositoryMock {
         "George Orwellr",
         200,
         GENRES.FICCAO,
-        new Date(-649029540000),
+        -649029540000,
         "Secker and Warburg",
         5
       ),
@@ -22,7 +22,7 @@ export class BookRepositoryMock {
         "J. R. R. Tolkien",
         1000,
         GENRES.FICCAO,
-        new Date(-486853627000),
+        -486853627000,
         "Allen & Unwin",
         5
       ),
@@ -33,7 +33,7 @@ export class BookRepositoryMock {
         "Jeff Kinney",
         300,
         GENRES.CONTO,
-        new Date(1211165573000),
+        1211165573000,
         "Amulet Books",
         5
       ),
@@ -44,7 +44,7 @@ export class BookRepositoryMock {
         "Antoine de Saint-Exupéry",
         100,
         GENRES.POEMA,
-        new Date(-843858427000),
+        -843858427000,
         "Reynal & Hitchcock",
         5
       ),
@@ -52,6 +52,7 @@ export class BookRepositoryMock {
   }
 
   async getBook(id) {
-    return this.books.find((book) => book.bookId === id);
+    const book = this.books.find((book) => book.bookId === id);
+    return book || null;
   }
 }
