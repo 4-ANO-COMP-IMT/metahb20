@@ -25,12 +25,12 @@ export class Book {
     publiser,
     rating
   ) {
-    if (!validateBookId(bookId)) {
+    if (!Book.validateBookId(bookId)) {
       throw new EntityError("bookId");
     }
     this.bookId = bookId;
 
-    if (!validateTitle(title)) {
+    if (!Book.validateTitle(title)) {
       throw new EntityError("title");
     }
     this.title = title;
@@ -55,7 +55,7 @@ export class Book {
     }
     this.pages = pages;
 
-    if (!validateGenres(genre)) {
+    if (!Book.validateGenres(genre)) {
       throw new EntityError("genre");
     }
     this.genre = genre;
@@ -70,7 +70,7 @@ export class Book {
     }
     this.publiser = publiser;
 
-    if (!validateRating(rating)) {
+    if (!Book.validateRating(rating)) {
       throw new EntityError("rating");
     }
     this.rating = rating;

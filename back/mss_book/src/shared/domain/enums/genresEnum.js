@@ -6,4 +6,5 @@ export const GENRES = {
   HQ: "HQ",
   CRONICA: "Crônica",
   CONTO: "Conto",
+  FICCAO: "Ficção",
 };
