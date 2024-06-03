@@ -9,7 +9,7 @@ export class User {
   favoriteBook;
   static USERID_LENGTH = 36;
   static NAME_MIN_LENGTH = 2;
-  static NAME_MAX_LENGTH = 100; // Corrigi o valor para algo mais razoável
+  static NAME_MAX_LENGTH = 100; 
   static EMAIL_MAX_LENGTH = 50;
   static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
