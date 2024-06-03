@@ -47,4 +47,13 @@ export class UserRepositoryMock {
     const user = this.users.find((user) => user.userId === id);
     return user || null;
   }
+
+  async deleteUser(id) {
+    const user = this.users.find((user) => user.userId === id);
+    if (user) {
+      this.users = this.users.filter((user) => user.userId !== id);
+      return user;
+    }
+    return null;
+  }
 }
