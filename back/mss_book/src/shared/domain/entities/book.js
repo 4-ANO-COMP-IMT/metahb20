@@ -60,10 +60,10 @@ export class Book {
     }
     this.genre = genre;
 
-    if (!(publishDate instanceof Date)) {
+    if (typeof publishDate !== "number" && !Number.isInteger(publishDate)) {
       throw new EntityError("publishDate");
     }
-    this.publishDate = publishDate;
+    this.publishDate = new Date(publishDate);
 
     if (typeof publiser !== "string" || publiser.length < 2) {
       throw new EntityError("publiser");
