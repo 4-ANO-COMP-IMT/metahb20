@@ -101,4 +101,32 @@ export class Book {
     else if (rating < 0 || rating > 5) return false;
     else return true;
   }
+
+  toJSON() {
+    return {
+      bookId: this.bookId,
+      title: this.title,
+      edition: this.edition,
+      autor: this.autor,
+      pages: this.pages,
+      genre: this.genre,
+      publishDate: this.publishDate,
+      publiser: this.publiser,
+      rating: this.rating,
+    };
+  }
+
+  static fromJSON(data) {
+    return new Book(
+      data.bookId,
+      data.title,
+      data.edition,
+      data.autor,
+      data.pages,
+      data.genre,
+      data.publishDate,
+      data.publiser,
+      data.rating
+    );
+  }
 }
