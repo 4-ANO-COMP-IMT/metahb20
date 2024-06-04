@@ -1,9 +1,6 @@
 import { describe, test, expect } from "vitest";
 import { Book } from "../../../src/shared/domain/entities/book.js";
-import { GENRES } from "../../../src/shared/domain/enums/genresEnum.js";
-import { EntityError } from "../../../src/shared/helpers/errors/domainErrors.js";
 import { GetBookUsecase } from "../../../src/modules/getBook/getBookUsecase.js";
-import { NoItemsFound } from "../../../src/shared/helpers/errors/usecaseErrors.js";
 import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 
 const repo = new BookRepositoryMock();

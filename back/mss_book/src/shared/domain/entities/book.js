@@ -110,7 +110,7 @@ export class Book {
       autor: this.autor,
       pages: this.pages,
       genre: this.genre,
-      publishDate: this.publishDate,
+      publishDate: this.publishDate.getTime(),
       publiser: this.publiser,
       rating: this.rating,
     };
