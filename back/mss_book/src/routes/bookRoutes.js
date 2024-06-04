@@ -13,3 +13,5 @@ routes.get("/book/:bookId", async (req, res) => {
 
   res.status(response.statusCode).send(response.body);
 });
+
+export default routes;
