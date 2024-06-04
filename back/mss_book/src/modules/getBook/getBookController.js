@@ -28,7 +28,7 @@ export class GetBookController {
       const book = await this.usecase.call(request.data.bookId);
 
       const viewmodel = {
-        user: user.toJSON(),
+        book: book.toJSON(),
         message: "the book was retrieved",
       };
 
