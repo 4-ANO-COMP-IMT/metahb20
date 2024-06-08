@@ -56,4 +56,22 @@ export class UserRepositoryMock {
     }
     return null;
   }
+
+  async updateUser(
+    userId,
+    newName = null,
+    newEmail = null,
+    newFavoriteGenres = null,
+    newFavoriteBook = null
+  ) {
+    const user = this.users.find((user) => user.userId === userId);
+    if (user) {
+      if (newName) user.name = newName;
+      if (newEmail) user.email = newEmail;
+      if (newFavoriteGenres) user.favoriteGenres = newFavoriteGenres;
+      if (newFavoriteBook) user.favoriteBook = newFavoriteBook;
+      return user;
+    }
+    return null;
+  }
 }
