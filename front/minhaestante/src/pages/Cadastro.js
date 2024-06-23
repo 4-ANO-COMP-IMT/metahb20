@@ -11,18 +11,31 @@ class Cadastro extends React.Component {
 			email: '',
 			favoriteGenres: '',
 			favoriteBook: '',
+			menssagem: '',
 		};
 	}
 
 	onClickCadastrar = async (event) => {
 		event.preventDefault();
 		console.log(this.state);
-		try {
-			const response = await axios.post('http://localhost:3000/user', user);
-			console.log(response);
-		} catch (error) {
-			console.error(error);
-		}
+		const user = {
+			name: this.state.name,
+			email: this.state.email,
+			favoriteGenres: this.state.favoriteGenres,
+			favoriteBook: this.state.favoriteBook,
+		};
+		console.log('Cadastrando usuário...');
+
+		const response = await axios
+			.post('http://localhost:3000/user', user)
+			.then((res) => {
+				console.log(res);
+				this.setState({ menssagem: 'Usuário cadastrado com sucesso!' });
+			})
+			.catch((error) => {
+				console.error(error);
+				this.setState({ menssagem: error.message });
+			});
 	};
 
 	onClickLogin = (event) => {
@@ -91,6 +104,12 @@ class Cadastro extends React.Component {
 									}
 								/>
 							</div>
+
+							{this.state.menssagem && (
+								<div className="alert" role="alert">
+									{this.state.menssagem}
+								</div>
+							)}
 
 							<div className="form-group m-3">
 								<button
