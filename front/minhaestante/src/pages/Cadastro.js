@@ -17,24 +17,28 @@ class Cadastro extends React.Component {
 
 	onClickCadastrar = async (event) => {
 		event.preventDefault();
-		console.log(this.state);
+
 		const user = {
 			name: this.state.name,
 			email: this.state.email,
 			favoriteGenres: this.state.favoriteGenres,
 			favoriteBook: this.state.favoriteBook,
 		};
-		console.log('Cadastrando usuário...');
 
 		const response = await axios
-			.post('http://localhost:3000/user', user)
+			.post('http://localhost:3000/api/user', user)
 			.then((res) => {
-				console.log(res);
 				this.setState({ menssagem: 'Usuário cadastrado com sucesso!' });
+				this.setState({
+					name: '',
+					email: '',
+					favoriteGenres: '',
+					favoriteBook: '',
+				});
 			})
 			.catch((error) => {
 				console.error(error);
-				this.setState({ menssagem: error.message });
+				this.setState({ menssagem: error.request.response });
 			});
 	};
 
