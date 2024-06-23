@@ -1,9 +1,35 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GENRES } from '../shared/domain/enums/genresEnum';
-// Rest of the code
+import axios from 'axios';
 
 class Cadastro extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: '',
+			email: '',
+			favoriteGenres: '',
+			favoriteBook: '',
+		};
+	}
+
+	onClickCadastrar = async (event) => {
+		event.preventDefault();
+		console.log(this.state);
+		try {
+			const response = await axios.post('http://localhost:3000/user', user);
+			console.log(response);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	onClickLogin = (event) => {
+		event.preventDefault();
+		console.log('Login clicado!');
+	};
+
 	render() {
 		return (
 			<div className="container-sm mt-2 border border-dark rounded ">
@@ -18,17 +44,33 @@ class Cadastro extends React.Component {
 						<form>
 							<div className="form-group">
 								<label>Nome</label>
-								<input type="text" className="form-control" />
+								<input
+									type="text"
+									className="form-control"
+									value={this.state.name}
+									onChange={(e) => this.setState({ name: e.target.value })}
+								/>
 							</div>
 
 							<div className="form-group">
 								<label>Email</label>
-								<input type="email" className="form-control" />
+								<input
+									type="email"
+									className="form-control"
+									value={this.state.email}
+									onChange={(e) => this.setState({ email: e.target.value })}
+								/>
 							</div>
 
 							<div className="form-group">
 								<label>Gêneros Favoritos</label>
-								<select className="form-control">
+								<select
+									className="form-control"
+									value={this.state.favoriteGenres}
+									onChange={(e) =>
+										this.setState({ favoriteGenres: e.target.value })
+									}
+								>
 									<option value="">Selecione...</option>
 									{Object.values(GENRES).map((genre) => (
 										<option key={genre} value={genre}>
@@ -40,12 +82,30 @@ class Cadastro extends React.Component {
 
 							<div className="form-group">
 								<label>Livro Favorito</label>
-								<input type="text" className="form-control" />
+								<input
+									type="text"
+									className="form-control"
+									value={this.state.favoriteBook}
+									onChange={(e) =>
+										this.setState({ favoriteBook: e.target.value })
+									}
+								/>
 							</div>
 
 							<div className="form-group m-3">
-								<button className="btn btn-primary mx-2">Cadastrar</button>
-								<button className="btn btn-light ml-2">Login</button>
+								<button
+									className="btn btn-primary mx-2"
+									onClick={this.onClickCadastrar}
+								>
+									Cadastrar
+								</button>
+
+								<button
+									className="btn btn-light ml-2"
+									onClick={this.onClickCadastrar}
+								>
+									Login
+								</button>
 							</div>
 						</form>
 					</div>
