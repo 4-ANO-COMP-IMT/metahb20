@@ -28,12 +28,12 @@ class Cadastro extends React.Component {
 		const response = await axios
 			.post('http://localhost:3000/api/user', user)
 			.then((res) => {
-				this.setState({ menssagem: 'Usuário cadastrado com sucesso!' });
 				this.setState({
 					name: '',
 					email: '',
 					favoriteGenres: '',
 					favoriteBook: '',
+					menssagem: 'Usuário cadastrado com sucesso!',
 				});
 			})
 			.catch((error) => {
