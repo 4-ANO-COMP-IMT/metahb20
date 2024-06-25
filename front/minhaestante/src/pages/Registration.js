@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { GENRES } from '../shared/domain/enums/genresEnum';
 import axios from 'axios';
 import InputField from '../components/registration/InputField';
+import SelectField from '../components/registration/SelectField';
 
 class Cadastro extends React.Component {
 	constructor(props) {
@@ -74,23 +75,14 @@ class Cadastro extends React.Component {
 								onChange={(e) => this.setState({ email: e.target.value })}
 							/>
 
-							<div className="form-group">
-								<label>Gêneros Favoritos</label>
-								<select
-									className="form-control"
-									value={this.state.favoriteGenres}
-									onChange={(e) =>
-										this.setState({ favoriteGenres: e.target.value })
-									}
-								>
-									<option value="">Selecione...</option>
-									{Object.values(GENRES).map((genre) => (
-										<option key={genre} value={genre}>
-											{genre}
-										</option>
-									))}
-								</select>
-							</div>
+							<SelectField
+								label="Gêneros Favoritos"
+								options={Object.values(GENRES)} // Aqui você passa as opções para o dropdown
+								value={this.state.favoriteGenres}
+								onChange={(e) =>
+									this.setState({ favoriteGenres: e.target.value })
+								}
+							/>
 
 							<InputField
 								label="Livro Favorito"
