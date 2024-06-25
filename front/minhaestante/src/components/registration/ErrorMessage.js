@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ErrorMessage = (props) => {
 	return (
-		<div className="alert alert-danger" role="alert">
+		<div className="alert alert-danger m-2" role="alert">
 			{props.message}
 		</div>
 	);
