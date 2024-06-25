@@ -1,22 +1,23 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { GENRES } from '../shared/domain/enums/genresEnum';
-import axios from 'axios';
-import InputField from '../components/registration/InputField';
-import SelectField from '../components/registration/SelectField';
-import SucessMessage from '../components/registration/SucessMessage';
-import ErrorMessage from '../components/registration/ErrorMessage';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { GENRES } from "../shared/domain/enums/genresEnum";
+import axios from "axios";
+import InputField from "../components/registration/InputField";
+import SelectField from "../components/registration/SelectField";
+import SucessMessage from "../components/registration/SucessMessage";
+import ErrorMessage from "../components/registration/ErrorMessage";
+import errorMessageTranslator from "../shared/error/ErrorManager";
 
 class Cadastro extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			email: '',
-			favoriteGenres: '',
-			favoriteBook: '',
-			successMessage: '',
-			errorMessage: '',
+			name: "",
+			email: "",
+			favoriteGenres: "",
+			favoriteBook: "",
+			successMessage: "",
+			errorMessage: "",
 		};
 	}
 
@@ -31,29 +32,32 @@ class Cadastro extends React.Component {
 		};
 
 		const response = await axios
-			.post('http://localhost:3000/api/user', user)
+			.post("http://localhost:3000/api/user", user)
 			.then((res) => {
 				this.setState({
-					name: '',
-					email: '',
-					favoriteGenres: '',
-					favoriteBook: '',
-					successMessage: 'Usuário cadastrado com sucesso!',
-					errorMessage: '',
+					name: "",
+					email: "",
+					favoriteGenres: "",
+					favoriteBook: "",
+					successMessage: "Usuário cadastrado com sucesso!",
+					errorMessage: "",
 				});
 			})
 			.catch((error) => {
 				console.error(error);
+
 				this.setState({
-					errorMessage: error.request.responseText,
-					successMessage: '',
+					errorMessage: errorMessageTranslator.translateErrorMessage(
+						error.request.responseText
+					),
+					successMessage: "",
 				});
 			});
 	};
 
 	onClickLogin = (event) => {
 		event.preventDefault();
-		console.log('Login clicado!');
+		console.log("Login clicado!");
 	};
 
 	render() {
