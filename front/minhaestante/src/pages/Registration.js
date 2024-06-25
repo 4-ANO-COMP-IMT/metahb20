@@ -4,6 +4,8 @@ import { GENRES } from '../shared/domain/enums/genresEnum';
 import axios from 'axios';
 import InputField from '../components/registration/InputField';
 import SelectField from '../components/registration/SelectField';
+import SucessMessage from '../components/registration/SucessMessage';
+import ErrorMessage from '../components/registration/ErrorMessage';
 
 class Cadastro extends React.Component {
 	constructor(props) {
@@ -13,7 +15,8 @@ class Cadastro extends React.Component {
 			email: '',
 			favoriteGenres: '',
 			favoriteBook: '',
-			menssagem: '',
+			successMessage: '',
+			errorMessage: '',
 		};
 	}
 
@@ -35,12 +38,16 @@ class Cadastro extends React.Component {
 					email: '',
 					favoriteGenres: '',
 					favoriteBook: '',
-					menssagem: 'Usuário cadastrado com sucesso!',
+					successMessage: 'Usuário cadastrado com sucesso!',
+					errorMessage: '',
 				});
 			})
 			.catch((error) => {
 				console.error(error);
-				this.setState({ menssagem: error.request.responseText });
+				this.setState({
+					errorMessage: error.request.responseText,
+					successMessage: '',
+				});
 			});
 	};
 
@@ -77,7 +84,7 @@ class Cadastro extends React.Component {
 
 							<SelectField
 								label="Gêneros Favoritos"
-								options={Object.values(GENRES)} // Aqui você passa as opções para o dropdown
+								options={Object.values(GENRES)}
 								value={this.state.favoriteGenres}
 								onChange={(e) =>
 									this.setState({ favoriteGenres: e.target.value })
@@ -93,10 +100,12 @@ class Cadastro extends React.Component {
 								}
 							/>
 
-							{this.state.menssagem && (
-								<div className=" m-3 alert alert-danger" role="alert">
-									{this.state.menssagem}
-								</div>
+							{this.state.successMessage && (
+								<SucessMessage message={this.state.successMessage} />
+							)}
+
+							{this.state.errorMessage && (
+								<ErrorMessage message={this.state.errorMessage} />
 							)}
 
 							<div className="form-group m-3">
@@ -105,13 +114,6 @@ class Cadastro extends React.Component {
 									onClick={this.onClickCadastrar}
 								>
 									Cadastrar
-								</button>
-
-								<button
-									className="btn btn-light ml-2"
-									onClick={this.onClickCadastrar}
-								>
-									Login
 								</button>
 							</div>
 						</form>
