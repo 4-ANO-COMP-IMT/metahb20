@@ -38,7 +38,7 @@ class Cadastro extends React.Component {
 			})
 			.catch((error) => {
 				console.error(error);
-				this.setState({ menssagem: error.request.response });
+				this.setState({ menssagem: error.request.responseText });
 			});
 	};
 
@@ -110,7 +110,7 @@ class Cadastro extends React.Component {
 							</div>
 
 							{this.state.menssagem && (
-								<div className="alert" role="alert">
+								<div className=" m-3 alert alert-danger" role="alert">
 									{this.state.menssagem}
 								</div>
 							)}
