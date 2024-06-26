@@ -1,9 +1,9 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const SucessMessage = (props) => {
 	return (
-		<div className="alert alert-success" role="alert">
+		<div className="alert alert-success m-2" role="alert">
 			{props.message}
 		</div>
 	);
