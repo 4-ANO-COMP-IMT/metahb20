@@ -6,7 +6,7 @@ function translateErrorMessage(error) {
 	};
 	console.log(error);
 
-	return errorMessages[error] || error; // Retorna a tradução ou a mensagem original se não encontrar correspondência
+	return errorMessages[error] || "Erro desconhecido";
 }
 
 export default { translateErrorMessage };
