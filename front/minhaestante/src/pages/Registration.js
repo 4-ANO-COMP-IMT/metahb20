@@ -61,15 +61,23 @@ class Cadastro extends React.Component {
 
 	render() {
 		return (
-			<div className="container-sm mt-2 border border-dark rounded ">
-				<div className="row justify-content-center border">
+			<div className="container-sm mt-2 border border-dark ">
+				<div
+					className="row justify-content-center "
+					style={{ backgroundColor: "#5A0F19", color: "white" }}
+				>
 					<div className="col-6">
-						<h1 className="display-5 text-center ">Cadastro</h1>
+						<h1 className="display-5 text-center ">
+							<strong>CADASTRO</strong>
+						</h1>
 					</div>
 				</div>
 
-				<div className="row justify-content-center">
-					<div className="col-6">
+				<div
+					className="row justify-content-center"
+					style={{ backgroundColor: "#E5CC9F" }}
+				>
+					<div className="col-9">
 						<form>
 							<InputField
 								label="Nome"
@@ -111,10 +119,19 @@ class Cadastro extends React.Component {
 								<ErrorMessage message={this.state.errorMessage} />
 							)}
 
-							<div className="form-group m-3">
+							<div className="row form-group justify-content-around m-3 ">
 								<button
-									className="btn btn-primary mx-2"
+									className="btn btn-primary col-4"
 									onClick={this.onClickCadastrar}
+									style={{ backgroundColor: "#700000" }}
+								>
+									Cadastrar
+								</button>
+
+								<button
+									className="btn btn-primary col-4"
+									onClick={this.onClickCadastrar}
+									style={{ backgroundColor: "#700000" }}
 								>
 									Cadastrar
 								</button>
