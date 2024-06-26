@@ -18,4 +18,25 @@ describe("Tests for BookRepositoryMock", () => {
     const book = await bookRepositoryMock.getBook("3");
     expect(book).toBeNull();
   });
+
+  test("Test createBook", async () => {
+    const bookRepositoryMock = new BookRepositoryMock();
+    const book = new Book(
+      "59157931-a96c-5ff2-8bca-b66bf76f2994",
+      "Os três mosqueteiros",
+      5,
+      "Estelle Watts",
+      200,
+      GENRES.CONTO,
+      1211165573000,
+      "saraiva",
+      5
+    );
+    const oldLength = bookRepositoryMock.books.length;
+    const newBook = await bookRepositoryMock.createBook(book);
+    const newLength = bookRepositoryMock.books.length;
+
+    expect(newBook).toBeInstanceOf(Book);
+    expect(newLength).toEqual(oldLength + 1);
+  });
 });
