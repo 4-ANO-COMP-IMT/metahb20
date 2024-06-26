@@ -42,6 +42,10 @@ class Cadastro extends React.Component {
 					successMessage: "Usuário cadastrado com sucesso!",
 					errorMessage: "",
 				});
+
+				setTimeout(() => {
+					this.setState({ successMessage: "" });
+				}, 10000);
 			})
 			.catch((error) => {
 				console.error(error);
