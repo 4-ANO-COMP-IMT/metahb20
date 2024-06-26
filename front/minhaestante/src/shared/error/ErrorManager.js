@@ -4,7 +4,6 @@ function translateErrorMessage(error) {
 		'"Field name is not valid"': "Nome inválido",
 		'"Field email is not valid"': "Email inválido",
 	};
-	console.log(error);
 
 	return errorMessages[error] || "Erro desconhecido";
 }

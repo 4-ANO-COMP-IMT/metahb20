@@ -57,7 +57,6 @@ class Cadastro extends React.Component {
 
 	onClickLogin = (event) => {
 		event.preventDefault();
-		console.log("Login clicado!");
 	};
 
 	render() {
