@@ -55,4 +55,9 @@ export class BookRepositoryMock {
     const book = this.books.find((book) => book.bookId === id);
     return book || null;
   }
+
+  async createBook(book) {
+    this.books.push(book);
+    return book;
+  }
 }
