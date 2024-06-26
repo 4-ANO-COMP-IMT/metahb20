@@ -134,10 +134,9 @@ class Cadastro extends React.Component {
 
 								<button
 									className="btn btn-primary col-4"
-									onClick={this.onClickCadastrar}
 									style={{ backgroundColor: "#700000" }}
 								>
-									Cadastrar
+									Entrar
 								</button>
 							</div>
 						</form>
