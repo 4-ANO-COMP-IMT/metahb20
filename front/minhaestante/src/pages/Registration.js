@@ -32,7 +32,7 @@ class Cadastro extends React.Component {
 		};
 
 		const response = await axios
-			.post("http://localhost:3000/api/user", user)
+			.post("http://localhost:4000/api/user", user)
 			.then((res) => {
 				this.setState({
 					name: "",
