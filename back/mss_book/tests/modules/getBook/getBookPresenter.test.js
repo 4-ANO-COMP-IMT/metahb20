@@ -17,7 +17,7 @@ describe("Test getBookPresenter", () => {
     expect(response.body["book"]["pages"]).toEqual(200);
     expect(response.body["book"]["genre"]).toEqual("Ficção");
     expect(response.body["book"]["publishDate"]).toEqual(-649029540000);
-    expect(response.body["book"]["publiser"]).toEqual("Secker and Warburg");
+    expect(response.body["book"]["publisher"]).toEqual("Secker and Warburg");
     expect(response.body["book"]["rating"]).toEqual(5);
   });
 
