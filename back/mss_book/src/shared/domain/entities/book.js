@@ -9,7 +9,7 @@ export class Book {
   pages;
   genre;
   publishDate;
-  publiser;
+  publisher;
   rating;
   static BOOKID_LENGTH = 36;
   static TITLE_MIN_LENGTH = 2;
@@ -22,7 +22,7 @@ export class Book {
     pages,
     genre,
     publishDate,
-    publiser,
+    publisher,
     rating
   ) {
     if (!Book.validateBookId(bookId)) {
@@ -65,10 +65,10 @@ export class Book {
     }
     this.publishDate = new Date(publishDate);
 
-    if (typeof publiser !== "string" || publiser.length < 2) {
-      throw new EntityError("publiser");
+    if (typeof publisher !== "string" || publisher.length < 2) {
+      throw new EntityError("publisher");
     }
-    this.publiser = publiser;
+    this.publisher = publisher;
 
     if (!Book.validateRating(rating)) {
       throw new EntityError("rating");
@@ -111,7 +111,7 @@ export class Book {
       pages: this.pages,
       genre: this.genre,
       publishDate: this.publishDate.getTime(),
-      publiser: this.publiser,
+      publisher: this.publisher,
       rating: this.rating,
     };
   }
@@ -125,7 +125,7 @@ export class Book {
       data.pages,
       data.genre,
       data.publishDate,
-      data.publiser,
+      data.publisher,
       data.rating
     );
   }
