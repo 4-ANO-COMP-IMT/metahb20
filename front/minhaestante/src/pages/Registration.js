@@ -9,7 +9,7 @@ import ErrorMessage from "../components/registration/ErrorMessage";
 import errorMessageTranslator from "../shared/error/ErrorManager";
 import "../styles/style.css";
 
-class Cadastro extends React.Component {
+class RegistrationForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -138,4 +138,4 @@ class Cadastro extends React.Component {
 	}
 }
 
-export default Cadastro;
+export default RegistrationForm;
