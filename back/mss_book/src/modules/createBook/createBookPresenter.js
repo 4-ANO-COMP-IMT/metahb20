@@ -7,7 +7,7 @@ const repo = new BookRepositoryMock();
 const usecase = new CreateBookUsecase(repo);
 const controller = new CreateBookController(usecase);
 
-export async function getBookPresenter(event) {
+export async function createBookPresenter(event) {
   const response = await controller.call(event);
   const httpResponse = new HttpResponse(response?.statusCode, response?.body);
 
