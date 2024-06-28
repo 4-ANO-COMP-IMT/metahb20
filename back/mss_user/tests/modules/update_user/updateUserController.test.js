@@ -1,6 +1,5 @@
 import { describe, test, expect } from "vitest";
 import UpdateUserController from "../../../src/modules/updateUser/updateUserController.js";
-import { User } from "../../../src/shared/domain/entities/user.js";
 import { UserRepositoryMock } from "../../../src/shared/infra/repositories/userRepositoryMock.js";
 import { UpdateUserUsecase } from "../../../src/modules/updateUser/updateUserUsecase.js";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
