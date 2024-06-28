@@ -21,49 +21,81 @@ export class CreateBookController {
         throw new MissingParameters("title");
       }
       if (typeof request.data.title !== "string") {
-        throw new WrongTypeParameter("title");
+        throw new WrongTypeParameter(
+          "title",
+          "string",
+          typeof request.data.title
+        );
       }
       if (request.data.edition === undefined) {
         throw new MissingParameters("edition");
       }
       if (typeof request.data.edition !== "number") {
-        throw new WrongTypeParameter("edition");
+        throw new WrongTypeParameter(
+          "edition",
+          "number",
+          typeof request.data.edition
+        );
       }
       if (request.data.autor === undefined) {
         throw new MissingParameters("autor");
       }
       if (typeof request.data.autor !== "string") {
-        throw new WrongTypeParameter("autor");
+        throw new WrongTypeParameter(
+          "autor",
+          "string",
+          typeof request.data.autor
+        );
       }
       if (request.data.pages === undefined) {
         throw new MissingParameters("pages");
       }
       if (typeof request.data.pages !== "number") {
-        throw new WrongTypeParameter("pages");
+        throw new WrongTypeParameter(
+          "pages",
+          "number",
+          typeof request.data.pages
+        );
       }
       if (request.data.genre === undefined) {
         throw new MissingParameters("genre");
       }
       if (typeof request.data.genre !== "string") {
-        throw new WrongTypeParameter("genre");
+        throw new WrongTypeParameter(
+          "genre",
+          "string",
+          typeof request.data.genre
+        );
       }
       if (request.data.publishDate === undefined) {
         throw new MissingParameters("publishDate");
       }
-      if (typeof request.data.publishDate !== "string") {
-        throw new WrongTypeParameter("publishDate");
+      if (typeof request.data.publishDate !== "number") {
+        throw new WrongTypeParameter(
+          "publishDate",
+          "number",
+          typeof request.data.publishDate
+        );
       }
       if (request.data.publisher === undefined) {
         throw new MissingParameters("publisher");
       }
       if (typeof request.data.publisher !== "string") {
-        throw new WrongTypeParameter("publisher");
+        throw new WrongTypeParameter(
+          "publisher",
+          "string",
+          typeof request.data.publisher
+        );
       }
       if (request.data.rating === undefined) {
         throw new MissingParameters("rating");
       }
       if (typeof request.data.rating !== "number") {
-        throw new WrongTypeParameter("rating");
+        throw new WrongTypeParameter(
+          "rating",
+          "number",
+          typeof request.data.rating
+        );
       }
 
       const book = await this.usecase.call(
