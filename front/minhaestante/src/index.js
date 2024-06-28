@@ -4,7 +4,7 @@ import Registration from "./pages/Registration";
 import LogIn from "./pages/LogIn";
 
 const App = () => {
-	return <LogIn />;
+	return <Registration />;
 };
 
 createRoot(document.getElementById("root")).render(<App />);
