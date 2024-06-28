@@ -14,4 +14,9 @@
 .button-style {
 	background-color: #700000;
 	color: white;
+	border: black;
+}
+
+.button-style:hover {
+	background-color: #580000 !important;
 }
