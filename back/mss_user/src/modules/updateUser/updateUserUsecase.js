@@ -15,7 +15,7 @@ export class UpdateUserUsecase {
     const user = await this.userRepository.getUser(userId);
 
     if (!user) {
-      throw new NoItemsFound("User not found");
+      throw new NoItemsFound("userId");
     }
 
     return await this.userRepository.updateUser(

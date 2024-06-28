@@ -42,7 +42,7 @@ export default class UpdateUserController {
             "string",
             typeof request.data.name
           );
-        } else if (!User.validateName(request.data.name)) {
+        } else if (!User.validateName(request.data.new_name)) {
           throw new EntityError("name");
         }
       }
@@ -54,7 +54,7 @@ export default class UpdateUserController {
             "string",
             typeof request.data.email
           );
-        } else if (!User.validateEmail(request.data.email)) {
+        } else if (!User.validateEmail(request.data.new_email)) {
           throw new EntityError("email");
         }
       }
@@ -66,7 +66,7 @@ export default class UpdateUserController {
             "string",
             typeof request.data.genre
           );
-        } else if (!User.validateFavoriteGenres(request.data.genre)) {
+        } else if (!User.validateFavoriteGenres(request.data.new_genre)) {
           throw new EntityError("genre");
         }
       }
@@ -78,17 +78,17 @@ export default class UpdateUserController {
             "string",
             typeof request.data.favoriteBook
           );
-        } else if (!User.validateFavoriteBook(request.data.favoriteBook)) {
+        } else if (!User.validateFavoriteBook(request.data.new_favoriteBook)) {
           throw new EntityError("favoriteBook");
         }
       }
 
       const user = await this.usecase.call(
         request.data.userId,
-        request.data.name,
-        request.data.email,
-        request.data.genre,
-        request.data.favoriteBook
+        request.data.new_name,
+        request.data.new_email,
+        request.data.new_genre,
+        request.data.new_favoriteBook
       );
 
       const viewmodel = {
