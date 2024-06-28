@@ -1,17 +1,17 @@
-.fundo-padrao {
+.background-default {
 	background-color: #643200;
 }
 
-.titulo {
+.headline {
 	background-color: #5a0f19;
 	color: white;
 }
 
-.fundo-formulario {
+.background-form {
 	background-color: #e5cc9f;
 }
 
-.botao {
+.button-style {
 	background-color: #700000;
 	color: white;
 }

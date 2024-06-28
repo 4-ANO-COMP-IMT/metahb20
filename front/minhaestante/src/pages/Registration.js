@@ -67,7 +67,7 @@ class Cadastro extends React.Component {
 	render() {
 		return (
 			<div className="container-sm mt-2 border border-dark ">
-				<div className="row justify-content-center titulo ">
+				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
 							<strong>CADASTRO</strong>
@@ -75,7 +75,7 @@ class Cadastro extends React.Component {
 					</div>
 				</div>
 
-				<div className="row justify-content-center fundo-formulario">
+				<div className="row justify-content-center background-form">
 					<div className="col-9">
 						<form>
 							<InputField
@@ -120,13 +120,15 @@ class Cadastro extends React.Component {
 
 							<div className="row form-group justify-content-around m-3 ">
 								<button
-									className="btn btn-primary col-4 botao"
+									className="btn btn-primary col-4 button-style"
 									onClick={this.onClickCadastrar}
 								>
 									Cadastrar
 								</button>
 
-								<button className="btn btn-primary col-4 botao">Entrar</button>
+								<button className="btn btn-primary col-4 button-style">
+									Entrar
+								</button>
 							</div>
 						</form>
 					</div>
