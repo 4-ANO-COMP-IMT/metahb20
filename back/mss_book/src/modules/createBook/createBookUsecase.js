@@ -14,7 +14,7 @@ export class CreateBookUsecase {
     pages,
     genre,
     publishDate,
-    publiser,
+    publisher,
     rating
   ) {
     const bookId = uuidv4();
@@ -27,7 +27,7 @@ export class CreateBookUsecase {
       pages,
       genre,
       publishDate,
-      publiser,
+      publisher,
       rating
     );
 
