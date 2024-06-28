@@ -7,6 +7,7 @@ import SelectField from "../components/registration/SelectField";
 import SucessMessage from "../components/registration/SucessMessage";
 import ErrorMessage from "../components/registration/ErrorMessage";
 import errorMessageTranslator from "../shared/error/ErrorManager";
+import "../styles/style.css";
 
 class Cadastro extends React.Component {
 	constructor(props) {
@@ -66,10 +67,7 @@ class Cadastro extends React.Component {
 	render() {
 		return (
 			<div className="container-sm mt-2 border border-dark ">
-				<div
-					className="row justify-content-center "
-					style={{ backgroundColor: "#5A0F19", color: "white" }}
-				>
+				<div className="row justify-content-center titulo ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
 							<strong>CADASTRO</strong>
@@ -77,10 +75,7 @@ class Cadastro extends React.Component {
 					</div>
 				</div>
 
-				<div
-					className="row justify-content-center"
-					style={{ backgroundColor: "#E5CC9F" }}
-				>
+				<div className="row justify-content-center fundo-formulario">
 					<div className="col-9">
 						<form>
 							<InputField
@@ -125,19 +120,13 @@ class Cadastro extends React.Component {
 
 							<div className="row form-group justify-content-around m-3 ">
 								<button
-									className="btn btn-primary col-4"
+									className="btn btn-primary col-4 botao"
 									onClick={this.onClickCadastrar}
-									style={{ backgroundColor: "#700000" }}
 								>
 									Cadastrar
 								</button>
 
-								<button
-									className="btn btn-primary col-4"
-									style={{ backgroundColor: "#700000" }}
-								>
-									Entrar
-								</button>
+								<button className="btn btn-primary col-4 botao">Entrar</button>
 							</div>
 						</form>
 					</div>
