@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './pages/Cadastro';
-import Cadastro from './pages/Cadastro';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import Registration from "./pages/Registration";
+import LogIn from "./pages/LogIn";
 
 const App = () => {
-	return <Cadastro />;
+	return <Registration />;
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+createRoot(document.getElementById("root")).render(<App />);
