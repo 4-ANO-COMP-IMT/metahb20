@@ -27,7 +27,8 @@ class BookCard extends React.Component {
 							Genre: {genre}
 							<br />
 							Publisher: {publisher}
-							&nbsp;&nbsp;&nbsp; Rating: {rating}
+							<br />
+							Rating: {rating}
 						</p>
 						<div className="text">
 							<button className="btn btn-primary">Button</button>
