@@ -22,13 +22,13 @@ class BookCard extends React.Component {
 					<div className="card-body">
 						<h5 className="card-title">{title}</h5>
 						<p className="card-text">
-							Author: {author}
+							Autor: {author}
 							<br />
-							Genre: {genre}
+							Genero: {genre}
 							<br />
-							Publisher: {publisher}
+							Editora: {publisher}
 							<br />
-							Rating: {rating}
+							Avaliação: {rating}
 						</p>
 						<div className="text">
 							<button className="btn btn-primary">Button</button>
