@@ -29,7 +29,7 @@ class LoginScreen extends React.Component {
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
-							<strong>Log In</strong>
+							<strong>LOGIN</strong>
 						</h1>
 					</div>
 				</div>

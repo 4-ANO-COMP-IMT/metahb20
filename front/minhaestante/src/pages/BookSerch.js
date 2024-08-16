@@ -27,7 +27,7 @@ class BookSearch extends React.Component {
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
-							<strong>Procurar Livro</strong>
+							<strong>PROCURAR LIVRO</strong>
 						</h1>
 					</div>
 				</div>
@@ -38,7 +38,7 @@ class BookSearch extends React.Component {
 							<input
 								className="form-control col-6"
 								type="text"
-								placeholder="Search"
+								placeholder="Procurar pelo id"
 								value={this.state.search}
 								onChange={this.onChangeSearch}
 							/>
