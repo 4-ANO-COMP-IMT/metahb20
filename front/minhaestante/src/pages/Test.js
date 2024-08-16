@@ -4,6 +4,8 @@ import { GENRES } from "../shared/domain/enums/genresEnum";
 import axios from "axios";
 import SucessMessage from "../components/registration/SucessMessage";
 import BookCard from "../components/book/BookCard";
+import BookSearch from "./BookSerch";
+import BookForm from "./BooksForm";
 
 class Test extends React.Component {
 	render() {
@@ -20,6 +22,8 @@ class Test extends React.Component {
 					publisher="Secker and Warburg"
 					rating={5}
 				/> */}
+				<BookSearch />
+				{/* <BookForm /> */}
 			</div>
 		);
 	}

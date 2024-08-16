@@ -10,6 +10,7 @@ const InputField = (props) => {
 				className="form-control"
 				value={props.value}
 				onChange={props.onChange}
+				placeholder={props.placeholder} // Add this line to include an example input
 			/>
 		</div>
 	);

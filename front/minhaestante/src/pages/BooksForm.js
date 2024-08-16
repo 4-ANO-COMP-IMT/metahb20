@@ -9,41 +9,52 @@ import ErrorMessage from "../components/registration/ErrorMessage";
 import errorMessageTranslator from "../shared/error/ErrorManager";
 import "../styles/style.css";
 
-class RegistrationForm extends React.Component {
+class BookForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            bookId: "",
-            title: "",
-            edition: "",
-            autor: "",
-            pages: "",
-            genre: "",
-            publishDate: "",
-            publiser: "",
-            rating: ""
+			title: "",
+			edition: "",
+			author: "",
+			pages: "",
+			genre: "",
+			publishDate: "",
+			publisher: "",
+			rating: "",
+			successMessage: "",
+			errorMessage: "",
 		};
 	}
 
 	onClickCadastrar = async (event) => {
 		event.preventDefault();
 
-		const user = {
-			name: this.state.name,
-			email: this.state.email,
-			favoriteGenres: this.state.favoriteGenres,
-			favoriteBook: this.state.favoriteBook,
+		const book = {
+			bookId: this.state.bookId,
+			title: this.state.title,
+			edition: this.state.edition,
+			author: this.state.author,
+			pages: this.state.pages,
+			genre: this.state.genre,
+			publishDate: this.state.publishDate,
+			publisher: this.state.publisher,
+			rating: this.state.rating,
 		};
 
 		const response = await axios
-			.post("http://localhost:4000/api/user", user)
+			.post("http://localhost:4000/api/book", book)
 			.then((res) => {
 				this.setState({
-					name: "",
-					email: "",
-					favoriteGenres: "",
-					favoriteBook: "",
-					successMessage: "Usuário cadastrado com sucesso!",
+					bookId: "",
+					title: "",
+					edition: "",
+					author: "",
+					pages: "",
+					genre: "",
+					publishDate: "",
+					publisher: "",
+					rating: "",
+					successMessage: "Livro cadastrado com sucesso!",
 					errorMessage: "",
 				});
 
@@ -73,7 +84,7 @@ class RegistrationForm extends React.Component {
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
-							<strong>CADASTRO</strong>
+							<strong>CADASTRO DO LIVRO</strong>
 						</h1>
 					</div>
 				</div>
@@ -82,35 +93,60 @@ class RegistrationForm extends React.Component {
 					<div className="col-9">
 						<form>
 							<InputField
-								label="Nome"
+								label="Título"
 								type="text"
-								value={this.state.name}
-								onChange={(e) => this.setState({ name: e.target.value })}
+								value={this.state.title}
+								onChange={(e) => this.setState({ title: e.target.value })}
 							/>
 
 							<InputField
-								label="Email"
-								type="email"
-								value={this.state.email}
-								onChange={(e) => this.setState({ email: e.target.value })}
+								label="Edição"
+								type="text"
+								value={this.state.edition}
+								onChange={(e) => this.setState({ edition: e.target.value })}
+							/>
+
+							<InputField
+								label="Autor"
+								type="text"
+								value={this.state.author}
+								onChange={(e) => this.setState({ author: e.target.value })}
+							/>
+
+							<InputField
+								label="Páginas"
+								type="text"
+								value={this.state.pages}
+								onChange={(e) => this.setState({ pages: e.target.value })}
 							/>
 
 							<SelectField
-								label="Gêneros Favoritos"
+								label="Gênero"
 								options={Object.values(GENRES)}
-								value={this.state.favoriteGenres}
-								onChange={(e) =>
-									this.setState({ favoriteGenres: e.target.value })
-								}
+								value={this.state.genre}
+								onChange={(e) => this.setState({ genre: e.target.value })}
 							/>
 
 							<InputField
-								label="Livro Favorito"
+								label="Data de Publicação"
 								type="text"
-								value={this.state.favoriteBook}
-								onChange={(e) =>
-									this.setState({ favoriteBook: e.target.value })
-								}
+								value={this.state.publishDate}
+								onChange={(e) => this.setState({ publishDate: e.target.value })}
+								placeholder="dd/mm/aaaa"
+							/>
+
+							<InputField
+								label="Editora"
+								type="text"
+								value={this.state.publisher}
+								onChange={(e) => this.setState({ publisher: e.target.value })}
+							/>
+
+							<InputField
+								label="Avaliação"
+								type="text"
+								value={this.state.rating}
+								onChange={(e) => this.setState({ rating: e.target.value })}
 							/>
 
 							{this.state.successMessage && (
@@ -126,11 +162,7 @@ class RegistrationForm extends React.Component {
 									className="btn btn-primary col-4 button-style"
 									onClick={this.onClickCadastrar}
 								>
-									Cadastrar
-								</button>
-
-								<button className="btn btn-primary col-4 button-style">
-									Entrar
+									Cadastrar livro
 								</button>
 							</div>
 						</form>
@@ -141,4 +173,4 @@ class RegistrationForm extends React.Component {
 	}
 }
 
-export default RegistrationForm;
+export default BookForm;

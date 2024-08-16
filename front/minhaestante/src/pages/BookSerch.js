@@ -27,7 +27,7 @@ class BookSearch extends React.Component {
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
-							<strong>Search</strong>
+							<strong>Procurar Livro</strong>
 						</h1>
 					</div>
 				</div>
@@ -43,7 +43,7 @@ class BookSearch extends React.Component {
 								onChange={this.onChangeSearch}
 							/>
 							<button
-								className="btn btn-primary col-2 button-style"
+								className="m-2 btn btn-primary col-2 button-style"
 								onClick={this.onClickSearch}
 							>
 								Search
