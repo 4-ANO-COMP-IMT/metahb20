@@ -55,7 +55,7 @@ class BookSearch extends React.Component {
 				<div className="row justify-content-center background-form">
 					<div className="col-9">
 						<div className="row form-group justify-content-around m-3 ">
-							<div className="col-3">
+							<div className="col-4">
 								<BookCard
 									id="367f3e10-4649-5e8e-acc6-4669644a520e"
 									title="1984"
