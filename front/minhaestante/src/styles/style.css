@@ -20,3 +20,12 @@
 .button-style:hover {
 	background-color: #580000 !important;
 }
+
+.button-style2 {
+	background-color: #bc0000;
+	color: white;
+	border: black;
+}
+.button-style2:hover {
+	background-color: #580000 !important;
+}

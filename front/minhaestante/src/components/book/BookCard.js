@@ -14,7 +14,16 @@ import axios from "axios";
 // 5
 class BookCard extends React.Component {
 	render() {
-		const { title, author, genre, publisher, rating } = this.props;
+		const {
+			title,
+			edition,
+			author,
+			pages,
+			genre,
+			publicationDate,
+			publisher,
+			rating,
+		} = this.props;
 
 		return (
 			<div className="card">
@@ -24,14 +33,21 @@ class BookCard extends React.Component {
 						<p className="card-text">
 							Autor: {author}
 							<br />
-							Genero: {genre}
+							Géneros: {genre}
 							<br />
 							Editora: {publisher}
 							<br />
+							Páginas: {pages}
+							<br />
+							Edição: {edition}
+							<br />
 							Avaliação: {rating}
+							<br />
 						</p>
 						<div className="text">
-							<button className="btn btn-primary">Button</button>
+							<button className="btn btn-primary button-style2">
+								Adicionar
+							</button>
 						</div>
 					</div>
 				</div>
