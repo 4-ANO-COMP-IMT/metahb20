@@ -6,24 +6,17 @@ import SucessMessage from "../components/registration/SucessMessage";
 import BookCard from "../components/book/BookCard";
 import BookSearch from "./BookSerch";
 import BookForm from "./BooksForm";
+import Registration from "./Registration";
+import LoginScreen from "./LogIn";
 
 class Test extends React.Component {
 	render() {
 		return (
 			<div>
-				{/* <BookCard
-					id="367f3e10-4649-5e8e-acc6-4669644a520e"
-					title="1984"
-					edition={1}
-					author="George Orwell"
-					pages={200}
-					genre={"FICCAO"}
-					publicationDate={-649029540000}
-					publisher="Secker and Warburg"
-					rating={5}
-				/> */}
+				<Registration />
+				<LoginScreen />
 				<BookSearch />
-				{/* <BookForm /> */}
+				<BookForm />
 			</div>
 		);
 	}
