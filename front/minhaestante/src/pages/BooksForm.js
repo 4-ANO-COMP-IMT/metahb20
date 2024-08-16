@@ -8,6 +8,7 @@ import SucessMessage from "../components/registration/SucessMessage";
 import ErrorMessage from "../components/registration/ErrorMessage";
 import errorMessageTranslator from "../shared/error/ErrorManager";
 import "../styles/style.css";
+import AvaliationField from "../components/registration/AvaliationFild";
 
 class BookForm extends React.Component {
 	constructor(props) {
@@ -140,13 +141,6 @@ class BookForm extends React.Component {
 								type="text"
 								value={this.state.publisher}
 								onChange={(e) => this.setState({ publisher: e.target.value })}
-							/>
-
-							<InputField
-								label="Avaliação"
-								type="text"
-								value={this.state.rating}
-								onChange={(e) => this.setState({ rating: e.target.value })}
 							/>
 
 							{this.state.successMessage && (
