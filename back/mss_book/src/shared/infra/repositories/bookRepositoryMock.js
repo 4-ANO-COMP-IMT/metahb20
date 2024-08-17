@@ -60,4 +60,34 @@ export class BookRepositoryMock {
     this.books.push(book);
     return book;
   }
+
+  async updateBook(
+    id,
+    {
+      title = null,
+      edition = null,
+      autor = null,
+      pages = null,
+      genre = null,
+      publishDate = null,
+      publisher = null,
+      rating = null,
+    }
+  ) {
+    const book = await this.getBook(id);
+    if (!book) {
+      return null;
+    }
+
+    if (title !== null) book.title = title;
+    if (edition !== null) book.edition = edition;
+    if (autor !== null) book.autor = autor;
+    if (pages !== null) book.pages = pages;
+    if (genre !== null) book.genre = genre;
+    if (publishDate !== null) book.publishDate = publishDate;
+    if (publisher !== null) book.publisher = publisher;
+    if (rating !== null) book.rating = rating;
+
+    return book;
+  }
 }
