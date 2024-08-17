@@ -13,7 +13,7 @@ describe("Test getBookPresenter", () => {
     expect(response.statusCode).toEqual(200);
     expect(response.body["book"]["title"]).toEqual("1984");
     expect(response.body["book"]["edition"]).toEqual(1);
-    expect(response.body["book"]["autor"]).toEqual("George Orwellr");
+    expect(response.body["book"]["autor"]).toEqual("George Orwell");
     expect(response.body["book"]["pages"]).toEqual(200);
     expect(response.body["book"]["genre"]).toEqual("Ficção");
     expect(response.body["book"]["publishDate"]).toEqual(-649029540000);

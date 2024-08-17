@@ -8,7 +8,7 @@ export class BookRepositoryMock {
         "367f3e10-4649-5e8e-acc6-4669644a520e",
         "1984",
         1,
-        "George Orwellr",
+        "George Orwell",
         200,
         GENRES.FICCAO,
         -649029540000,
