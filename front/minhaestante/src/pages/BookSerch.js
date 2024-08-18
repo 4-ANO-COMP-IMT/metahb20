@@ -17,8 +17,16 @@ class BookSearch extends React.Component {
 	};
 
 	onClickSearch = async (event) => {
-		const response = await axios.get(`http://localhost:3000/mssbook`);
-		this.setState({ books: response.data.items });
+		///book/:bookI end point
+		const response = await axios
+			.get(`http://localhost:3000/mssbook/book/${this.state.search}`)
+			.then((response) => {
+				console.log(response.data.book);
+				this.setState({ books: [response.data.book] });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	render() {
@@ -55,18 +63,20 @@ class BookSearch extends React.Component {
 				<div className="row justify-content-center background-form">
 					<div className="col-9">
 						<div className="row form-group justify-content-around m-3 ">
-							<div className="col-4">
-								<BookCard
-									id="367f3e10-4649-5e8e-acc6-4669644a520e"
-									title="1984"
-									edition={1}
-									author="George Orwell"
-									pages={200}
-									genre={"FICCAO"}
-									publicationDate={-649029540000}
-									publisher="Secker and Warburg"
-									rating={5}
-								/>
+							<div className="col-6">
+								{this.state.books.map((book) => (
+									<BookCard
+										id={book.id}
+										title={book.title}
+										edition={book.edition}
+										author={book.author}
+										pages={book.pages}
+										genre={book.genre}
+										publicationDate={book.publicationDate}
+										publisher={book.publisher}
+										rating={book.rating}
+									/>
+								))}
 							</div>
 						</div>
 					</div>
