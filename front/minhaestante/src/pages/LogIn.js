@@ -19,7 +19,10 @@ class LoginScreen extends React.Component {
 		};
 	}
 
-	onClickCadastrar = async (event) => {};
+	onClickCadastrar = async (event) => {
+		event.preventDefault();
+		window.location.href = "/";
+	};
 
 	onClickLogin = async (event) => {
 		event.preventDefault();
@@ -34,6 +37,7 @@ class LoginScreen extends React.Component {
 					successMessage: "Usuário logado com sucesso!",
 					errorMessage: "",
 				});
+				window.location.href = "/book";
 			})
 			.catch((error) => {
 				console.error(error);
