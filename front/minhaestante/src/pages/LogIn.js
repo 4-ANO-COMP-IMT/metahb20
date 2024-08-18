@@ -37,6 +37,7 @@ class LoginScreen extends React.Component {
 					successMessage: "Usuário logado com sucesso!",
 					errorMessage: "",
 				});
+				window.location.href = "/book";
 			})
 			.catch((error) => {
 				console.error(error);
