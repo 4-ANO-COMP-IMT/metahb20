@@ -11,6 +11,16 @@ import "../styles/style.css";
 import AvaliationField from "../components/registration/AvaliationFild";
 
 class BookForm extends React.Component {
+	// const request = new HttpRequest({
+	// 	title: "The Hobbit",
+	// 	edition: 1,
+	// 	autor: "J.R.R. Tolkien",
+	// 	pages: 310,
+	// 	genre: "Crônica",
+	// 	publishDate: -1023957422000,
+	// 	publisher: "George Allen & Unwin",
+	// 	rating: 5,
+	//   });
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -27,23 +37,30 @@ class BookForm extends React.Component {
 		};
 	}
 
+	convertToTimestamp = (dateString) => {
+		const [day, month, year] = dateString.split("/").map(Number);
+		const date = new Date(year, month - 1, day);
+		return date.getTime();
+	};
+
 	onClickCadastrar = async (event) => {
 		event.preventDefault();
 
 		const book = {
-			bookId: this.state.bookId,
 			title: this.state.title,
-			edition: this.state.edition,
-			author: this.state.author,
-			pages: this.state.pages,
+			edition: Number(this.state.edition),
+			autor: this.state.author,
+			pages: Number(this.state.pages),
 			genre: this.state.genre,
-			publishDate: this.state.publishDate,
+			publishDate: this.convertToTimestamp(this.state.publishDate),
 			publisher: this.state.publisher,
-			rating: this.state.rating,
+			rating: Number(this.state.rating),
 		};
 
+		console.log(book);
+
 		const response = await axios
-			.post("http://localhost:4000/api/book", book)
+			.post("http://localhost:3000/mssbook/book", book)
 			.then((res) => {
 				this.setState({
 					bookId: "",
@@ -55,13 +72,14 @@ class BookForm extends React.Component {
 					publishDate: "",
 					publisher: "",
 					rating: "",
-					successMessage: "Livro cadastrado com sucesso!",
+					successMessage:
+						"Livro cadastrado com sucesso! Id: " + res.data.book.bookId,
 					errorMessage: "",
 				});
 
 				setTimeout(() => {
 					this.setState({ successMessage: "" });
-				}, 10000);
+				}, 20000);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -73,10 +91,6 @@ class BookForm extends React.Component {
 					successMessage: "",
 				});
 			});
-	};
-
-	onClickLogin = (event) => {
-		event.preventDefault();
 	};
 
 	render() {
@@ -142,6 +156,13 @@ class BookForm extends React.Component {
 								value={this.state.publisher}
 								onChange={(e) => this.setState({ publisher: e.target.value })}
 							/>
+
+							{/* <AvaliationField
+								label="Avaliação"
+								type="text"
+								value={this.state.rating}
+								onChange={(e) => this.setState({ rating: e.target.value })}
+							/> */}
 
 							{this.state.successMessage && (
 								<SucessMessage message={this.state.successMessage} />
