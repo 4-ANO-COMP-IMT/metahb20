@@ -15,8 +15,8 @@ class Test extends React.Component {
 			<div>
 				<Registration />
 				<LoginScreen />
-				<BookSearch />
 				<BookForm />
+				<BookSearch />
 			</div>
 		);
 	}
