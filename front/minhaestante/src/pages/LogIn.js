@@ -19,7 +19,10 @@ class LoginScreen extends React.Component {
 		};
 	}
 
-	onClickCadastrar = async (event) => {};
+	onClickCadastrar = async (event) => {
+		event.preventDefault();
+		window.location.href = "/";
+	};
 
 	onClickLogin = async (event) => {
 		event.preventDefault();
