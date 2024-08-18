@@ -35,12 +35,14 @@ class RegistrationForm extends React.Component {
 		const response = await axios
 			.post("http://localhost:4000/api/user", user)
 			.then((res) => {
+				console.log(res);
 				this.setState({
 					name: "",
 					email: "",
 					favoriteGenres: "",
 					favoriteBook: "",
-					successMessage: "Usuário cadastrado com sucesso!",
+					successMessage:
+						"Usuário cadastrado com sucesso! ID: " + res.data.user.userId,
 					errorMessage: "",
 				});
 
