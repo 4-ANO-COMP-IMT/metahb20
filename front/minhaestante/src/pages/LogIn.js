@@ -13,15 +13,42 @@ class LoginScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: "",
+			userId: "",
 			successMessage: "",
 			errorMessage: "",
 		};
 	}
 
-	onClickCadastrar = async (event) => {};
+	onClickCadastrar = async (event) => {
+		event.preventDefault();
+		window.location.href = "/";
+	};
 
-	onClickLogin = (event) => {};
+	onClickLogin = async (event) => {
+		event.preventDefault();
+
+		const userId = this.state.userId;
+
+		const response = await axios
+			.get(`http://localhost:4000/api/user/${userId}`)
+			.then((res) => {
+				//usuario logado com sucesso
+				this.setState({
+					successMessage: "Usuário logado com sucesso!",
+					errorMessage: "",
+				});
+				window.location.href = "/book";
+			})
+			.catch((error) => {
+				console.error(error);
+
+				this.setState({
+					errorMessage: errorMessageTranslator.translateErrorMessage(
+						error.request.responseText
+					),
+				});
+			});
+	};
 
 	render() {
 		return (
@@ -29,7 +56,7 @@ class LoginScreen extends React.Component {
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
-							<strong>Log In</strong>
+							<strong>LOGIN</strong>
 						</h1>
 					</div>
 				</div>
@@ -38,10 +65,10 @@ class LoginScreen extends React.Component {
 					<div className="col-9">
 						<form>
 							<InputField
-								label="Email"
-								type="email"
-								value={this.state.email}
-								onChange={(e) => this.setState({ email: e.target.value })}
+								label="ID do usuario"
+								type="text"
+								value={this.state.userId}
+								onChange={(e) => this.setState({ userId: e.target.value })}
 							/>
 
 							{this.state.successMessage && (
@@ -60,7 +87,10 @@ class LoginScreen extends React.Component {
 									Cadastrar
 								</button>
 
-								<button className="btn btn-primary col-4 button-style">
+								<button
+									className="btn btn-primary col-4 button-style"
+									onClick={this.onClickLogin}
+								>
 									Entrar
 								</button>
 							</div>

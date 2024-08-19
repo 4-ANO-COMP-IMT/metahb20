@@ -1,5 +1,5 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const InputField = (props) => {
 	return (
@@ -10,6 +10,7 @@ const InputField = (props) => {
 				className="form-control"
 				value={props.value}
 				onChange={props.onChange}
+				placeholder={props.placeholder}
 			/>
 		</div>
 	);

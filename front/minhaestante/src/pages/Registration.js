@@ -35,12 +35,14 @@ class RegistrationForm extends React.Component {
 		const response = await axios
 			.post("http://localhost:4000/api/user", user)
 			.then((res) => {
+				console.log(res);
 				this.setState({
 					name: "",
 					email: "",
 					favoriteGenres: "",
 					favoriteBook: "",
-					successMessage: "Usuário cadastrado com sucesso!",
+					successMessage:
+						"Usuário cadastrado com sucesso! ID: " + res.data.user.userId,
 					errorMessage: "",
 				});
 
@@ -59,11 +61,10 @@ class RegistrationForm extends React.Component {
 				});
 			});
 	};
-
 	onClickLogin = (event) => {
 		event.preventDefault();
+		window.location.href = "/login";
 	};
-
 	render() {
 		return (
 			<div className="container-sm mt-2 border border-dark ">
@@ -126,8 +127,11 @@ class RegistrationForm extends React.Component {
 									Cadastrar
 								</button>
 
-								<button className="btn btn-primary col-4 button-style">
-									Entrar
+								<button
+									className="btn btn-primary col-4 button-style"
+									onClick={this.onClickLogin}
+								>
+									Login
 								</button>
 							</div>
 						</form>
