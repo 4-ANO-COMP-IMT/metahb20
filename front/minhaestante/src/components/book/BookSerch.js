@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import BookCard from "./BookCard";
+import ErrorMessage from "../common/ErrorMessage";
 
 class BookSearch extends React.Component {
 	constructor(props) {
@@ -9,6 +10,7 @@ class BookSearch extends React.Component {
 		this.state = {
 			books: [],
 			search: "",
+			errorMessage: "",
 		};
 	}
 
@@ -18,15 +20,23 @@ class BookSearch extends React.Component {
 
 	onClickSearch = async (event) => {
 		///book/:bookI end point
-		const response = await axios
-			.get(`http://localhost:3000/mssbook/book/${this.state.search}`)
-			.then((response) => {
-				console.log(response.data.book);
-				this.setState({ books: [response.data.book] });
-			})
-			.catch((error) => {
-				console.log(error);
+		if (this.state.search !== "") {
+			const response = await axios
+				.get(`http://localhost:3000/mssbook/book/${this.state.search}`)
+				.then((response) => {
+					console.log(response.data.book);
+					this.setState({ books: [response.data.book], errorMessage: "" });
+				})
+				.catch((error) => {
+					this.setState({
+						errorMessage: error.request.responseText,
+					});
+				});
+		} else {
+			this.setState({
+				errorMessage: "Preencha o campo de busca",
 			});
+		}
 	};
 
 	render() {
@@ -81,6 +91,9 @@ class BookSearch extends React.Component {
 						</div>
 					</div>
 				</div>
+				{this.state.errorMessage && (
+					<ErrorMessage message={this.state.errorMessage} />
+				)}
 			</div>
 		);
 	}
