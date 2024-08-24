@@ -25,12 +25,12 @@ class RegistrationForm extends React.Component {
 		const user = {
 			name: this.state.name,
 			email: this.state.email,
-			favoriteGenres: invertedGenres(this.state.favoriteGenres),
+			favoriteGenres: this.state.favoriteGenres,
 			favoriteBook: this.state.favoriteBook,
 		};
 
 		const response = await axios
-			.post("http://localhost:4000/api/user", user)
+			.post(`${process.env.REACT_APP_URL_MssUser}/api/user`, user)
 			.then((res) => {
 				console.log(res);
 				this.setState({
