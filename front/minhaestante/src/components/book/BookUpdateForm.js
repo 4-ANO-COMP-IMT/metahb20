@@ -77,7 +77,9 @@ class BookUpdateForm extends React.Component {
 					publisher: "",
 					rating: "",
 					successMessage:
-						"Livro atualizado com sucesso! Id: " + res.data.book.bookId,
+						"Livro atualizado com sucesso! Id: " +
+						res.data.book.bookId +
+						" Redirecionando para a página inicial...",
 					errorMessage: "",
 					showForm: false,
 				});
