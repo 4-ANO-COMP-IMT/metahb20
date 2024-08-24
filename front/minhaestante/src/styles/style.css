@@ -11,6 +11,12 @@
 	background-color: #e5cc9f;
 }
 
+button {
+	white-space: nowrap;
+	display: inline-block;
+	min-width: fit-content;
+}
+
 .button-style {
 	background-color: #700000;
 	color: white;
