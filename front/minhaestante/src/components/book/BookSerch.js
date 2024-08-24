@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import BookCard from "../components/book/BookCard";
+import BookCard from "./BookCard";
 
 class BookSearch extends React.Component {
 	constructor(props) {
