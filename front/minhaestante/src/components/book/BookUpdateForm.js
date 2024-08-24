@@ -14,7 +14,7 @@ class BookUpdateForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: "",
+			id: props.id || "",
 			title: "",
 			edition: "",
 			author: "",
@@ -27,6 +27,12 @@ class BookUpdateForm extends React.Component {
 			errorMessage: "",
 			showForm: false,
 		};
+	}
+
+	componentDidMount() {
+		if (this.state.id) {
+			this.onClickSearch();
+		}
 	}
 
 	convertToTimestamp = (dateString) => {
@@ -157,7 +163,7 @@ class BookUpdateForm extends React.Component {
 											className="form-control col-6"
 											type="text"
 											placeholder="Procurar pelo id"
-											value={this.state.search}
+											value={this.state.id}
 											onChange={this.onChangeSearch}
 										/>
 										<button

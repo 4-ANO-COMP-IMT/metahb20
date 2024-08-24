@@ -18,6 +18,18 @@ class Test extends React.Component {
 				<LoginScreen />
 				<BookForm />
 				<BookSearch />
+
+				<BookCard
+					id="367f3e10-4649-5e8e-acc6-4669644a520e"
+					title="1984"
+					edition={1}
+					author="George Orwell"
+					pages={200}
+					genre={GENRES.FICCAO}
+					publishDate={new Date(-649029540000)}
+					publisher="Secker and Warburg"
+					rating={5}
+				/>
 			</div>
 		);
 	}
