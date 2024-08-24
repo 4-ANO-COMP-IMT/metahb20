@@ -5,7 +5,6 @@ import { Book } from "../../../src/shared/domain/entities/book.js";
 import { EntityError } from "../../../src/shared/helpers/errors/domainErrors.js";
 import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
-import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
 import { response } from "express";
 
 describe("Tests for CreateBookController", () => {
@@ -26,7 +25,6 @@ describe("Tests for CreateBookController", () => {
     });
 
     const response = await controller.call(request);
-    console.log(response);
     expect(response.statusCode).toEqual(201);
     expect(response.body["book"]["title"]).toEqual("The Hobbit");
     expect(response.body["book"]["edition"]).toEqual(1);

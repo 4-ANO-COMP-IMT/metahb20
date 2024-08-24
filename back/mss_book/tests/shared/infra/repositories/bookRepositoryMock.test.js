@@ -39,4 +39,28 @@ describe("Tests for BookRepositoryMock", () => {
     expect(newBook).toBeInstanceOf(Book);
     expect(newLength).toEqual(oldLength + 1);
   });
+
+  test("Test Update Book", async () => {
+    const repo = new BookRepositoryMock();
+    const dataToUpdate = {
+      title: "New title",
+      edition: 3,
+      autor: "Brancas",
+      pages: 500,
+      genre: GENRES.DRAMA,
+    };
+
+    const updatedBook = await repo.updateBook(
+      "5af7d193-6723-50b5-a041-1478600bf630",
+      dataToUpdate
+    );
+
+    expect(updatedBook).toBeInstanceOf(Book);
+    expect(updatedBook.title).toEqual("New title");
+    expect(updatedBook.edition).toEqual(3);
+    expect(updatedBook.autor).toEqual("Brancas");
+    expect(updatedBook.pages).toEqual(500);
+    expect(updatedBook.genre).toEqual(GENRES.DRAMA);
+    expect(updatedBook.publisher).toEqual("Allen & Unwin");
+  });
 });

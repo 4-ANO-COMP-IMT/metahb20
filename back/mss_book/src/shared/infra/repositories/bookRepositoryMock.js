@@ -8,7 +8,7 @@ export class BookRepositoryMock {
         "367f3e10-4649-5e8e-acc6-4669644a520e",
         "1984",
         1,
-        "George Orwellr",
+        "George Orwell",
         200,
         GENRES.FICCAO,
         -649029540000,
@@ -58,6 +58,36 @@ export class BookRepositoryMock {
 
   async createBook(book) {
     this.books.push(book);
+    return book;
+  }
+
+  async updateBook(
+    id,
+    {
+      title = null,
+      edition = null,
+      autor = null,
+      pages = null,
+      genre = null,
+      publishDate = null,
+      publisher = null,
+      rating = null,
+    } = {}
+  ) {
+    const book = await this.getBook(id);
+    if (!book) {
+      return null;
+    }
+
+    if (title) book.title = title;
+    if (edition) book.edition = edition;
+    if (autor) book.autor = autor;
+    if (pages) book.pages = pages;
+    if (genre) book.genre = genre;
+    if (publishDate) book.publishDate = new Date(publishDate);
+    if (publisher) book.publisher = publisher;
+    if (rating) book.rating = rating;
+
     return book;
   }
 }
