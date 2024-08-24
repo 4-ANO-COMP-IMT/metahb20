@@ -8,6 +8,7 @@ import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
 import AvaliationField from "../common/AvaliationFild";
+import { convertToTimestamp } from "../../shared/stringUtils";
 
 class BookForm extends React.Component {
 	constructor(props) {

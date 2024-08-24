@@ -9,6 +9,10 @@ import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
 import AvaliationField from "../common/AvaliationFild";
 import { invertedGenres } from "../../shared/domain/enums/genresEnum";
+import {
+	convertToTimestamp,
+	convertToDateString,
+} from "../../shared/stringUtils";
 
 class BookUpdateForm extends React.Component {
 	constructor(props) {
@@ -34,20 +38,6 @@ class BookUpdateForm extends React.Component {
 			this.serchBook();
 		}
 	}
-
-	convertToTimestamp = (dateString) => {
-		const [day, month, year] = dateString.split("/").map(Number);
-		const date = new Date(year, month - 1, day);
-		return date.getTime();
-	};
-
-	convertToDateString = (timestamp) => {
-		const date = new Date(timestamp);
-		const day = date.getDate().toString().padStart(2, "0");
-		const month = (date.getMonth() + 1).toString().padStart(2, "0");
-		const year = date.getFullYear();
-		return `${day}/${month}/${year}`;
-	};
 
 	onClickUpdate = async (event) => {
 		const book = {
