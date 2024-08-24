@@ -31,7 +31,7 @@ class BookUpdateForm extends React.Component {
 
 	componentDidMount() {
 		if (this.state.id) {
-			this.onClickSearch();
+			this.serchBook();
 		}
 	}
 
@@ -83,8 +83,8 @@ class BookUpdateForm extends React.Component {
 				});
 
 				setTimeout(() => {
-					this.setState({ successMessage: "" });
-				}, 20000);
+					this.props.navigate();
+				}, 5000);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -102,7 +102,7 @@ class BookUpdateForm extends React.Component {
 		this.setState({ id: event.target.value });
 	};
 
-	onClickSearch = async (event) => {
+	serchBook = async (event) => {
 		if (this.state.id !== "") {
 			console.log(this.state.id);
 			const response = await axios
@@ -156,26 +156,6 @@ class BookUpdateForm extends React.Component {
 				<div className="row justify-content-center background-form">
 					<div className="col-9">
 						<div>
-							<div className="row justify-content-center background-form">
-								<div className="col-9">
-									<div className="row form-group justify-content-around m-3 ">
-										<input
-											className="form-control col-6"
-											type="text"
-											placeholder="Procurar pelo id"
-											value={this.state.id}
-											onChange={this.onChangeSearch}
-										/>
-										<button
-											className="m-2 btn btn-primary col-2 button-style"
-											onClick={this.onClickSearch}
-										>
-											Procurar
-										</button>
-									</div>
-								</div>
-							</div>
-
 							{this.state.showForm && (
 								<>
 									<InputField
