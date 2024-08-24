@@ -84,7 +84,7 @@ class BookSearch extends React.Component {
 										id={book.bookId}
 										title={book.title}
 										edition={book.edition}
-										author={book.author}
+										author={book.autor}
 										pages={book.pages}
 										genre={book.genre}
 										publicationDate={book.publicationDate}
