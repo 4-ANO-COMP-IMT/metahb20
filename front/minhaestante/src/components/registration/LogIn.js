@@ -27,26 +27,31 @@ class LoginScreen extends React.Component {
 		event.preventDefault();
 
 		const userId = this.state.userId;
+		if (userId !== "") {
+			const response = await axios
+				.get(`http://localhost:4000/api/user/${userId}`)
+				.then((res) => {
+					//usuario logado com sucesso
+					this.setState({
+						successMessage: "Usuário logado com sucesso!",
+						errorMessage: "",
+					});
+					window.location.href = "/book";
+				})
+				.catch((error) => {
+					console.error(error);
 
-		const response = await axios
-			.get(`http://localhost:4000/api/user/${userId}`)
-			.then((res) => {
-				//usuario logado com sucesso
-				this.setState({
-					successMessage: "Usuário logado com sucesso!",
-					errorMessage: "",
+					this.setState({
+						errorMessage: errorMessageTranslator.translateErrorMessage(
+							error.request.responseText
+						),
+					});
 				});
-				window.location.href = "/book";
-			})
-			.catch((error) => {
-				console.error(error);
-
-				this.setState({
-					errorMessage: errorMessageTranslator.translateErrorMessage(
-						error.request.responseText
-					),
-				});
+		} else {
+			this.setState({
+				errorMessage: "Por favor, preencha o campo de ID do usuário",
 			});
+		}
 	};
 
 	render() {
