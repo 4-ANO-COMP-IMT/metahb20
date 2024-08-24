@@ -1,14 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../shared/domain/enums/genresEnum";
+import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
-import InputField from "../components/registration/InputField";
-import SelectField from "../components/registration/SelectField";
-import SucessMessage from "../components/registration/SucessMessage";
-import ErrorMessage from "../components/registration/ErrorMessage";
-import errorMessageTranslator from "../shared/error/ErrorManager";
-import "../styles/style.css";
-import AvaliationField from "../components/registration/AvaliationFild";
+import InputField from "../common/InputField";
+import SelectField from "../common/SelectField";
+import SucessMessage from "../common/SucessMessage";
+import ErrorMessage from "../common/ErrorMessage";
+import errorMessageTranslator from "../../shared/error/ErrorManager";
+import AvaliationField from "../common/AvaliationFild";
 
 class BookForm extends React.Component {
 	// const request = new HttpRequest({

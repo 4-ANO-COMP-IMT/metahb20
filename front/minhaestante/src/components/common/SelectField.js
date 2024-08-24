@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SelectField = (props) => {
 	return (
@@ -9,7 +9,7 @@ const SelectField = (props) => {
 				value={props.value}
 				onChange={props.onChange}
 			>
-				<option value="">Selecione...</option>
+				<option value="">{props.defaultOption || "Selecione..."}</option>
 				{props.options.map((option) => (
 					<option key={option} value={option}>
 						{option}

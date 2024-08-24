@@ -1,13 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../shared/domain/enums/genresEnum";
+import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
-import InputField from "../components/registration/InputField";
-import SelectField from "../components/registration/SelectField";
-import SucessMessage from "../components/registration/SucessMessage";
-import ErrorMessage from "../components/registration/ErrorMessage";
-import errorMessageTranslator from "../shared/error/ErrorManager";
-import "../styles/style.css";
+import InputField from "../common/InputField";
+import SelectField from "../common/SelectField";
+import SucessMessage from "../common/SucessMessage";
+import ErrorMessage from "../common/ErrorMessage";
+import errorMessageTranslator from "../../shared/error/ErrorManager";
 
 class LoginScreen extends React.Component {
 	constructor(props) {
@@ -28,26 +27,31 @@ class LoginScreen extends React.Component {
 		event.preventDefault();
 
 		const userId = this.state.userId;
+		if (userId !== "") {
+			const response = await axios
+				.get(`http://localhost:4000/api/user/${userId}`)
+				.then((res) => {
+					//usuario logado com sucesso
+					this.setState({
+						successMessage: "Usuário logado com sucesso!",
+						errorMessage: "",
+					});
+					window.location.href = "/book";
+				})
+				.catch((error) => {
+					console.error(error);
 
-		const response = await axios
-			.get(`http://localhost:4000/api/user/${userId}`)
-			.then((res) => {
-				//usuario logado com sucesso
-				this.setState({
-					successMessage: "Usuário logado com sucesso!",
-					errorMessage: "",
+					this.setState({
+						errorMessage: errorMessageTranslator.translateErrorMessage(
+							error.request.responseText
+						),
+					});
 				});
-				window.location.href = "/book";
-			})
-			.catch((error) => {
-				console.error(error);
-
-				this.setState({
-					errorMessage: errorMessageTranslator.translateErrorMessage(
-						error.request.responseText
-					),
-				});
+		} else {
+			this.setState({
+				errorMessage: "Por favor, preencha o campo de ID do usuário",
 			});
+		}
 	};
 
 	render() {
