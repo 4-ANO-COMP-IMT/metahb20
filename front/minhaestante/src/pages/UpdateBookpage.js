@@ -12,7 +12,9 @@ function UpdateBookPage() {
 
 	return (
 		<div>
-			<BookUpdateForm id={bookid} navigate={handleBack} />
+			<div>
+				<BookUpdateForm id={bookid} navigate={handleBack} />
+			</div>
 		</div>
 	);
 }

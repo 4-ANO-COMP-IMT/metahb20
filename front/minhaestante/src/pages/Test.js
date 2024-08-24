@@ -5,7 +5,7 @@ import axios from "axios";
 import SucessMessage from "../components/common/SucessMessage";
 import BookCard from "../components/book/BookCard";
 import BookSearch from "../components/book/BookSerch";
-import BookForm from "../components/book/BooksForm";
+import BookForm from "../components/book/BookForm";
 import Registration from "../components/registration/Registration";
 import LoginScreen from "../components/registration/LogIn";
 import BookSechUpdateForm from "../components/book/BookSerchUpdateForm";
@@ -19,7 +19,7 @@ class Test extends React.Component {
 				<BookForm />
 				<BookSearch />
 
-				<BookCard
+				{/* <BookCard
 					id="367f3e10-4649-5e8e-acc6-4669644a520e"
 					title="1984"
 					edition={1}
@@ -29,7 +29,11 @@ class Test extends React.Component {
 					publishDate={new Date(-649029540000)}
 					publisher="Secker and Warburg"
 					rating={5}
-				/>
+				/> */}
+
+				<div style={{ textAlign: "center" }}>
+					<a href="/registerbook">Teste da pagina de Registro</a>
+				</div>
 			</div>
 		);
 	}
