@@ -3,11 +3,9 @@ import { UpdateBookUsecase } from "./updateBookUsecase.js";
 import { BookRepositoryMock } from "../../shared/infra/repositories/bookRepositoryMock.js";
 import { HttpResponse } from "../../shared/helpers/externalInterfaces/httpModels.js";
 
-const repo = new BookRepositoryMock();
-const usecase = new UpdateBookUsecase(repo);
-const controller = new UpdateBookController(usecase);
-
-export async function updateBookPresenter(event) {
+export async function updateBookPresenter(event, repo) {
+  const usecase = new UpdateBookUsecase(repo);
+  const controller = new UpdateBookController(usecase);
   const response = await controller.call(event);
   const httpResponse = new HttpResponse(response?.statusCode, response?.body);
 
