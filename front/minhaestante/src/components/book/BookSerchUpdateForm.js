@@ -10,7 +10,7 @@ import errorMessageTranslator from "../../shared/error/ErrorManager";
 import AvaliationField from "../common/AvaliationFild";
 import { invertedGenres } from "../../shared/domain/enums/genresEnum";
 
-class BookSechUpdateForm extends React.Component {
+class BookSerchUpdateForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -265,4 +265,4 @@ class BookSechUpdateForm extends React.Component {
 	}
 }
 
-export default BookSechUpdateForm;
+export default BookSerchUpdateForm;
