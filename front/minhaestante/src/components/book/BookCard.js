@@ -15,6 +15,7 @@ import axios from "axios";
 class BookCard extends React.Component {
 	render() {
 		const {
+			id,
 			title,
 			edition,
 			author,
