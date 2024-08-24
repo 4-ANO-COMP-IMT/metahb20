@@ -1,13 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../../shared/domain/enums/genresEnum";
+import { GENRES, invertedGenres } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
 import InputField from "../common/InputField";
 import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
-
 
 class RegistrationForm extends React.Component {
 	constructor(props) {
@@ -23,12 +22,10 @@ class RegistrationForm extends React.Component {
 	}
 
 	onClickCadastrar = async (event) => {
-		event.preventDefault();
-
 		const user = {
 			name: this.state.name,
 			email: this.state.email,
-			favoriteGenres: this.state.favoriteGenres,
+			favoriteGenres: invertedGenres(this.state.favoriteGenres),
 			favoriteBook: this.state.favoriteBook,
 		};
 
@@ -78,7 +75,7 @@ class RegistrationForm extends React.Component {
 
 				<div className="row justify-content-center background-form">
 					<div className="col-9">
-						<form>
+						<div>
 							<InputField
 								label="Nome"
 								type="text"
@@ -134,7 +131,7 @@ class RegistrationForm extends React.Component {
 									Login
 								</button>
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>

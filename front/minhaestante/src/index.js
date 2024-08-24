@@ -17,13 +17,9 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Registration />} />
 				<Route path="/login" element={<LogIn />} />
-				<Route path="/book" element={<BookPage />} />
-				<Route path="/booksearch" element={<BookSearch />} />
-				<Route path="/bookform" element={<BookForm />} />
 				<Route path="/test" element={<Test />} />
 				<Route path="/updatebook/:bookid" element={<UpdateBookPage />} />
 				<Route path="/registerbook" element={<RegisterBookPage />} />
-
 				<Route path="*" element={<h1>Not Found</h1>} />
 			</Routes>
 		</Router>
