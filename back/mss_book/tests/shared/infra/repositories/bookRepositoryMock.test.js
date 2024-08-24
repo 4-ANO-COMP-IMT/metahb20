@@ -63,4 +63,14 @@ describe("Tests for BookRepositoryMock", () => {
     expect(updatedBook.genre).toEqual(GENRES.DRAMA);
     expect(updatedBook.publisher).toEqual("Allen & Unwin");
   });
+
+  test("Test Delete Book", async () => {
+    const repo = new BookRepositoryMock();
+    const bookId = "5af7d193-6723-50b5-a041-1478600bf630";
+    const oldLength = repo.books.length;
+    await repo.deleteBook(bookId);
+    const newLength = repo.books.length;
+
+    expect(newLength).toEqual(oldLength - 1);
+  });
 });

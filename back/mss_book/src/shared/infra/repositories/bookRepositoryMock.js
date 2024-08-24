@@ -90,4 +90,14 @@ export class BookRepositoryMock {
 
     return book;
   }
+
+  async deleteBook(id) {
+    const book = await this.getBook(id);
+    if (!book) {
+      return null;
+    }
+
+    this.books = this.books.filter((book) => book.bookId !== id);
+    return book;
+  }
 }
