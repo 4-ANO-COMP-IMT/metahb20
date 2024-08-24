@@ -1,26 +1,15 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../shared/domain/enums/genresEnum";
+import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
-import InputField from "../components/registration/InputField";
-import SelectField from "../components/registration/SelectField";
-import SucessMessage from "../components/registration/SucessMessage";
-import ErrorMessage from "../components/registration/ErrorMessage";
-import errorMessageTranslator from "../shared/error/ErrorManager";
-import "../styles/style.css";
-import AvaliationField from "../components/registration/AvaliationFild";
+import InputField from "../common/InputField";
+import SelectField from "../common/SelectField";
+import SucessMessage from "../common/SucessMessage";
+import ErrorMessage from "../common/ErrorMessage";
+import errorMessageTranslator from "../../shared/error/ErrorManager";
+import AvaliationField from "../common/AvaliationFild";
 
 class BookForm extends React.Component {
-	// const request = new HttpRequest({
-	// 	title: "The Hobbit",
-	// 	edition: 1,
-	// 	autor: "J.R.R. Tolkien",
-	// 	pages: 310,
-	// 	genre: "Crônica",
-	// 	publishDate: -1023957422000,
-	// 	publisher: "George Allen & Unwin",
-	// 	rating: 5,
-	//   });
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -44,8 +33,6 @@ class BookForm extends React.Component {
 	};
 
 	onClickCadastrar = async (event) => {
-		event.preventDefault();
-
 		const book = {
 			title: this.state.title,
 			edition: Number(this.state.edition),
@@ -106,7 +93,7 @@ class BookForm extends React.Component {
 
 				<div className="row justify-content-center background-form">
 					<div className="col-9">
-						<form>
+						<div>
 							<InputField
 								label="Título"
 								type="text"
@@ -179,8 +166,9 @@ class BookForm extends React.Component {
 								>
 									Cadastrar livro
 								</button>
+								{this.props.children}
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>

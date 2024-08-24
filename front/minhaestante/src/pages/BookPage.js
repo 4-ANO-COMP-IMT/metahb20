@@ -1,8 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
-import BookForm from "./BooksForm";
-import BookSearch from "./BookSerch";
+import BookForm from "../components/book/BookForm";
+import BookSearch from "../components/book/BookSerch";
+import BookSechUpdateForm from "../components/book/BookSerchUpdateForm";
 
 class BookPage extends React.Component {
 	render() {
@@ -10,6 +10,7 @@ class BookPage extends React.Component {
 			<div>
 				<BookSearch />
 				<BookForm />
+				<BookSechUpdateForm />
 			</div>
 		);
 	}

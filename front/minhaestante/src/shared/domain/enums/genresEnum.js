@@ -7,3 +7,8 @@ export const GENRES = {
   CRONICA: "Crônica",
   CONTO: "Conto",
 };
+
+export const invertedGenres = Object.entries(GENRES).reduce((acc, [key, value]) => {
+  acc[value] = key;
+  return acc;
+}, {});
