@@ -19,7 +19,7 @@ class BookCard extends React.Component {
 	}
 
 	onclickeditar = async (event) => {
-		window.location.href = "/book/update";
+		window.location.href = "/updatebook/" + this.state.id;
 	};
 
 	render() {
@@ -58,7 +58,10 @@ class BookCard extends React.Component {
 							<button className="btn btn-primary button-style2 m-2">
 								Adicionar
 							</button>
-							<button className="btn btn-primary button-style2 m-2">
+							<button
+								className="btn btn-primary button-style2 m-2"
+								onClick={this.onclickeditar}
+							>
 								Editar
 							</button>
 						</div>
