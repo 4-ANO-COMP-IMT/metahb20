@@ -9,16 +9,14 @@ export class UpdateBookUsecase {
 
   async call(
     bookId,
-    {
-      title = null,
-      edition = null,
-      autor = null,
-      pages = null,
-      genre = null,
-      publishDate = null,
-      publisher = null,
-      rating = null,
-    }
+    title,
+    edition,
+    autor,
+    pages,
+    genre,
+    publishDate,
+    publisher,
+    rating
   ) {
     if (!Book.validateBookId(bookId)) {
       throw new EntityError(bookId);
@@ -30,14 +28,14 @@ export class UpdateBookUsecase {
     }
 
     const updatedBook = await this.repo.updateBook(bookId, {
-      title,
-      edition,
-      autor,
-      pages,
-      genre,
-      publishDate,
-      publisher,
-      rating,
+      title: title,
+      edition: edition,
+      autor: autor,
+      pages: pages,
+      genre: genre,
+      publishDate: publishDate,
+      publisher: publisher,
+      rating: rating,
     });
 
     return updatedBook;

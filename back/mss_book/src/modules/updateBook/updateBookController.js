@@ -10,6 +10,7 @@ import {
 } from "../../shared/helpers/externalInterfaces/httpCodes.js";
 import { EntityError } from "../../shared/helpers/errors/domainErrors.js";
 import { NoItemsFound } from "../../shared/helpers/errors/usecaseErrors.js";
+import { GENRES } from "../../shared/domain/enums/genresEnum.js";
 
 export class UpdateBookController {
   constructor(usecase) {
@@ -69,76 +70,66 @@ export class UpdateBookController {
         }
       }
 
-      if (request.data.genre !== undefined) {
-        if (typeof request.data.genre !== "string") {
+      let newGenre = request.data.genre;
+      if (newGenre !== undefined) {
+        if (typeof newGenre !== "string") {
+          throw new WrongTypeParameter("genre", "string", typeof newGenre);
+        }
+        if (!Object.keys(GENRES).includes(newGenre)) {
+          throw new EntityError("genre");
+        }
+        newGenre = GENRES[newGenre];
+      }
+
+      if (request.data.publishDate !== undefined) {
+        if (typeof request.data.publishDate !== "number") {
           throw new WrongTypeParameter(
-            "title",
-            "string",
-            typeof request.data.title
+            "publishDate",
+            "number",
+            typeof request.data.publishDate
           );
         }
-
-        const newGenre = request.data.genre;
-        if (newGenre !== undefined) {
-          if (typeof newGenre !== "string") {
-            throw new WrongTypeParameter("genre", "string", typeof newGenre);
-          }
-          if (!Object.values(GENRE).includes(newGenre)) {
-            throw new EntityError("genre");
-          }
-          newGenre = GENRE[newGenre];
-        }
-
-        if (request.data.publishDate !== undefined) {
-          if (typeof request.data.publishDate !== "number") {
-            throw new WrongTypeParameter(
-              "publishDate",
-              "number",
-              typeof request.data.publishDate
-            );
-          }
-        }
-
-        if (request.data.publisher !== undefined) {
-          if (typeof request.data.publisher !== "string") {
-            throw new WrongTypeParameter(
-              "publisher",
-              "string",
-              typeof request.data.publisher
-            );
-          }
-        }
-
-        if (request.data.rating !== undefined) {
-          if (typeof request.data.rating !== "number") {
-            throw new WrongTypeParameter(
-              "rating",
-              "number",
-              typeof request.data.rating
-            );
-          }
-        }
-
-        const book = await this.usecase.call(
-          request.data.bookId,
-          request.data.title,
-          request.data.edition,
-          request.data.autor,
-          request.data.pages,
-          newGenre,
-          request.data.publishDate,
-          request.data.publisher,
-          request.data.rating
-        );
-
-        const viewmodel = {
-          book: book.toJSON(),
-          message: "the book was updated",
-        };
-
-        const response = new OK(viewmodel);
-        return response;
       }
+
+      if (request.data.publisher !== undefined) {
+        if (typeof request.data.publisher !== "string") {
+          throw new WrongTypeParameter(
+            "publisher",
+            "string",
+            typeof request.data.publisher
+          );
+        }
+      }
+
+      if (request.data.rating !== undefined) {
+        if (typeof request.data.rating !== "number") {
+          throw new WrongTypeParameter(
+            "rating",
+            "number",
+            typeof request.data.rating
+          );
+        }
+      }
+
+      const book = await this.usecase.call(
+        request.data.bookId,
+        request.data.title,
+        request.data.edition,
+        request.data.autor,
+        request.data.pages,
+        newGenre,
+        request.data.publishDate,
+        request.data.publisher,
+        request.data.rating
+      );
+
+      const viewmodel = {
+        book: book.toJSON(),
+        message: "the book was updated",
+      };
+
+      const response = new OK(viewmodel);
+      return response;
     } catch (error) {
       if (error instanceof EntityError) {
         return new BadRequest(error.message);
