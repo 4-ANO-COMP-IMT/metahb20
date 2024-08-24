@@ -8,12 +8,12 @@ import BookSearch from "../components/book/BookSerch";
 import BookForm from "../components/book/BooksForm";
 import Registration from "../components/registration/Registration";
 import LoginScreen from "../components/registration/LogIn";
-import BookUpdateForm from "../components/book/BookUpdateForm";
+import BookSechUpdateForm from "../components/book/BookSerchUpdateForm";
 class Test extends React.Component {
 	render() {
 		return (
 			<div>
-				<BookUpdateForm />
+				<BookSechUpdateForm />
 				<Registration />
 				<LoginScreen />
 				<BookForm />
