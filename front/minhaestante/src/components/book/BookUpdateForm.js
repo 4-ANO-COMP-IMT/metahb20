@@ -84,7 +84,7 @@ class BookUpdateForm extends React.Component {
 
 				setTimeout(() => {
 					this.props.navigate();
-				}, 5000);
+				}, 3000);
 			})
 			.catch((error) => {
 				console.error(error);
