@@ -56,6 +56,10 @@ export class BookRepositoryMock {
     return book || null;
   }
 
+  async getAllBooks() {
+    return this.books;
+  }
+
   async createBook(book) {
     this.books.push(book);
     return book;
