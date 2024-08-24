@@ -89,11 +89,11 @@ class BookSearch extends React.Component {
 								))}
 							</div>
 						</div>
+						{this.state.errorMessage && (
+							<ErrorMessage message={this.state.errorMessage} />
+						)}
 					</div>
 				</div>
-				{this.state.errorMessage && (
-					<ErrorMessage message={this.state.errorMessage} />
-				)}
 			</div>
 		);
 	}
