@@ -5,7 +5,7 @@ function translateErrorMessage(error) {
 		'"Field email is not valid"': "Email inválido",
 	};
 
-	return errorMessages[error] || "Erro desconhecido";
+	return errorMessages[error] || error;
 }
 
 export default { translateErrorMessage };
