@@ -15,7 +15,6 @@ describe("Tests for createBookPresenter", () => {
       rating: 5,
     });
     const response = await createBookPresenter(event);
-    console.log(response);
 
     expect(response.statusCode).toEqual(201);
     expect(response.body["message"]).toEqual("the book was created");

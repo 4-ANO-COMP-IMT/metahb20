@@ -19,7 +19,7 @@ export class UpdateBookUsecase {
     rating
   ) {
     if (!Book.validateBookId(bookId)) {
-      throw new EntityError(bookId);
+      throw new EntityError("bookId");
     }
     const book = await this.repo.getBook(bookId);
 
