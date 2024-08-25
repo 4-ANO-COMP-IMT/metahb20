@@ -131,6 +131,7 @@ class BookUpdateForm extends React.Component {
 				})
 				.catch((error) => {
 					console.log(error);
+					console.log(error.request.responseText);
 					this.setState({
 						errorMessage: errorMessageTranslator.translateErrorMessage(
 							error.request.responseText
