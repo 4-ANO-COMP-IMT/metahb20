@@ -1,9 +1,11 @@
 import { describe, test, expect } from "vitest";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
 import { createBookPresenter } from "../../../src/modules/createBook/createBookPresenter.js";
+import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 
 describe("Tests for createBookPresenter", () => {
   test("Should return a HttpResponse with statusCode 201", async () => {
+    const repo = new BookRepositoryMock();
     const event = new HttpRequest({
       title: "Title",
       edition: 1,
@@ -14,7 +16,7 @@ describe("Tests for createBookPresenter", () => {
       publisher: "Publisher",
       rating: 5,
     });
-    const response = await createBookPresenter(event);
+    const response = await createBookPresenter(event, repo);
 
     expect(response.statusCode).toEqual(201);
     expect(response.body["message"]).toEqual("the book was created");
@@ -29,6 +31,7 @@ describe("Tests for createBookPresenter", () => {
   });
 
   test("Should return a HttpResponse with statusCode 400", async () => {
+    const repo = new BookRepositoryMock();
     const event = new HttpRequest({
       title: 1,
       edition: 1,
@@ -39,7 +42,7 @@ describe("Tests for createBookPresenter", () => {
       publisher: "Publisher",
       rating: 5,
     });
-    const response = await createBookPresenter(event);
+    const response = await createBookPresenter(event, repo);
 
     expect(response.statusCode).toEqual(400);
     expect(response.body).toEqual(

@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { BookRepositoryMock } from "../../../../src/shared/infra/repositories/bookRepositoryMock.js";
+import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 
 describe("Tests for GetAllBooks Usecase", () => {
   test("Test getAllBooks", async () => {
