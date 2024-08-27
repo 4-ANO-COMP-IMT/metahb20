@@ -19,10 +19,11 @@ class BookFinder extends React.Component {
 		this.fetchBooks();
 	}
 
-	updateBooks = () => {
-		this.fetchBooks().then(() => {
-			this.onSearch();
-			console.log("Books updated.");
+	updateBooks = async () => {
+		await this.fetchBooks().then(() => {
+			setTimeout(() => {
+				this.onSearch();
+			});
 		});
 	};
 
@@ -38,8 +39,10 @@ class BookFinder extends React.Component {
 			});
 	}
 
-	onSearch = async (event) => {
+	onSearch = () => {
 		const searchQuery = this.state.search.toLowerCase();
+		console.log("Search query: " + this.state.books);
+		console.log(this.state.books);
 		const filteredBooks = this.state.books.filter((book) =>
 			book.title.toLowerCase().includes(searchQuery)
 		);
