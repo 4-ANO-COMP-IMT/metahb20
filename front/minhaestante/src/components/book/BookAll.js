@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import BookCard from "./BookCard";
+import BookCard from "./BookCardModal";
 import ErrorMessage from "../common/ErrorMessage";
 
 class BookFinder extends React.Component {
@@ -9,6 +9,7 @@ class BookFinder extends React.Component {
 		super(props);
 		this.state = {
 			books: [],
+			filteredBooks: [],
 			search: "",
 			errorMessage: "",
 		};
@@ -18,8 +19,15 @@ class BookFinder extends React.Component {
 		this.fetchBooks();
 	}
 
-	fetchBooks() {
-		axios
+	updateBooks = () => {
+		this.fetchBooks().then(() => {
+			this.onSearch();
+			console.log("Books updated.");
+		});
+	};
+
+	async fetchBooks() {
+		await axios
 			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/books`)
 			.then((response) => {
 				console.log(response.data.books);
@@ -30,24 +38,25 @@ class BookFinder extends React.Component {
 			});
 	}
 
-	onChangeSearch = async (event) => {
-		this.setState({ search: event.target.value });
-	};
-
-	onClickSearch = async (event) => {
+	onSearch = async (event) => {
 		const searchQuery = this.state.search.toLowerCase();
 		const filteredBooks = this.state.books.filter((book) =>
 			book.title.toLowerCase().includes(searchQuery)
 		);
 
 		if (filteredBooks.length > 0) {
-			this.setState({ books: filteredBooks, errorMessage: "" });
+			this.setState({ filteredBooks: filteredBooks, errorMessage: "" });
 		} else {
 			this.setState({
-				books: [],
 				errorMessage: "No books found matching your search.",
 			});
 		}
+	};
+
+	onChangeSearch = (event) => {
+		this.setState({ search: event.target.value }, () => {
+			this.onSearch();
+		});
 	};
 
 	render() {
@@ -71,12 +80,6 @@ class BookFinder extends React.Component {
 								value={this.state.search}
 								onChange={this.onChangeSearch}
 							/>
-							<button
-								className="m-2 btn btn-primary col-2 button-style"
-								onClick={this.onClickSearch}
-							>
-								Procurar
-							</button>
 						</div>
 					</div>
 				</div>
@@ -84,25 +87,50 @@ class BookFinder extends React.Component {
 				<div className="row justify-content-center background-form">
 					<div className="col-12">
 						<div className="row form-group justify-content-around m-3 ">
-							{this.state.books.map((book) => (
-								<div className="col-3">
-									<BookCard
-										id={book.bookId}
-										title={book.title}
-										edition={book.edition}
-										author={book.autor}
-										pages={book.pages}
-										genre={book.genre}
-										publicationDate={book.publicationDate}
-										publisher={book.publisher}
-										rating={book.rating}
-									/>
-								</div>
-							))}
+							{this.state.filteredBooks.length > 0
+								? this.state.filteredBooks.map((book) => (
+										<div className="col-3 mb-3" key={book.bookId}>
+											<BookCard
+												userId={this.props.userId}
+												id={book.bookId}
+												title={book.title}
+												edition={book.edition}
+												author={book.autor}
+												pages={book.pages}
+												genre={book.genre}
+												publicationDate={book.publicationDate}
+												publisher={book.publisher}
+												rating={book.rating}
+												updateBooks={() => this.updateBooks()}
+											/>
+										</div>
+								  ))
+								: this.state.books.map((book) => (
+										<div className="col-3 mb-3" key={book.bookId}>
+											<BookCard
+												userId={this.props.userId}
+												id={book.bookId}
+												title={book.title}
+												edition={book.edition}
+												author={book.autor}
+												pages={book.pages}
+												genre={book.genre}
+												publicationDate={book.publicationDate}
+												publisher={book.publisher}
+												rating={book.rating}
+												updateBooks={() => this.updateBooks()}
+											/>
+										</div>
+								  ))}
 						</div>
-						{this.state.errorMessage && (
-							<ErrorMessage message={this.state.errorMessage} />
-						)}
+						<div>
+							{this.state.errorMessage && (
+								<ErrorMessage message={this.state.errorMessage} />
+							)}
+						</div>
+					</div>
+					<div className="row justify-content-center background-form">
+						<div className="col-12 text-center">{this.props.children}</div>
 					</div>
 				</div>
 			</div>
