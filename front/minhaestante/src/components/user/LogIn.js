@@ -29,7 +29,7 @@ class LoginScreen extends React.Component {
 		const userId = this.state.userId;
 		if (userId !== "") {
 			const response = await axios
-				.get(`http://localhost:4000/api/user/${userId}`)
+				.get(`${process.env.REACT_APP_URL_MssUser}/api/user/${userId}`)
 				.then((res) => {
 					//usuario logado com sucesso
 					this.setState({

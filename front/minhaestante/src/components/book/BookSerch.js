@@ -21,8 +21,13 @@ class BookSearch extends React.Component {
 	onClickSearch = async (event) => {
 		///book/:bookI end point
 		if (this.state.search !== "") {
+			console.log(
+				`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.search}`
+			);
 			const response = await axios
-				.get(`http://localhost:3000/mssbook/book/${this.state.search}`)
+				.get(
+					`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.search}`
+				)
 				.then((response) => {
 					console.log(response.data.book);
 					this.setState({ books: [response.data.book], errorMessage: "" });
@@ -76,10 +81,10 @@ class BookSearch extends React.Component {
 							<div className="col-6">
 								{this.state.books.map((book) => (
 									<BookCard
-										id={book.id}
+										id={book.bookId}
 										title={book.title}
 										edition={book.edition}
-										author={book.author}
+										author={book.autor}
 										pages={book.pages}
 										genre={book.genre}
 										publicationDate={book.publicationDate}

@@ -65,7 +65,7 @@ class BookSerchUpdateForm extends React.Component {
 		console.log(book);
 
 		const response = await axios
-			.put(`http://localhost:3000/mssbook/book`, book)
+			.put(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, book)
 			.then((res) => {
 				this.setState({
 					title: "",
@@ -106,7 +106,9 @@ class BookSerchUpdateForm extends React.Component {
 		if (this.state.id !== "") {
 			console.log(this.state.id);
 			const response = await axios
-				.get(`http://localhost:3000/mssbook/book/${this.state.id}`)
+				.get(
+					`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.id}`
+				)
 				.then((response) => {
 					console.log(response.data.book);
 					this.setState({

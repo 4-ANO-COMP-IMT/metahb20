@@ -6,8 +6,8 @@ import SucessMessage from "../components/common/SucessMessage";
 import BookCard from "../components/book/BookCard";
 import BookSearch from "../components/book/BookSerch";
 import BookForm from "../components/book/BookForm";
-import Registration from "../components/registration/Registration";
-import LoginScreen from "../components/registration/LogIn";
+import Registration from "../components/user/Registration";
+import LoginScreen from "../components/user/LogIn";
 import BookSechUpdateForm from "../components/book/BookSerchUpdateForm";
 class Test extends React.Component {
 	render() {

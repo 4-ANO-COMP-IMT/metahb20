@@ -53,6 +53,8 @@ class BookCard extends React.Component {
 							<br />
 							Avaliação: {rating}
 							<br />
+							id: {id}
+							<br />
 						</p>
 						<div className="text">
 							<button className="btn btn-primary button-style2 m-2">
