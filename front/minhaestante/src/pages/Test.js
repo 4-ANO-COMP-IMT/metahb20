@@ -10,20 +10,12 @@ import Registration from "../components/user/Registration";
 import LoginScreen from "../components/user/LogIn";
 import BookSechUpdateForm from "../components/book/BookSerchUpdateForm";
 import BookFinder from "../components/book/BookAll";
+import BookPage from "./BookPage";
 class Test extends React.Component {
 	render() {
 		return (
 			<div>
-				<BookSechUpdateForm />
-				<Registration />
-				<LoginScreen />
-				<BookForm />
-				<BookSearch />
-				<BookFinder />
-
-				<div style={{ textAlign: "center" }}>
-					<a href="/registerbook">Teste da pagina de Registro</a>
-				</div>
+				<BookPage />
 			</div>
 		);
 	}
