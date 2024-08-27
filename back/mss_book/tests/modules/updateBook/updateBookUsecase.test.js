@@ -11,14 +11,16 @@ describe("UpdateBookUsecase Tests", () => {
     const repo = new BookRepositoryMock();
     const updateBookUsecase = new UpdateBookUsecase(repo);
 
-    const updatedData = {
-      title: "1984 - Updated Edition",
-      pages: 250,
-    };
-
     const updatedBook = await updateBookUsecase.call(
       "367f3e10-4649-5e8e-acc6-4669644a520e",
-      updatedData
+      "1984 - Updated Edition",
+      undefined,
+      undefined,
+      250,
+      undefined,
+      undefined,
+      undefined,
+      undefined
     );
 
     expect(updatedBook).toBeInstanceOf(Book);

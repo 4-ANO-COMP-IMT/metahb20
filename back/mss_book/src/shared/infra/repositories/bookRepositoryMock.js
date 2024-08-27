@@ -56,6 +56,10 @@ export class BookRepositoryMock {
     return book || null;
   }
 
+  async getAllBooks() {
+    return this.books;
+  }
+
   async createBook(book) {
     this.books.push(book);
     return book;
@@ -79,14 +83,14 @@ export class BookRepositoryMock {
       return null;
     }
 
-    if (title) book.title = title;
-    if (edition) book.edition = edition;
-    if (autor) book.autor = autor;
-    if (pages) book.pages = pages;
-    if (genre) book.genre = genre;
-    if (publishDate) book.publishDate = new Date(publishDate);
-    if (publisher) book.publisher = publisher;
-    if (rating) book.rating = rating;
+    if (title !== null) book.title = title;
+    if (edition !== null) book.edition = edition;
+    if (autor !== null) book.autor = autor;
+    if (pages !== null) book.pages = pages;
+    if (genre !== null) book.genre = genre;
+    if (publishDate !== null) book.publishDate = new Date(publishDate);
+    if (publisher !== null) book.publisher = publisher;
+    if (rating !== null) book.rating = rating;
 
     return book;
   }

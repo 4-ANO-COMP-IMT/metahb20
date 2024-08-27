@@ -73,4 +73,11 @@ describe("Tests for BookRepositoryMock", () => {
 
     expect(newLength).toEqual(oldLength - 1);
   });
+
+  test("Test Get All Books", async () => {
+    const repo = new BookRepositoryMock();
+    const books = await repo.getAllBooks();
+    expect(books).toBeInstanceOf(Array);
+    expect(books.length).toEqual(4);
+  });
 });

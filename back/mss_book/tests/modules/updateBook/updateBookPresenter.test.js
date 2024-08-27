@@ -1,9 +1,11 @@
 import { updateBookPresenter } from "../../../src/modules/updateBook/updateBookPresenter.js";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
 import { describe, test, expect } from "vitest";
+import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 
-describe("Tests for UpdateBOok Presenter", () => {
+describe("Tests for UpdateBook Presenter", () => {
   test("Test updateBookPresenter", async () => {
+    const repo = new BookRepositoryMock();
     const request = new HttpRequest({
       bookId: "367f3e10-4649-5e8e-acc6-4669644a520e",
       title: "Novo Título",
@@ -16,7 +18,7 @@ describe("Tests for UpdateBOok Presenter", () => {
       rating: 5,
     });
 
-    const response = await updateBookPresenter(request);
+    const response = await updateBookPresenter(request, repo);
 
     expect(response.statusCode).toEqual(200);
     expect(response.body["message"]).toEqual("the book was updated");
