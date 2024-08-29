@@ -35,3 +35,22 @@ button {
 .button-style2:hover {
 	background-color: #580000 !important;
 }
+
+.card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.card-title {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+
+.card-body,
+.card-footer {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
