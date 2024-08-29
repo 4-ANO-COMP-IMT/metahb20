@@ -95,10 +95,13 @@ class BookFinder extends React.Component {
 
 				<div className="row justify-content-center background-form">
 					<div className="col-12">
-						<div className="row form-group justify-content-around m-3 ">
+						<div className="row form-group justify-content-start m-3">
 							{this.state.filteredBooks.length > 0
 								? this.state.filteredBooks.map((book) => (
-										<div className="col-3 mb-3" key={book.bookId}>
+										<div
+											className="col-lg-4 col-md-6 col-sm-12 mb-3"
+											key={book.bookId}
+										>
 											<BookCard
 												userId={this.props.userId}
 												id={book.bookId}
@@ -115,7 +118,10 @@ class BookFinder extends React.Component {
 										</div>
 								  ))
 								: this.state.books.map((book) => (
-										<div className="col-3 mb-3" key={book.bookId}>
+										<div
+											className="col-lg-4 col-md-6 col-sm-12 mb-3"
+											key={book.bookId}
+										>
 											<BookCard
 												userId={this.props.userId}
 												id={book.bookId}
@@ -133,9 +139,10 @@ class BookFinder extends React.Component {
 								  ))}
 						</div>
 					</div>
-					<div className="row justify-content-center background-form">
-						<div className="col-12 text-center">{this.props.children}</div>
-					</div>
+				</div>
+
+				<div className="row justify-content-center background-form">
+					<div className="col-12 text-center">{this.props.children}</div>
 				</div>
 			</div>
 		);

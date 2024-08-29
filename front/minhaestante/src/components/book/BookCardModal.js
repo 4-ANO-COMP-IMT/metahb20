@@ -22,7 +22,7 @@ class BookCard extends React.Component {
 			rating: this.props.rating,
 			showAddModal: false,
 			showUpdateModal: false,
-			isExpanded: false, // Estado para controlar a expansão
+			isExpanded: false,
 		};
 	}
 
