@@ -51,7 +51,7 @@ class BookFinder extends React.Component {
 			this.setState({ filteredBooks: filteredBooks, errorMessage: "" });
 		} else {
 			this.setState({
-				errorMessage: "No books found matching your search.",
+				errorMessage: "Livro não encontrado. Adicione o novo livro ao acervo.",
 				filteredBooks: [],
 			});
 		}
