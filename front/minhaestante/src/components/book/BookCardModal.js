@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Modal } from "react-bootstrap";
 import BookUpdateForm from "./BookUpdateForm";
-import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 class BookCard extends React.Component {
 	constructor(props) {
@@ -21,6 +22,7 @@ class BookCard extends React.Component {
 			rating: this.props.rating,
 			showAddModal: false,
 			showUpdateModal: false,
+			isExpanded: false, // Estado para controlar a expansão
 		};
 	}
 
@@ -28,6 +30,12 @@ class BookCard extends React.Component {
 	handleCloseUpdate = () => {
 		this.setState({ showUpdateModal: false });
 		this.props.updateBooks();
+	};
+
+	toggleExpand = () => {
+		this.setState((prevState) => ({
+			isExpanded: !prevState.isExpanded,
+		}));
 	};
 
 	onClickAdd = async (event) => {
@@ -74,49 +82,65 @@ class BookCard extends React.Component {
 			rating,
 		} = this.props;
 
+		const { isExpanded } = this.state;
+
 		return (
 			<div className="card">
-				<div className="row">
-					<div className="card-body">
-						<h5 className="card-title">{title}</h5>
-						<p className="card-text">
-							Autor: {author}
-							<br />
-							Géneros: {genre}
-							<br />
-							Editora: {publisher}
-							<br />
-							Páginas: {pages}
-							<br />
-							Edição: {edition}
-							<br />
-							Avaliação: {rating}
-							<br />
-							id: {id}
-							<br />
-						</p>
-						<div className="text">
-							<button
-								className="btn btn-primary button-style2 m-2"
-								onClick={this.onClickAdd}
-							>
-								Adicionar
-							</button>
-							<button
-								className="btn btn-primary button-style2 m-2"
-								onClick={this.handleShowUpdate}
-							>
-								Editar
-							</button>
-							<button
-								className="btn btn-primary button-style2 m-2"
-								onClick={this.onClickDelete}
-							>
-								Deletar
-							</button>
-						</div>
+				<div className="card-body">
+					<div className="card-title d-flex justify-content-between align-items-center">
+						<h5 className="mb-0">{title}</h5>
+						<button
+							className="btn btn-primary button-style2"
+							onClick={this.toggleExpand}
+						>
+							<FontAwesomeIcon
+								icon={isExpanded ? faChevronUp : faChevronDown}
+							/>
+						</button>
 					</div>
+
+					{isExpanded && (
+						<div>
+							<p className="card-text">
+								Autor: {author}
+								<br />
+								Géneros: {genre}
+								<br />
+								Editora: {publisher}
+								<br />
+								Páginas: {pages}
+								<br />
+								Edição: {edition}
+								<br />
+								Avaliação: {rating}
+								<br />
+								id: {id}
+								<br />
+							</p>
+							<div className="text">
+								<button
+									className="btn btn-primary button-style2 m-2"
+									onClick={this.onClickAdd}
+								>
+									Adicionar
+								</button>
+								<button
+									className="btn btn-primary button-style2 m-2"
+									onClick={this.handleShowUpdate}
+								>
+									Editar
+								</button>
+								<button
+									className="btn btn-primary button-style2 m-2"
+									onClick={this.onClickDelete}
+								>
+									Deletar
+								</button>
+							</div>
+						</div>
+					)}
 				</div>
+
 				<div>
 					{/* Modal Atualizar Livro */}
 					<Modal
