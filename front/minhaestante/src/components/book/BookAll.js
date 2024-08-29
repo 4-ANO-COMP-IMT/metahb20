@@ -19,10 +19,11 @@ class BookFinder extends React.Component {
 		this.fetchBooks();
 	}
 
-	updateBooks = () => {
-		this.fetchBooks().then(() => {
-			this.onSearch();
-			console.log("Books updated.");
+	updateBooks = async () => {
+		await this.fetchBooks().then(() => {
+			setTimeout(() => {
+				this.onSearch();
+			});
 		});
 	};
 
@@ -38,8 +39,10 @@ class BookFinder extends React.Component {
 			});
 	}
 
-	onSearch = async (event) => {
+	onSearch = () => {
 		const searchQuery = this.state.search.toLowerCase();
+		console.log("Search query: " + this.state.books);
+		console.log(this.state.books);
 		const filteredBooks = this.state.books.filter((book) =>
 			book.title.toLowerCase().includes(searchQuery)
 		);
@@ -49,6 +52,7 @@ class BookFinder extends React.Component {
 		} else {
 			this.setState({
 				errorMessage: "No books found matching your search.",
+				filteredBooks: [],
 			});
 		}
 	};
@@ -81,6 +85,11 @@ class BookFinder extends React.Component {
 								onChange={this.onChangeSearch}
 							/>
 						</div>
+					</div>
+					<div>
+						{this.state.errorMessage && (
+							<ErrorMessage message={this.state.errorMessage} />
+						)}
 					</div>
 				</div>
 
@@ -122,11 +131,6 @@ class BookFinder extends React.Component {
 											/>
 										</div>
 								  ))}
-						</div>
-						<div>
-							{this.state.errorMessage && (
-								<ErrorMessage message={this.state.errorMessage} />
-							)}
 						</div>
 					</div>
 					<div className="row justify-content-center background-form">
