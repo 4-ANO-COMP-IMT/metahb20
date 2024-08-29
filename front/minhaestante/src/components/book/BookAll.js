@@ -52,6 +52,7 @@ class BookFinder extends React.Component {
 		} else {
 			this.setState({
 				errorMessage: "No books found matching your search.",
+				filteredBooks: [],
 			});
 		}
 	};
@@ -84,6 +85,11 @@ class BookFinder extends React.Component {
 								onChange={this.onChangeSearch}
 							/>
 						</div>
+					</div>
+					<div>
+						{this.state.errorMessage && (
+							<ErrorMessage message={this.state.errorMessage} />
+						)}
 					</div>
 				</div>
 
@@ -125,11 +131,6 @@ class BookFinder extends React.Component {
 											/>
 										</div>
 								  ))}
-						</div>
-						<div>
-							{this.state.errorMessage && (
-								<ErrorMessage message={this.state.errorMessage} />
-							)}
 						</div>
 					</div>
 					<div className="row justify-content-center background-form">
