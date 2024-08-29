@@ -11,7 +11,10 @@ const BookPage = () => {
 	const { userId } = useParams();
 
 	const handleShowAdd = () => setShowAddModal(true);
-	const handleCloseAdd = () => setShowAddModal(false);
+	const handleCloseAdd = () => {
+		setShowAddModal(false);
+		window.location.reload();
+	};
 
 	return (
 		<div>
