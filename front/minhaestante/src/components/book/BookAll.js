@@ -96,9 +96,10 @@ class BookFinder extends React.Component {
 				<div className="row justify-content-center background-form">
 					<div className="col-12">
 						<div className="row form-group justify-content-start m-3">
-							{this.state.filteredBooks.length > 0
+							{this.state.filteredBooks.length > 0 || this.state.errorMessage
 								? this.state.filteredBooks.map((book) => (
 										<div
+											twa
 											className="col-lg-4 col-md-6 col-sm-12 mb-3"
 											key={book.bookId}
 										>
