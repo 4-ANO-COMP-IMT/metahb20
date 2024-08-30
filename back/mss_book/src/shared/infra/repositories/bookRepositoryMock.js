@@ -1,5 +1,6 @@
 import { Book } from "../../domain/entities/book.js";
 import { GENRES } from "../../domain/enums/genresEnum.js";
+import { Bookshelf } from "../../domain/entities/bookshelf.js";
 
 export class BookRepositoryMock {
   constructor() {
@@ -49,11 +50,81 @@ export class BookRepositoryMock {
         5
       ),
     ];
+
+    this.bookshelves = [
+      new Bookshelf(
+        "d5135e3e-646a-55e7-a38d-9724159b7f9f",
+        ["367f3e10-4649-5e8e-acc6-4669644a520e"],
+        ["5af7d193-6723-50b5-a041-1478600bf630"],
+        ["6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+        ["7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+        ["367f3e10-4649-5e8e-acc6-4669644a520e"],
+        ["5af7d193-6723-50b5-a041-1478600bf630"]
+      ),
+
+      new Bookshelf(
+        "93bc6ada-c0d1-7054-66ab-e17414c48ae3",
+        [
+          "5af7d193-6723-50b5-a041-1478600bf630",
+          "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+        ],
+        [
+          "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+          "5af7d193-6723-50b5-a041-1478600bf630",
+        ],
+        [],
+        ["367f3e10-4649-5e8e-acc6-4669644a520e"],
+        [],
+        ["6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"]
+      ),
+
+      new Bookshelf(
+        "11ee92f3-07f6-5b5b-a652-ebe2c276e560",
+        [
+          "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+          "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+          "367f3e10-4649-5e8e-acc6-4669644a520e",
+        ],
+        ["5af7d193-6723-50b5-a041-1478600bf630"],
+        ["7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+        [],
+        [],
+        [
+          "5af7d193-6723-50b5-a041-1478600bf630",
+          "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+        ]
+      ),
+
+      new Bookshelf(
+        "46bf72c5-dec3-58c6-89da-6538628d4acb",
+        [
+          "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+          ,
+          "5af7d193-6723-50b5-a041-1478600bf630",
+          "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+        ],
+        ["6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+        ["5af7d193-6723-50b5-a041-1478600bf630"],
+        [],
+        ["367f3e10-4649-5e8e-acc6-4669644a520e"],
+        [
+          "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+          "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+        ]
+      ),
+    ];
   }
 
   async getBook(id) {
     const book = this.books.find((book) => book.bookId === id);
     return book || null;
+  }
+
+  async getBookshelf(userID) {
+    const bookshelf = this.bookshelves.find(
+      (bookshelf) => bookshelf.userID === userID
+    );
+    return bookshelf || null;
   }
 
   async getAllBooks() {

@@ -3,6 +3,7 @@ import { BookRepositoryMock } from "../../../../src/shared/infra/repositories/bo
 import { Book } from "../../../../src/shared/domain/entities/book.js";
 import { GENRES } from "../../../../src/shared/domain/enums/genresEnum.js";
 import { EntityError } from "../../../../src/shared/helpers/errors/domainErrors.js";
+import { Bookshelf } from "../../../../src/shared/domain/entities/bookshelf.js";
 
 describe("Tests for BookRepositoryMock", () => {
   test("Test getBook", async () => {
@@ -79,5 +80,13 @@ describe("Tests for BookRepositoryMock", () => {
     const books = await repo.getAllBooks();
     expect(books).toBeInstanceOf(Array);
     expect(books.length).toEqual(4);
+  });
+
+  test("Test Get Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = await repo.getBookshelf(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f"
+    );
+    expect(bookshelf).toBeInstanceOf(Bookshelf);
   });
 });
