@@ -71,8 +71,11 @@ export class Bookshelf {
     }
   }
 
-  static validateUserID(userID) {
-    return typeof userID === "string" && userID.length === 36;
+  static validateUserId(id) {
+    if (!id) return false;
+    else if (typeof id !== "string") return false;
+    else if (id.length !== User.USERID_LENGTH) return false;
+    else return true;
   }
 
   toJSON() {
