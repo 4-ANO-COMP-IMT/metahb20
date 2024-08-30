@@ -9,6 +9,7 @@ export class Bookshelf {
   reReading; // List[string]
   dropped; // List[string]
   favorites; // List[string]
+  static USERID_LENGTH = 36;
 
   constructor(userID, read, reading, willRead, reReading, dropped, favorites) {
     if (!Bookshelf.validateUserID(userID)) {
@@ -71,10 +72,10 @@ export class Bookshelf {
     }
   }
 
-  static validateUserId(id) {
+  static validateUserID(id) {
     if (!id) return false;
     else if (typeof id !== "string") return false;
-    else if (id.length !== User.USERID_LENGTH) return false;
+    else if (id.length !== Bookshelf.USERID_LENGTH) return false;
     else return true;
   }
 
