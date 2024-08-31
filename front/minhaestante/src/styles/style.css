@@ -84,5 +84,6 @@ th {
 	font-style: normal;
 }
 
-thead {
+ul {
+	list-style-type: none;
 }

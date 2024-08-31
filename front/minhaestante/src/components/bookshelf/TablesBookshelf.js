@@ -1,14 +1,34 @@
 import React, { Component } from "react";
 import BookshelfTable from "./TableBookshef";
+import { motion } from "framer-motion";
 
 class BookshelfTables extends Component {
 	constructor(props) {
 		super(props);
 	}
 
+	item = {
+		hidden: { y: 20, opacity: 0 },
+		visible: {
+			y: 0,
+			opacity: 1,
+		},
+	};
+	container = {
+		hidden: { opacity: 1, scale: 0 },
+		visible: {
+			opacity: 1,
+			scale: 1,
+			transition: {
+				delayChildren: 0.3,
+				staggerChildren: 0.2,
+			},
+		},
+	};
+
 	componentDidMount() {
 		console.log("BookshelfTables: ", this.props.userId);
-        this.fetchBooks();  
+		this.fetchBooks();
 	}
 
 	fetchBooks() {
@@ -19,9 +39,22 @@ class BookshelfTables extends Component {
 	render() {
 		return (
 			<div>
-				<BookshelfTable userId={this.props.userId} />
-				<BookshelfTable userId={this.props.userId} />
-				<BookshelfTable userId={this.props.userId} />
+				<motion.ul
+					className="container"
+					variants={this.container}
+					initial="hidden"
+					animate="visible"
+				>
+					<motion.li key={1} className="item" variants={this.item}>
+						<BookshelfTable userId={this.props.userId} />
+					</motion.li>
+					<motion.li key={2} className="item" variants={this.item}>
+						<BookshelfTable userId={this.props.userId} />
+					</motion.li>
+					<motion.li key={3} className="item" variants={this.item}>
+						<BookshelfTable userId={this.props.userId} />
+					</motion.li>
+				</motion.ul>
 			</div>
 		);
 	}
