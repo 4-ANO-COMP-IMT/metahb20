@@ -8,6 +8,12 @@ class BookshelfTables extends Component {
 
 	componentDidMount() {
 		console.log("BookshelfTables: ", this.props.userId);
+        this.fetchBooks();  
+	}
+
+	fetchBooks() {
+		console.log("fetchBooks");
+		//pegar livros da estante
 	}
 
 	render() {
