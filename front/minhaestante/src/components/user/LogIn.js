@@ -33,11 +33,12 @@ class LoginScreen extends React.Component {
 				.then((res) => {
 					//usuario logado com sucesso
 					this.setState({
+						userId: "",
 						successMessage: "Usuário logado com sucesso!",
 						errorMessage: "",
 					});
 					//redireciona para a pagina principal
-					window.location.href = "/estante";
+					window.location.href = "/bookshelf/" + userId;
 				})
 				.catch((error) => {
 					console.error(error);
