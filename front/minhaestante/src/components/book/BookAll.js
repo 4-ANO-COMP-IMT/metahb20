@@ -74,6 +74,10 @@ class BookFinder extends React.Component {
 					</div>
 				</div>
 
+				<div className="row justify-content-center headline ">
+					<div className="col-12 text-center">{this.props.children}</div>
+				</div>
+
 				<div className="row justify-content-center background-form">
 					<div className="col-12">
 						<div className="row form-group justify-content-around m-3 ">
