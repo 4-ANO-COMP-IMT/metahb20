@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 import BookForm from "../components/book/BookForm";
 import BookFinder from "../components/book/BookAll";
 import { useParams } from "react-router-dom";
+import FloatingMenu from "../components/common/FloatingMenu";
 
 const BookPage = () => {
 	const [showAddModal, setShowAddModal] = useState(false);
@@ -24,7 +25,8 @@ const BookPage = () => {
 	return (
 		<div>
 			<div>
-				<BookFinder userId={userId}>
+				<BookFinder userId={userId} />
+				<FloatingMenu className="position-fixed top-0 start-0 m-3">
 					<button
 						className="btn btn-primary button-style2 m-2"
 						onClick={handleShowAdd}
@@ -38,7 +40,7 @@ const BookPage = () => {
 					>
 						Voltar para a estante
 					</button>
-				</BookFinder>
+				</FloatingMenu>
 			</div>
 
 			<div>

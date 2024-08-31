@@ -41,15 +41,15 @@ class BookFinder extends React.Component {
 	}
 
 	updateBooks = async () => {
-		await this.fetchBooks().then(() => {
+		this.fetchBooks().then(() => {
 			setTimeout(() => {
 				this.onSearch();
 			});
 		});
 	};
 
-	fetchBooks() {
-		axios
+	fetchBooks = async () => {
+		await axios
 			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/books`)
 			.then((response) => {
 				console.log(response.data.books);
@@ -61,7 +61,7 @@ class BookFinder extends React.Component {
 			.catch((error) => {
 				console.log(error);
 			});
-	}
+	};
 
 	onSearch = () => {
 		const searchQuery = this.state.search.toLowerCase();
@@ -89,7 +89,7 @@ class BookFinder extends React.Component {
 
 	render() {
 		return (
-			<div className="container-sm mt-2 border border-dark">
+			<div className=" border border-dark">
 				<div className="row justify-content-center headline">
 					<div className="col-12">
 						<h1 className="display-5 text-center">

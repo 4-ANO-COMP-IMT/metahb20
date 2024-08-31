@@ -21,7 +21,7 @@ const BookShelfPage = () => {
 	};
 
 	return (
-		<div className="container-xl mt-2 border border-dark">
+		<div className="border border-dark">
 			<div className="row justify-content-center headline">
 				<div className="col-12">
 					<h1 className="display-5 text-center">

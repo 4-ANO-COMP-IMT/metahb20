@@ -64,7 +64,7 @@ class RegistrationForm extends React.Component {
 	};
 	render() {
 		return (
-			<div className="container-sm mt-2 border border-dark ">
+			<div className=" border border-dark ">
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">
