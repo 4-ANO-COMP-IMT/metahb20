@@ -9,7 +9,7 @@ export class DeleteBookshelfUsecase {
 
   async call(userID) {
     if (!Bookshelf.validateUserID(userID)) {
-      throw new EntityError("usreID");
+      throw new EntityError("userID");
     }
 
     const deletedBookshelf = await this.repo.deleteBookshelf(userID);
