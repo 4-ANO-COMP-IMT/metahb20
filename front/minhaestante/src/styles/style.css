@@ -54,3 +54,22 @@ button {
 	overflow-wrap: break-word;
 	white-space: normal;
 }
+
+table {
+	width: 50%;
+	border-collapse: collapse;
+	border: 2px solid #333;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #f2f2f2;
+}
