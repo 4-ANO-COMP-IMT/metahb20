@@ -1,7 +1,7 @@
 import { Bookshelf } from "../../shared/domain/entities/bookshelf.js";
 import { EntityError } from "../../shared/helpers/errors/domainErrors.js";
 import { Book } from "../../shared/domain/entities/book.js";
-import { DuplicatedItem } from "../../shared/helpers/errors/usecaseErrors.ja";
+import { DuplicatedItem } from "../../shared/helpers/errors/usecaseErrors.js";
 
 export class CreateBookshelfUsecase {
   constructor(repo) {
@@ -9,13 +9,13 @@ export class CreateBookshelfUsecase {
   }
 
   async call(userID) {
-    duplicata = this.repo.getBookshelf(userID);
-    if (!duplicata) {
-      throw new DuplicatedItem("Bookshelf");
-    }
-
     if (!Bookshelf.validateUserID(userID)) {
       throw new EntityError("Field userID is not valid");
+    }
+
+    const duplicata = await this.repo.getBookshelf(userID);
+    if (duplicata !== null) {
+      throw new DuplicatedItem("UserID");
     }
 
     const bookshelf = new Bookshelf(userID, [], [], [], [], [], []);
