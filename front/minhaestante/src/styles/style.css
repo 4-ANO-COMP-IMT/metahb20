@@ -87,3 +87,37 @@ th {
 ul {
 	list-style-type: none;
 }
+
+.floating-menu-container {
+	position: relative;
+}
+
+.menu-button {
+	background-color: #bc0000;
+	color: white;
+	border: none;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.menu-button:hover {
+	background-color: #580000 !important;
+}
+
+.floating-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	margin-top: 5px;
+	z-index: 1000;
+}
+
+.floating-menu button {
+	display: block;
+	padding: 5px 10px;
+}
