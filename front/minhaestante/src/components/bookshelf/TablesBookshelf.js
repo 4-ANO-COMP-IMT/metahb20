@@ -8,7 +8,7 @@ class BookshelfTables extends Component {
 	}
 
 	item = {
-		hidden: { y: 20, opacity: 0 },
+		hidden: { y: 0, opacity: 0 },
 		visible: {
 			y: 0,
 			opacity: 1,
@@ -20,8 +20,8 @@ class BookshelfTables extends Component {
 			opacity: 1,
 			scale: 1,
 			transition: {
-				delayChildren: 0.3,
-				staggerChildren: 0.2,
+				delayChildren: 0,
+				staggerChildren: 0.1,
 			},
 		},
 	};
