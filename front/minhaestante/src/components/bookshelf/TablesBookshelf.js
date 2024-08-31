@@ -48,9 +48,11 @@ class BookshelfTables extends Component {
 					<motion.li key={1} className="item" variants={this.item}>
 						<BookshelfTable userId={this.props.userId} />
 					</motion.li>
+
 					<motion.li key={2} className="item" variants={this.item}>
 						<BookshelfTable userId={this.props.userId} />
 					</motion.li>
+					
 					<motion.li key={3} className="item" variants={this.item}>
 						<BookshelfTable userId={this.props.userId} />
 					</motion.li>

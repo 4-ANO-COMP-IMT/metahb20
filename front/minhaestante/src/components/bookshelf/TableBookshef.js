@@ -21,6 +21,10 @@ const BookshelfTable = (props) => {
 						userId={props.userId}
 						id={"367f3e10-4649-5e8e-acc6-4669644a520e"}
 					/>
+					<RowBookshelfComponent
+						userId={props.userId}
+						id={"367f3e10-4649-5e8e-acc6-4669644a520e"}
+					/>
 				</tbody>
 			</table>
 		</div>
