@@ -34,48 +34,47 @@ class UpdateForm extends React.Component {
 			})
 			.catch((error) => {
 				console.error(error);
+				console.log(error.request.message);
 
 				this.setState({
 					errorMessage: errorMessageTranslator.translateErrorMessage(
-						error.request.responseText
+						error.request.responseText || "erro de conexão"
 					),
 				});
 			});
 	}
 
 	onClickShelf = (event) => {
-		
-			window.location.href = "/bookshelf/" + this.state.userId;
+		window.location.href = "/bookshelf/" + this.state.userId;
 	};
 
 	onClickDelete = (event) => {
 		if (window.confirm("Tem certeza que deseja deletar a conta?")) {
-		axios
-			.delete(
-				`${process.env.REACT_APP_URL_MssUser}/api/user/${this.state.userId}`
-			)
-			.then((res) => {
-				console.log(res);
-				this.setState({
-					successMessage:
-						"Usuário deletado com sucesso! ID: " + this.state.userId,
-					errorMessage: "",
-				});
+			axios
+				.delete(
+					`${process.env.REACT_APP_URL_MssUser}/api/user/${this.state.userId}`
+				)
+				.then((res) => {
+					console.log(res);
+					this.setState({
+						successMessage:
+							"Usuário deletado com sucesso! ID: " + this.state.userId,
+						errorMessage: "",
+					});
 
-				setTimeout(() => {
-					window.location.href = "/";
-				}, 1000);
-			})
-			.catch((error) => {
-				console.error(error);
-
-				this.setState({
-					errorMessage: errorMessageTranslator.translateErrorMessage(
-						error.request.responseText
-					),
-					successMessage: "",
+					setTimeout(() => {
+						window.location.href = "/";
+					}, 1000);
+				})
+				.catch((error) => {
+					console.error(error);
+					this.setState({
+						errorMessage: errorMessageTranslator.translateErrorMessage(
+							error.request.responseText || "erro de conexão"
+						),
+						successMessage: "",
+					});
 				});
-			});
 		}
 	};
 
