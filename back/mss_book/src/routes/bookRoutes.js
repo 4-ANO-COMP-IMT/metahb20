@@ -8,6 +8,7 @@ import { deleteBookPresenter } from "../modules/deleteBook/deleteBookPresenter.j
 import { getAllBooksPresenter } from "../modules/getAllBooks/getAllBooksPresenter.js";
 import { getBookshelfPresenter } from "../modules/getBookshelf/getBookshelfpresenter.js";
 import { createBookshelfPresenter } from "../modules/createBookshelf/createBookshelfPresenter.js";
+import { deleteBookshelfPresenter } from "../modules/deleteBookshelf/deleteBookshelfPresenter.js";
 
 const routes = express.Router();
 const repo = new BookRepositoryMock();
@@ -46,6 +47,13 @@ routes.put("/book", async (req, res) => {
 routes.delete("/book", async (req, res) => {
   const request = new HttpRequest(req.body);
   const response = await deleteBookPresenter(request, repo);
+
+  res.status(response.statusCode).send(response.body);
+});
+
+routes.delete("/bookshelf", async (req, res) => {
+  const request = new HttpRequest(req.body);
+  const response = await deleteBookshelfPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);
 });
