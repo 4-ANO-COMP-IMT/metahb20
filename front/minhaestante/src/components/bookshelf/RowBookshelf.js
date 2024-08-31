@@ -59,11 +59,10 @@ class RowBookshelfComponent extends Component {
 					<button type="button" className="mx-2  btn btn-primary button-style">
 						Avaliar
 					</button>
+					{this.state.errorMessage && (
+						<ErrorMessage message={this.state.errorMessage} />
+					)}
 				</td>
-
-				{this.state.errorMessage && (
-					<ErrorMessage message={this.state.errorMessage} />
-				)}
 			</tr>
 		);
 	}
