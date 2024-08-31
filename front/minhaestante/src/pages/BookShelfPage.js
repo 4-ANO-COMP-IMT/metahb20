@@ -29,33 +29,6 @@ const BookShelfPage = () => {
 				</div>
 			</div>
 
-			<div className="row justify-content-center headline ">
-				<div className="col-12">
-					<div className="row justify-content-center ">
-						<button
-							className="col-2 btn btn-primary button-style2 m-2"
-							onClick={onClickAddBook}
-						>
-							Adicionar livro a estante
-						</button>
-
-						<button
-							className="col-2 btn btn-primary button-style2 m-2"
-							onClick={onClickUpdateUser}
-						>
-							Modificar usuario
-						</button>
-
-						<button
-							className="col-2 btn btn-primary button-style2 m-2"
-							onClick={onClickLogOut}
-						>
-							Logout
-						</button>
-					</div>
-				</div>
-			</div>
-
 			<div className="row justify-content-center background-form">
 				<div className="col-11 mt-2">
 					<table className="table table-rounded responsive-table">
