@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import React, { Component } from "react";
 import axios from "axios";
 import ErrorMessage from "../common/ErrorMessage";
+import ErrorManager from "../../shared/error/ErrorManager";
 
 class RowBookshelfComponent extends Component {
 	constructor(props) {
@@ -9,11 +10,11 @@ class RowBookshelfComponent extends Component {
 		this.state = {
 			userId: this.props.userId,
 			id: this.props.id,
-			title: "1",
-			author: "2",
-			pages: "3",
-			genre: "4",
-			rating: "5",
+			title: "",
+			author: "",
+			pages: "",
+			genre: "",
+			rating: "",
 			errorMessage: "",
 		};
 	}
@@ -33,7 +34,9 @@ class RowBookshelfComponent extends Component {
 			})
 			.catch((error) => {
 				this.setState({
-					errorMessage: error.request.responseText,
+					errorMessage: ErrorManager.translateErrorMessage(
+						error.request.responseText
+					),
 				});
 			});
 	}
@@ -56,11 +59,10 @@ class RowBookshelfComponent extends Component {
 					<button type="button" className="mx-2  btn btn-primary button-style">
 						Avaliar
 					</button>
+					{this.state.errorMessage && (
+						<ErrorMessage message={this.state.errorMessage} />
+					)}
 				</th>
-
-				{this.state.errorMessage && (
-					<ErrorMessage message={this.state.errorMessage} />
-				)}
 			</tr>
 		);
 	}
