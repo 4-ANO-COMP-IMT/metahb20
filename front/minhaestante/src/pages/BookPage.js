@@ -16,6 +16,11 @@ const BookPage = () => {
 		window.location.reload();
 	};
 
+	const OnClickShelf = () => {
+		console.log("Adicionar livro a estante");
+		window.location.href = "/bookshelf/" + userId;
+	};
+
 	return (
 		<div>
 			<div>
@@ -26,8 +31,16 @@ const BookPage = () => {
 					>
 						Adicionar novo livro ao acervo
 					</button>
+
+					<button
+						className="btn btn-primary button-style2 m-2"
+						onClick={OnClickShelf}
+					>
+						Voltar para a estante
+					</button>
 				</BookFinder>
 			</div>
+
 			<div>
 				{/* Modal Adicionar Livro */}
 				<Modal show={showAddModal} onHide={handleCloseAdd}>
