@@ -9,11 +9,11 @@ class RowBookshelfComponent extends Component {
 		this.state = {
 			userId: this.props.userId,
 			id: this.props.id,
-			title: "1",
-			author: "2",
-			pages: "3",
-			genre: "4",
-			rating: "5",
+			title: "",
+			author: "",
+			pages: "",
+			genre: "",
+			rating: "",
 			errorMessage: "",
 		};
 	}
