@@ -114,4 +114,15 @@ describe("Tests for BookRepositoryMock", () => {
     expect(newBookshelf).toBeInstanceOf(Bookshelf);
     expect(newLength).toEqual(oldLength + 1);
   });
+
+  test("Test delete Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelfId = "d5135e3e-646a-55e7-a38d-9724159b7f9f";
+    const oldLength = repo.bookshelves.length;
+
+    await repo.deleteBookshelf(bookshelfId);
+    const newLength = repo.bookshelves.length;
+
+    expect(newLength).toEqual(oldLength - 1);
+  });
 });

@@ -180,4 +180,16 @@ export class BookRepositoryMock {
     this.bookshelves.push(bookshelf);
     return bookshelf;
   }
+
+  async deleteBookshelf(userID) {
+    const bookshelf = await this.getBookshelf(userID);
+    if (!bookshelf) {
+      return null;
+    }
+
+    this.bookshelves = this.bookshelves.filter(
+      (bookshelf) => bookshelf.userID !== userID
+    );
+    return bookshelf;
+  }
 }
