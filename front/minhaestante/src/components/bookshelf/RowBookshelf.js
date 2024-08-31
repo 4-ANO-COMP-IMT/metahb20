@@ -46,7 +46,7 @@ class RowBookshelfComponent extends Component {
 				<th scope="col">{this.state.pages}</th>
 				<th scope="col">{this.state.genre}</th>
 				<th scope="col">{this.state.rating}</th>
-				<th scope="col" className="text-center">
+				<th scope="col">
 					<button
 						type="button"
 						className="mx-2 my-1 btn btn-primary button-style"
