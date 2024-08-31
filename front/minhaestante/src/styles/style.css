@@ -116,8 +116,10 @@ ul {
 	margin-top: 5px;
 	z-index: 1000;
 }
-
 .floating-menu button {
-	display: block;
-	padding: 5px 10px;
+	width: 90%; /* Faz os botões ocuparem toda a largura disponível do contêiner */
+	padding: 10px; /* Adiciona padding para aumentar a área clicável */
+	text-align: center; /* Centraliza o texto dentro do botão */
+	box-sizing: border-box; /* Inclui padding e borda no cálculo da largura do botão */
+	margin-bottom: 10px; /* Adiciona margem entre os botões */
 }
