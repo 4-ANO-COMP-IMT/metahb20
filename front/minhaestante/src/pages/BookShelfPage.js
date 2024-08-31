@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import RowBookshelfComponent from "../components/bookshelf/RowBookshelf";
-import "../styles/table.css";
+
 
 const BookShelfPage = () => {
 	const { userId } = useParams();
