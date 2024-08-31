@@ -41,12 +41,12 @@ class RowBookshelfComponent extends Component {
 	render() {
 		return (
 			<tr>
-				<th scope="col">{this.state.title}</th>
-				<th scope="col">{this.state.author}</th>
-				<th scope="col">{this.state.pages}</th>
-				<th scope="col">{this.state.genre}</th>
-				<th scope="col">{this.state.rating}</th>
-				<th scope="col">
+				<td>{this.state.title}</td>
+				<td>{this.state.author}</td>
+				<td>{this.state.pages}</td>
+				<td>{this.state.genre}</td>
+				<td>{this.state.rating}</td>
+				<td>
 					<button
 						type="button"
 						className="mx-2 my-1 btn btn-primary button-style"
@@ -56,7 +56,7 @@ class RowBookshelfComponent extends Component {
 					<button type="button" className="mx-2  btn btn-primary button-style">
 						Avaliar
 					</button>
-				</th>
+				</td>
 
 				{this.state.errorMessage && (
 					<ErrorMessage message={this.state.errorMessage} />
