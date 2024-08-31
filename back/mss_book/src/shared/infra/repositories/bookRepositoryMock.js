@@ -175,4 +175,9 @@ export class BookRepositoryMock {
     this.books = this.books.filter((book) => book.bookId !== id);
     return book;
   }
+
+  async createBookshelf(bookshelf) {
+    this.bookshelves.push(bookshelf);
+    return bookshelf;
+  }
 }

@@ -89,4 +89,29 @@ describe("Tests for BookRepositoryMock", () => {
     );
     expect(bookshelf).toBeInstanceOf(Bookshelf);
   });
+
+  test("Test Get Bookshelf with invalid userID", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = await repo.getBookshelf("3");
+    expect(bookshelf).toBeNull();
+  });
+
+  test("Test Create Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = new Bookshelf(
+      "f68e7d75-34f0-5fa4-933a-8f4244d44aea",
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    );
+    const oldLength = repo.bookshelves.length;
+    const newBookshelf = await repo.createBookshelf(bookshelf);
+    const newLength = repo.bookshelves.length;
+
+    expect(newBookshelf).toBeInstanceOf(Bookshelf);
+    expect(newLength).toEqual(oldLength + 1);
+  });
 });

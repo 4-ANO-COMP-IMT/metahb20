@@ -32,7 +32,7 @@ export class Bookshelf {
       }
       this.reading = reading;
     } else {
-      EntityError("readind");
+      throw new EntityError("readind");
     }
 
     if (Array.isArray(willRead)) {
