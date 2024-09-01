@@ -192,4 +192,30 @@ export class BookRepositoryMock {
     );
     return bookshelf;
   }
+
+  async updateBookshelf(
+    userID,
+    {
+      read = null,
+      reading = null,
+      willRead = null,
+      reReading = null,
+      dropped = null,
+      favorites = null,
+    } = {}
+  ) {
+    const bookshelf = await this.getBookshelf(userID);
+    if (!bookshelf) {
+      return null;
+    }
+
+    if (read !== null) bookshelf.read = read;
+    if (reading !== null) bookshelf.reading = reading;
+    if (willRead !== null) bookshelf.willRead = willRead;
+    if (reReading !== null) bookshelf.reReading = reReading;
+    if (dropped !== null) bookshelf.dropped = dropped;
+    if (favorites !== null) bookshelf.favorites = favorites;
+
+    return bookshelf;
+  }
 }

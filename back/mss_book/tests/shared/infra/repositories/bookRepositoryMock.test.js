@@ -125,4 +125,32 @@ describe("Tests for BookRepositoryMock", () => {
 
     expect(newLength).toEqual(oldLength - 1);
   });
+
+  test("Test update Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const dataToUpdate = {
+      read: ["5af7d193-6723-50b5-a041-1478600bf630"],
+      reading: ["7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+      willRead: ["6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+    };
+
+    const updatedBookshelf = await repo.updateBookshelf(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f",
+      dataToUpdate
+    );
+
+    expect(updatedBookshelf).toBeInstanceOf(Bookshelf);
+    expect(updatedBookshelf.userID).toEqual(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f"
+    );
+    expect(updatedBookshelf.read).toEqual([
+      "5af7d193-6723-50b5-a041-1478600bf630",
+    ]);
+    expect(updatedBookshelf.reading).toEqual([
+      "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+    ]);
+    expect(updatedBookshelf.willRead).toEqual([
+      "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+    ]);
+  });
 });
