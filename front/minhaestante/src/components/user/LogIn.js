@@ -1,9 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
 import InputField from "../common/InputField";
-import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";

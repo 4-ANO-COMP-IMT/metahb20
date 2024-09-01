@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import React, { Component } from "react";
 import axios from "axios";
 import ErrorMessage from "../common/ErrorMessage";

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import BookForm from "../components/book/BookForm";
 import BookFinder from "../components/book/BookAll";
@@ -7,7 +7,6 @@ import FloatingMenu from "../components/common/FloatingMenu";
 
 const BookPage = () => {
 	const [showAddModal, setShowAddModal] = useState(false);
-	const [showUpdateModal, setShowUpdateModal] = useState(false);
 
 	const { userId } = useParams();
 

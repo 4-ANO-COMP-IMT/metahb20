@@ -7,7 +7,6 @@ import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
-import AvaliationField from "../common/AvaliationFild";
 import { invertedGenres } from "../../shared/domain/enums/genresEnum";
 
 class BookUpdateForm extends React.Component {

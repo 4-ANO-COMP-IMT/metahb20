@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES, invertedGenres } from "../../shared/domain/enums/genresEnum";
+import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
 import InputField from "../common/InputField";
 import SelectField from "../common/SelectField";
@@ -45,11 +45,11 @@ class UpdateForm extends React.Component {
 			});
 	}
 
-	onClickShelf = (event) => {
+	onClickShelf = () => {
 		window.location.href = "/bookshelf/" + this.state.userId;
 	};
 
-	onClickDelete = (event) => {
+	onClickDelete = () => {
 		if (window.confirm("Tem certeza que deseja deletar a conta?")) {
 			axios
 				.delete(
@@ -79,7 +79,7 @@ class UpdateForm extends React.Component {
 		}
 	};
 
-	onClickUpdate = (event) => {
+	onClickUpdate = () => {
 		const user = {
 			userId: this.state.userId,
 			new_name: this.state.new_name,
@@ -88,7 +88,7 @@ class UpdateForm extends React.Component {
 			new_favoriteBook: this.state.new_favoriteBook,
 		};
 
-		const response = axios
+		axios
 			.put(`${process.env.REACT_APP_URL_MssUser}/api/user`, user)
 			.then((res) => {
 				console.log(res);
