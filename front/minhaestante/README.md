@@ -59,9 +59,6 @@ Siga as etapas abaixo para rodar o projeto em sua máquina local:
    npm start
    ```
 
-6. **Acesse a aplicação no navegador:**
-   Abra o navegador e vá para `http://localhost:3000`.
-
 ## Scripts Disponíveis
 
 No projeto, você pode executar os seguintes scripts:
