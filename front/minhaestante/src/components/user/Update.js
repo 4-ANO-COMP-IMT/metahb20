@@ -14,6 +14,7 @@ class UpdateForm extends React.Component {
 		this.state = {
 			userId: this.props.userId,
 			new_name: "",
+			new_email: "",
 			new_genre: "",
 			new_favoriteBook: "",
 			successMessage: "",
@@ -131,23 +132,21 @@ class UpdateForm extends React.Component {
 								label="Nome"
 								type="text"
 								value={this.state.new_name}
-								onChange={(e) => this.setState({ name: e.target.value })}
+								onChange={(e) => this.setState({ new_name: e.target.value })}
 							/>
 
 							<InputField
 								label="Email"
 								type="email"
 								value={this.state.new_email}
-								onChange={(e) => this.setState({ email: e.target.value })}
+								onChange={(e) => this.setState({ new_email: e.target.value })}
 							/>
 
 							<SelectField
 								label="Gêneros Favoritos"
 								options={Object.values(GENRES)}
 								value={this.state.new_genre}
-								onChange={(e) =>
-									this.setState({ favoriteGenres: e.target.value })
-								}
+								onChange={(e) => this.setState({ new_genre: e.target.value })}
 							/>
 
 							<InputField
@@ -155,7 +154,7 @@ class UpdateForm extends React.Component {
 								type="text"
 								value={this.state.new_favoriteBook}
 								onChange={(e) =>
-									this.setState({ favoriteBook: e.target.value })
+									this.setState({ new_favoriteBook: e.target.value })
 								}
 							/>
 
