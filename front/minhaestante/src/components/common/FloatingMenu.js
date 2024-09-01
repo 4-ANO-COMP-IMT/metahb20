@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 class FloatingMenu extends Component {
 	constructor(props) {
@@ -28,7 +30,7 @@ class FloatingMenu extends Component {
 					aria-expanded={isOpen}
 					aria-controls="floating-menu"
 				>
-					{isOpen ? "Close Menu" : "Open Menu"}
+					<FontAwesomeIcon icon={faBars} />
 				</button>
 				<AnimatePresence>
 					{isOpen && (
