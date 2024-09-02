@@ -21,9 +21,8 @@ class BookSearch extends React.Component {
 	onClickSearch = async (event) => {
 		///book/:bookI end point
 		if (this.state.search !== "") {
-			console.log(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.search}`
-			);
+
+			
 			const response = await axios
 				.get(
 					`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.search}`
@@ -37,6 +36,11 @@ class BookSearch extends React.Component {
 						errorMessage: error.request.responseText,
 					});
 				});
+
+
+
+
+
 		} else {
 			this.setState({
 				errorMessage: "Preencha o campo de busca",

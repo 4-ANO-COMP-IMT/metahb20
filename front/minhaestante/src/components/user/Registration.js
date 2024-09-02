@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES, invertedGenres } from "../../shared/domain/enums/genresEnum";
+import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
 import InputField from "../common/InputField";
 import SelectField from "../common/SelectField";
@@ -21,7 +21,7 @@ class RegistrationForm extends React.Component {
 		};
 	}
 
-	onClickCadastrar = async (event) => {
+	onClickCadastrar = async () => {
 		const user = {
 			name: this.state.name,
 			email: this.state.email,
@@ -29,7 +29,7 @@ class RegistrationForm extends React.Component {
 			favoriteBook: this.state.favoriteBook,
 		};
 
-		const response = await axios
+		await axios
 			.post(`${process.env.REACT_APP_URL_MssUser}/api/user`, user)
 			.then((res) => {
 				console.log(res);
@@ -64,7 +64,7 @@ class RegistrationForm extends React.Component {
 	};
 	render() {
 		return (
-			<div className="container-sm mt-2 border border-dark ">
+			<div className=" border border-dark ">
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">

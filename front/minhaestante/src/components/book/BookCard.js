@@ -6,6 +6,7 @@ class BookCard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			idUser: this.props.idUser,
 			id: this.props.id,
 			title: this.props.title,
 			edition: this.props.edition,
@@ -18,8 +19,32 @@ class BookCard extends React.Component {
 		};
 	}
 
-	onclickeditar = async (event) => {
+	onclickUpdate = async (event) => {
 		window.location.href = "/updatebook/" + this.state.id;
+	};
+
+	onClickAdd = async (event) => {};
+
+	onClickDelete = async (event) => {
+		if (window.confirm("Tem certeza de que deseja excluir este livro?")) {
+			const request = {
+				bookId: this.state.id,
+			};
+
+			axios
+				.delete(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, {
+					data: request,
+				})
+				.then((response) => {
+					console.log(response.data);
+					window.location.reload(true);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		} else {
+			console.log("Exclusão cancelada.");
+		}
 	};
 
 	render() {
@@ -57,14 +82,23 @@ class BookCard extends React.Component {
 							<br />
 						</p>
 						<div className="text">
-							<button className="btn btn-primary button-style2 m-2">
+							<button
+								className="btn btn-primary button-style2 m-2"
+								onClick={this.onClickAdd}
+							>
 								Adicionar
 							</button>
 							<button
 								className="btn btn-primary button-style2 m-2"
-								onClick={this.onclickeditar}
+								onClick={this.onclickUpdate}
 							>
 								Editar
+							</button>
+							<button
+								className="btn btn-primary button-style2 m-2"
+								onClick={this.onClickDelete}
+							>
+								Deletar
 							</button>
 						</div>
 					</div>

@@ -1,9 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GENRES } from "../../shared/domain/enums/genresEnum";
 import axios from "axios";
 import InputField from "../common/InputField";
-import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
@@ -31,13 +29,12 @@ class LoginScreen extends React.Component {
 			const response = await axios
 				.get(`${process.env.REACT_APP_URL_MssUser}/api/user/${userId}`)
 				.then((res) => {
-					//usuario logado com sucesso
 					this.setState({
+						userId: "",
 						successMessage: "Usuário logado com sucesso!",
 						errorMessage: "",
 					});
-					//redireciona para a pagina principal
-					window.location.href = "/estante";
+					window.location.href = "/bookshelf/" + userId;
 				})
 				.catch((error) => {
 					console.error(error);
@@ -57,7 +54,7 @@ class LoginScreen extends React.Component {
 
 	render() {
 		return (
-			<div className="container-sm mt-2 border border-dark ">
+			<div className=" border border-dark ">
 				<div className="row justify-content-center headline ">
 					<div className="col-6">
 						<h1 className="display-5 text-center ">

@@ -7,7 +7,6 @@ import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
-import AvaliationField from "../common/AvaliationFild";
 import { invertedGenres } from "../../shared/domain/enums/genresEnum";
 
 class BookUpdateForm extends React.Component {
@@ -77,16 +76,10 @@ class BookUpdateForm extends React.Component {
 					publisher: "",
 					rating: "",
 					successMessage:
-						"Livro atualizado com sucesso! Id: " +
-						res.data.book.bookId +
-						" Redirecionando para a página inicial...",
+						"Livro atualizado com sucesso! Id: " + res.data.book.bookId,
 					errorMessage: "",
 					showForm: false,
 				});
-
-				setTimeout(() => {
-					this.props.navigate();
-				}, 3000);
 			})
 			.catch((error) => {
 				console.error(error);

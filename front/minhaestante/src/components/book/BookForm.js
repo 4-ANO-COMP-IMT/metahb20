@@ -32,7 +32,7 @@ class BookForm extends React.Component {
 		return date.getTime();
 	};
 
-	onClickCadastrar = async (event) => {
+	onClickRegister = async (event) => {
 		const book = {
 			title: this.state.title,
 			edition: Number(this.state.edition),
@@ -162,7 +162,7 @@ class BookForm extends React.Component {
 							<div className="row form-group justify-content-around m-3 ">
 								<button
 									className="btn btn-primary col-4 button-style"
-									onClick={this.onClickCadastrar}
+									onClick={this.onClickRegister}
 								>
 									Cadastrar livro
 								</button>
