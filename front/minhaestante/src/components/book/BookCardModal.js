@@ -45,6 +45,37 @@ class BookCard extends React.Component {
 				" IDbook: " +
 				this.state.id
 		);
+		axios
+			.get(
+				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+			)
+			.then((res) => {
+				console.log(res.data.bookshelf.willRead);
+				const willRead = res.data.bookshelf.willRead;
+				const bookIds = willRead.map((book) => book.id);
+
+				if (!bookIds.includes(this.state.id)) {
+					willRead.push(this.state.id);
+					const request = {
+						userID: this.state.userId,
+						willRead: willRead,
+					};
+					console.log(request);
+					axios
+						.put(`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`, {
+							userID: this.state.userId,
+							willRead: willRead,
+						})
+						.then((res) => {
+							console.log(res.data);
+						})
+						.catch((error) => {
+							console.log(error);
+						});
+				} else {
+					console.log("Livro já adicionado.");
+				}
+			});
 	};
 
 	onClickDelete = async (event) => {
@@ -142,7 +173,6 @@ class BookCard extends React.Component {
 				</div>
 
 				<div>
-					{/* Modal Atualizar Livro */}
 					<Modal
 						show={this.state.showUpdateModal}
 						onHide={this.handleCloseUpdate}
