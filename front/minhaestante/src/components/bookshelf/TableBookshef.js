@@ -1,34 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
 import RowBookshelfComponent from "./RowBookshelf";
 
-const BookshelfTable = (props) => {
-	return (
-		<div>
-			<h1 className="display-6 text-center table-title">Livros</h1>
-			<table className="table table-rounded responsive-table">
-				<thead className="thead-dark">
-					<tr>
-						<th scope="col">Title</th>
-						<th scope="col">Author</th>
-						<th scope="col">Pages</th>
-						<th scope="col">Genre</th>
-						<th scope="col">Rating</th>
-						<th scope="col" />
-					</tr>
-				</thead>
-				<tbody>
-					<RowBookshelfComponent
-						userId={props.userId}
-						id={"367f3e10-4649-5e8e-acc6-4669644a520e"}
-					/>
-					<RowBookshelfComponent
-						userId={props.userId}
-						id={"367f3e10-4649-5e8e-acc6-4669644a520e"}
-					/>
-				</tbody>
-			</table>
-		</div>
-	);
-};
+class BookshelfTable extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			userId: this.props.userId,
+			bookList: this.props.bookList,
+			tableName: this.props.tableName,
+		};
+	}
+
+	componentDidMount() {
+		console.log("BookshelfTable: ", this.state.bookList);
+	}
+
+	render() {
+		return (
+			<div>
+				<h1 className="display-6 text-center table-title">
+					{this.props.tableName}
+				</h1>
+				<table className="table table-rounded responsive-table">
+					<thead className="thead-dark">
+						<tr>
+							<th scope="col">Title</th>
+							<th scope="col">Author</th>
+							<th scope="col">Pages</th>
+							<th scope="col">Genre</th>
+							<th scope="col">Rating</th>
+							<th scope="col" />
+						</tr>
+					</thead>
+					<tbody>
+						{this.props.bookList &&
+							this.props.bookList.map((id, index) => (
+								<RowBookshelfComponent
+									userId={this.props.userId}
+									id={id}
+									key={index}
+								/>
+							))}
+					</tbody>
+				</table>
+			</div>
+		);
+	}
+}
 
 export default BookshelfTable;

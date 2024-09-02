@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import BookshelfTable from "./TableBookshef";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 class BookshelfTables extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			bookShelf: {},
+		};
 	}
 
 	item = {
@@ -27,13 +31,22 @@ class BookshelfTables extends Component {
 	};
 
 	componentDidMount() {
-		console.log("BookshelfTables: ", this.props.userId);
 		this.fetchBooks();
 	}
 
 	fetchBooks() {
-		console.log("fetchBooks");
-		//pegar livros da estante
+		axios
+			.get(
+				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+			)
+			.then((res) => {
+				setTimeout(() => {
+					this.setState({ bookShelf: res.data.bookshelf });
+				});
+			})
+			.catch((err) => {
+				console.log("fetchBooks: ", err);
+			});
 	}
 
 	render() {
@@ -46,15 +59,51 @@ class BookshelfTables extends Component {
 					animate="visible"
 				>
 					<motion.li key={1} className="item" variants={this.item}>
-						<BookshelfTable userId={this.props.userId} />
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Lendo"
+							bookList={this.state.bookShelf.reading}
+						/>
+					</motion.li>
+
+					<motion.li key={4} className="item" variants={this.item}>
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Ler"
+							bookList={this.state.bookShelf.read}
+						/>
+					</motion.li>
+
+					<motion.li key={3} className="item" variants={this.item}>
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Relendo"
+							bookList={this.state.bookShelf.reReading}
+						/>
 					</motion.li>
 
 					<motion.li key={2} className="item" variants={this.item}>
-						<BookshelfTable userId={this.props.userId} />
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Favoritos"
+							bookList={this.state.bookShelf.favorites}
+						/>
 					</motion.li>
-					
-					<motion.li key={3} className="item" variants={this.item}>
-						<BookshelfTable userId={this.props.userId} />
+
+					<motion.li key={5} className="item" variants={this.item}>
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Ira Ler"
+							bookList={this.state.bookShelf.willRead}
+						/>
+					</motion.li>
+
+					<motion.li key={6} className="item" variants={this.item}>
+						<BookshelfTable
+							userId={this.props.userId}
+							tableName="Largado"
+							bookList={this.state.bookShelf.dropped}
+						/>
 					</motion.li>
 				</motion.ul>
 			</div>

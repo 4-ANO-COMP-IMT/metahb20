@@ -22,7 +22,6 @@ class RowBookshelfComponent extends Component {
 		axios
 			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.id}`)
 			.then((response) => {
-				console.log(response.data);
 				this.setState({
 					title: response.data.book.title,
 					author: response.data.book.autor,
