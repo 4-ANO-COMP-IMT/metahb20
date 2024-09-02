@@ -3,7 +3,6 @@ import { UpdateBookController } from "../../../src/modules/updateBook/updateBook
 import { UpdateBookUsecase } from "../../../src/modules/updateBook/updateBookUsecase.js";
 import { BookRepositoryMock } from "../../../src/shared/infra/repositories/bookRepositoryMock.js";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
-import { response } from "express";
 
 describe("Tests for UpdateBookController", () => {
   test("Test updateBook Controller", async () => {

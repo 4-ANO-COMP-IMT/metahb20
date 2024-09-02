@@ -3,6 +3,7 @@ import { BookRepositoryMock } from "../../../../src/shared/infra/repositories/bo
 import { Book } from "../../../../src/shared/domain/entities/book.js";
 import { GENRES } from "../../../../src/shared/domain/enums/genresEnum.js";
 import { EntityError } from "../../../../src/shared/helpers/errors/domainErrors.js";
+import { Bookshelf } from "../../../../src/shared/domain/entities/bookshelf.js";
 
 describe("Tests for BookRepositoryMock", () => {
   test("Test getBook", async () => {
@@ -79,5 +80,77 @@ describe("Tests for BookRepositoryMock", () => {
     const books = await repo.getAllBooks();
     expect(books).toBeInstanceOf(Array);
     expect(books.length).toEqual(4);
+  });
+
+  test("Test Get Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = await repo.getBookshelf(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f"
+    );
+    expect(bookshelf).toBeInstanceOf(Bookshelf);
+  });
+
+  test("Test Get Bookshelf with invalid userID", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = await repo.getBookshelf("3");
+    expect(bookshelf).toBeNull();
+  });
+
+  test("Test Create Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelf = new Bookshelf(
+      "f68e7d75-34f0-5fa4-933a-8f4244d44aea",
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    );
+    const oldLength = repo.bookshelves.length;
+    const newBookshelf = await repo.createBookshelf(bookshelf);
+    const newLength = repo.bookshelves.length;
+
+    expect(newBookshelf).toBeInstanceOf(Bookshelf);
+    expect(newLength).toEqual(oldLength + 1);
+  });
+
+  test("Test delete Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const bookshelfId = "d5135e3e-646a-55e7-a38d-9724159b7f9f";
+    const oldLength = repo.bookshelves.length;
+
+    await repo.deleteBookshelf(bookshelfId);
+    const newLength = repo.bookshelves.length;
+
+    expect(newLength).toEqual(oldLength - 1);
+  });
+
+  test("Test update Bookshelf", async () => {
+    const repo = new BookRepositoryMock();
+    const dataToUpdate = {
+      read: ["5af7d193-6723-50b5-a041-1478600bf630"],
+      reading: ["7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+      willRead: ["6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6"],
+    };
+
+    const updatedBookshelf = await repo.updateBookshelf(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f",
+      dataToUpdate
+    );
+
+    expect(updatedBookshelf).toBeInstanceOf(Bookshelf);
+    expect(updatedBookshelf.userID).toEqual(
+      "d5135e3e-646a-55e7-a38d-9724159b7f9f"
+    );
+    expect(updatedBookshelf.read).toEqual([
+      "5af7d193-6723-50b5-a041-1478600bf630",
+    ]);
+    expect(updatedBookshelf.reading).toEqual([
+      "7c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+    ]);
+    expect(updatedBookshelf.willRead).toEqual([
+      "6c9ea682-36bb-58ba-b590-eaf2a9c7e0c6",
+    ]);
   });
 });
