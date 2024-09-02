@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ErrorMessage from "../common/ErrorMessage";
+import SucessMessage from "../common/SucessMessage";
 
 const SelectField = (props) => {
 	const [selectedOption, setSelectedOption] = useState("");
 	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
 
 	const handleSelectChange = (event) => {
 		setSelectedOption(event.target.value);
@@ -40,6 +42,10 @@ const SelectField = (props) => {
 						.then((res) => {
 							console.log(res.data);
 							props.updateTables();
+							setSuccess("Livro adicionado à estante com sucesso.");
+							setTimeout(() => {
+								setSuccess("");
+							}, 3000);
 						})
 						.catch((error) => {
 							console.log("Erro ao adicionar livro à estante.");
@@ -49,6 +55,9 @@ const SelectField = (props) => {
 				} else {
 					console.log("Livro já adicionado.");
 					setError("Livro já adicionado.");
+					setTimeout(() => {
+						setError("");
+					}, 3000);
 				}
 			});
 	};
@@ -78,6 +87,7 @@ const SelectField = (props) => {
 			>
 				Confirmar
 			</button>
+			{success && <SucessMessage message={success} />}
 			{error && <ErrorMessage message={error} />}
 		</div>
 	);
