@@ -6,6 +6,7 @@ import BookUpdateForm from "./BookUpdateForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import ErrorMessage from "../common/ErrorMessage";
+import SucessMessage from "../common/SucessMessage";
 
 class BookCard extends React.Component {
 	constructor(props) {
@@ -25,6 +26,7 @@ class BookCard extends React.Component {
 			showUpdateModal: false,
 			isExpanded: false,
 			errorMessage: "",
+			sucessMessage: "",
 		};
 	}
 
@@ -52,13 +54,11 @@ class BookCard extends React.Component {
 				const willRead = bookshelf.willRead;
 
 				if (
-					(
-						!bookshelf.dropped.includes(this.state.id) &&
-						!bookshelf.favorites.includes(this.state.id) &&
-						!bookshelf.read.includes(this.state.id) &&
-						!bookshelf.reading.includes(this.state.id) &&
-						!bookshelf.willRead.includes(this.state.id)
-					)
+					!bookshelf.dropped.includes(this.state.id) &&
+					//!bookshelf.favorites.includes(this.state.id) &&
+					!bookshelf.read.includes(this.state.id) &&
+					!bookshelf.reading.includes(this.state.id) &&
+					!bookshelf.willRead.includes(this.state.id)
 				) {
 					willRead.push(this.state.id);
 
@@ -69,6 +69,10 @@ class BookCard extends React.Component {
 						})
 						.then((res) => {
 							console.log(res.data);
+							this.setState({ sucessMessage: "Livro adicionado" });
+							setTimeout(() => {
+								this.setState({ sucessMessage: "" });
+							}, 3000);
 						})
 						.catch((error) => {
 							console.log(error);
@@ -176,6 +180,9 @@ class BookCard extends React.Component {
 								</button>
 							</div>
 							{errorMessage && <ErrorMessage message={errorMessage} />}
+							{this.state.sucessMessage && (
+								<SucessMessage message={this.state.sucessMessage} />
+							)}
 						</div>
 					)}
 				</div>

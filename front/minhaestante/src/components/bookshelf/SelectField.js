@@ -22,7 +22,9 @@ const SelectField = (props) => {
 
 				if (!goOption.includes(props.bookId)) {
 					goOption.push(props.bookId);
-					originOption.splice(originOption.indexOf(props.bookId), 1);
+					if (selectedOption !== "favorites") {
+						originOption.splice(originOption.indexOf(props.bookId), 1);
+					}
 					const request = {
 						userID: props.userId,
 						[props.bookListName]: originOption,
@@ -61,12 +63,13 @@ const SelectField = (props) => {
 				onChange={handleSelectChange}
 			>
 				<option value="">-- Selecione --</option>
-				<option value="dropped">Abandonado</option>
+				<option value="reading">Lendo</option>
+				<option value="read">Lido</option>
+
 				<option value="favorites">Favoritos</option>
 				<option value="reReading">Re-ler</option>
-				<option value="read">Lido</option>
-				<option value="reading">Lendo</option>
 				<option value="willRead">Vou ler</option>
+				<option value="dropped">Abandonado</option>
 			</select>
 			<button
 				type="button"

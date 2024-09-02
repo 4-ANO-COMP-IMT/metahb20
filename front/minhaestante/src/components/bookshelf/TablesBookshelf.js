@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BookshelfTable from "./TableBookshef";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { FavoriteTable } from "./TableBookshef";
 
 class BookshelfTables extends Component {
 	constructor(props) {
@@ -73,12 +74,12 @@ class BookshelfTables extends Component {
 						/>
 					</motion.li>
 
-					<motion.li key={4} className="item" variants={this.item}>
+					<motion.li key={5} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Lido"
-							bookList={this.state.bookShelf.read}
-							bookListName="read"
+							tableName="Vou ler"
+							bookList={this.state.bookShelf.willRead}
+							bookListName="willRead"
 							updateTables={this.updateTables}
 						/>
 					</motion.li>
@@ -93,22 +94,22 @@ class BookshelfTables extends Component {
 						/>
 					</motion.li>
 
-					<motion.li key={2} className="item" variants={this.item}>
+					<motion.li key={4} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Favoritos"
-							bookList={this.state.bookShelf.favorites}
-							bookListName="favorites"
+							tableName="Lido"
+							bookList={this.state.bookShelf.read}
+							bookListName="read"
 							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
-					<motion.li key={5} className="item" variants={this.item}>
-						<BookshelfTable
+					<motion.li key={2} className="item" variants={this.item}>
+						<FavoriteTable
 							userId={this.props.userId}
-							tableName="Vou ler"
-							bookList={this.state.bookShelf.willRead}
-							bookListName="willRead"
+							tableName="Favoritos"
+							bookList={this.state.bookShelf.favorites}
+							bookListName="favorites"
 							updateTables={this.updateTables}
 						/>
 					</motion.li>
