@@ -11,10 +11,6 @@ class BookshelfTable extends Component {
 		};
 	}
 
-	componentDidMount() {
-		console.log("BookshelfTable: ", this.state.bookList);
-	}
-
 	render() {
 		return (
 			<div>
