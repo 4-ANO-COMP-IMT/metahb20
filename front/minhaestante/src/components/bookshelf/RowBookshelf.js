@@ -42,6 +42,39 @@ class RowBookshelfComponent extends Component {
 			});
 	}
 
+	onClickRemove = () => {
+		axios
+			.get(
+				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+			)
+			.then((res) => {
+				const originOption = res.data.bookshelf[this.props.bookListName];
+				originOption.splice(originOption.indexOf(this.props.bookId), 1);
+				const request = {
+					userID: this.props.userId,
+					[this.props.bookListName]: originOption,
+				};
+				console.log(request);
+
+				// Add confirmation popup before removing the book
+				if (window.confirm("Are you sure you want to remove this book?")) {
+					axios
+						.put(
+							`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`,
+							request
+						)
+						.then((res) => {
+							console.log(res.data);
+							this.props.updateTables();
+						})
+						.catch((error) => {
+							console.log("Erro ao remover livro da estante.");
+							console.log(error);
+						});
+				}
+			});
+	};
+
 	handleShowMove = () => this.setState({ showMoveModal: true });
 	handleCloseMove = () => this.setState({ showMoveModal: false });
 
@@ -61,7 +94,11 @@ class RowBookshelfComponent extends Component {
 					>
 						Transferir
 					</button>
-					<button type="button" className="mx-2  btn btn-primary button-style">
+					<button
+						type="button"
+						className="mx-2  btn btn-primary button-style"
+						onClick={this.onClickRemove}
+					>
 						Remover
 					</button>
 					{this.state.errorMessage && (
@@ -73,7 +110,12 @@ class RowBookshelfComponent extends Component {
 						<Modal.Title>Mover livro</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<SelectField />
+						<SelectField
+							userId={this.state.userId}
+							bookListName={this.props.bookListName}
+							bookId={this.state.id}
+							updateTables={this.props.updateTables}
+						/>
 					</Modal.Body>
 				</Modal>
 			</tr>

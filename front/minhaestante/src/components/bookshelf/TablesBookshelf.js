@@ -50,6 +50,10 @@ class BookshelfTables extends Component {
 			});
 	}
 
+	updateTables = () => {
+		this.fetchBooks();
+	};
+
 	render() {
 		return (
 			<div>
@@ -64,6 +68,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Lendo"
 							bookList={this.state.bookShelf.reading}
+							bookListName="reading"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
@@ -72,6 +78,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Lido"
 							bookList={this.state.bookShelf.read}
+							bookListName="read"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
@@ -80,6 +88,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Re-ler"
 							bookList={this.state.bookShelf.reReading}
+							bookListName="reReading"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
@@ -88,6 +98,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Favoritos"
 							bookList={this.state.bookShelf.favorites}
+							bookListName="favorites"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
@@ -96,6 +108,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Vou ler"
 							bookList={this.state.bookShelf.willRead}
+							bookListName="willRead"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 
@@ -104,6 +118,8 @@ class BookshelfTables extends Component {
 							userId={this.props.userId}
 							tableName="Abandonado"
 							bookList={this.state.bookShelf.dropped}
+							bookListName="dropped"
+							updateTables={this.updateTables}
 						/>
 					</motion.li>
 				</motion.ul>

@@ -35,6 +35,8 @@ class BookshelfTable extends Component {
 									userId={this.props.userId}
 									id={id}
 									key={index}
+									bookListName={this.props.bookListName}
+									updateTables={this.props.updateTables}
 								/>
 							))}
 					</tbody>
