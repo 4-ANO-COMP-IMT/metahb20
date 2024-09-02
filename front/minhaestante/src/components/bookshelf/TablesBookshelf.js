@@ -40,6 +40,7 @@ class BookshelfTables extends Component {
 				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
+				console.log(res.data.bookshelf);
 				setTimeout(() => {
 					this.setState({ bookShelf: res.data.bookshelf });
 				});
@@ -69,7 +70,7 @@ class BookshelfTables extends Component {
 					<motion.li key={4} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Ler"
+							tableName="Lido"
 							bookList={this.state.bookShelf.read}
 						/>
 					</motion.li>
@@ -77,7 +78,7 @@ class BookshelfTables extends Component {
 					<motion.li key={3} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Relendo"
+							tableName="Re-ler"
 							bookList={this.state.bookShelf.reReading}
 						/>
 					</motion.li>
@@ -93,7 +94,7 @@ class BookshelfTables extends Component {
 					<motion.li key={5} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Ira Ler"
+							tableName="Vou ler"
 							bookList={this.state.bookShelf.willRead}
 						/>
 					</motion.li>
@@ -101,7 +102,7 @@ class BookshelfTables extends Component {
 					<motion.li key={6} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Largado"
+							tableName="Abandonado"
 							bookList={this.state.bookShelf.dropped}
 						/>
 					</motion.li>

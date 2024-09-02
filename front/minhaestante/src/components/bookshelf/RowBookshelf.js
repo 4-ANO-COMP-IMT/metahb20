@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import ErrorMessage from "../common/ErrorMessage";
 import ErrorManager from "../../shared/error/ErrorManager";
+import SelectField from "./SelectField";
+import { Modal } from "react-bootstrap";
 
 class RowBookshelfComponent extends Component {
 	constructor(props) {
@@ -15,6 +17,7 @@ class RowBookshelfComponent extends Component {
 			genre: "",
 			rating: "",
 			errorMessage: "",
+			showMoveModal: false,
 		};
 	}
 
@@ -39,6 +42,9 @@ class RowBookshelfComponent extends Component {
 			});
 	}
 
+	handleShowMove = () => this.setState({ showMoveModal: true });
+	handleCloseMove = () => this.setState({ showMoveModal: false });
+
 	render() {
 		return (
 			<tr>
@@ -51,16 +57,25 @@ class RowBookshelfComponent extends Component {
 					<button
 						type="button"
 						className="mx-2 my-1 btn btn-primary button-style"
+						onClick={this.handleShowMove}
 					>
-						Remover
+						Transferir
 					</button>
 					<button type="button" className="mx-2  btn btn-primary button-style">
-						Avaliar
+						Remover
 					</button>
 					{this.state.errorMessage && (
 						<ErrorMessage message={this.state.errorMessage} />
 					)}
 				</td>
+				<Modal show={this.state.showMoveModal} onHide={this.handleCloseMove}>
+					<Modal.Header closeButton>
+						<Modal.Title>Mover livro</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<SelectField />
+					</Modal.Body>
+				</Modal>
 			</tr>
 		);
 	}
