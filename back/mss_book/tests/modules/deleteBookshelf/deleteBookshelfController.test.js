@@ -45,7 +45,6 @@ describe("Tests for DeleteBookshelfController", () => {
     });
 
     const response = await controller.call(request);
-    console.log(response.body);
     expect(response.statusCode).toEqual(404);
     expect(response.body).toEqual("No items found for UserID");
   });

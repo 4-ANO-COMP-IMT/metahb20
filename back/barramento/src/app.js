@@ -16,7 +16,6 @@ app.get("/", (req, res) => {
 app.post("/event", async (req, res) => {
   try {
     if (req.body.type === "UserCreated") {
-      console.log(req.body.userID);
       const response = await axios.post(mssBookURL + "/bookshelf", req.body);
       res.status(response.status).send(response.data);
     }

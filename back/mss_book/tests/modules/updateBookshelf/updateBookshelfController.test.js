@@ -65,7 +65,6 @@ describe("Tests for UpdateBookshelfController", () => {
     });
 
     const response = await controller.call(request);
-    console.log(response);
     expect(response.statusCode).toEqual(400);
     expect(response.body).toEqual(
       "Field read isn't in the right type.\n Received: string.\n Expected: array"

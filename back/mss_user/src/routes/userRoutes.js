@@ -21,14 +21,12 @@ routes.get("/user/:id", async (req, res) => {
 });
 routes.delete("/user/:id", async (req, res) => {
   const event = new HttpRequest({ userId: req.params.id });
-  console.log(event);
   const response = await deleteUserPresenter(event, repo);
   res.status(response.statusCode).json(response.body);
 });
 
 routes.put("/user", async (req, res) => {
   const event = new HttpRequest(req.body);
-  console.log(event);
   const response = await updateUserPresenter(event, repo);
   res.status(response.statusCode).json(response.body);
 });

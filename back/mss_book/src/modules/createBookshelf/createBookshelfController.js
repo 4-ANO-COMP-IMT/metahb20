@@ -29,8 +29,6 @@ export class CreateBookshelfController {
         );
       }
 
-      console.log("request.data.userID", request.data.userID);
-
       const bookshelf = await this.usecase.call(request.data.userID);
 
       const viewmodel = {

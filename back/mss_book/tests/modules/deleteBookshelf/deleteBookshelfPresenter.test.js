@@ -11,7 +11,6 @@ describe("Tests for DeleteBookshelf Presenter", () => {
     });
 
     const response = await deleteBookshelfPresenter(request, repo);
-    console.log(response);
     expect(response.statusCode).toEqual(200);
     expect(response.body["message"]).toEqual("the bookshelf was deleted");
     expect(response.body["bookshelf"]["userID"]).toEqual(
