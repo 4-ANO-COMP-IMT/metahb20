@@ -1,6 +1,8 @@
 import { User } from "../../shared/domain/entities/user.js";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 const eventBusURL = process.env.EVENTBUS_URL;
 export class CreateUserUsecase {
@@ -13,11 +15,10 @@ export class CreateUserUsecase {
 
     const user = new User(userId, name, email, favoriteGenre, favoriteBook);
 
-    const newUserID = user.userId;
     try {
-      const response = await axios.post(eventBusURL, {
+      await axios.post(eventBusURL, {
         type: "UserCreated",
-        userID: newUserID,
+        userID: userId,
       });
     } catch (err) {}
     return this.repo.createUser(user);

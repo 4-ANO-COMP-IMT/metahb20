@@ -24,16 +24,18 @@ routes.get("/book/:bookId", async (req, res) => {
   res.status(response.statusCode).send(response.body);
 });
 
-routes.post("/book", async (req, res) => {
+routes.post("/bookshelf", async (req, res) => {
+  console.log("req.body", req.body);
+
   const request = new HttpRequest(req.body);
-  const response = await createBookPresenter(request, repo);
+  const response = await createBookshelfPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);
 });
 
-routes.post("/bookshelf", async (req, res) => {
+routes.post("/book", async (req, res) => {
   const request = new HttpRequest(req.body);
-  const response = await createBookshelfPresenter(request, repo);
+  const response = await createBookPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);
 });
