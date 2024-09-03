@@ -66,4 +66,3 @@ No projeto, você pode executar os seguintes scripts:
 - **`npm start`:** Inicia o servidor de desenvolvimento.
 - **`npm run build`:** Cria a versão de produção da aplicação.
 - **`npm test`:** Executa os testes unitários.
-- **`npm run eject`:** Ejeção de configurações padrão do `create-react-app`.
