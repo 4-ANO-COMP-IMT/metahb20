@@ -24,16 +24,16 @@ routes.get("/book/:bookId", async (req, res) => {
   res.status(response.statusCode).send(response.body);
 });
 
-routes.post("/book", async (req, res) => {
+routes.post("/bookshelf", async (req, res) => {
   const request = new HttpRequest(req.body);
-  const response = await createBookPresenter(request, repo);
+  const response = await createBookshelfPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);
 });
 
-routes.post("/bookshelf", async (req, res) => {
+routes.post("/book", async (req, res) => {
   const request = new HttpRequest(req.body);
-  const response = await createBookshelfPresenter(request, repo);
+  const response = await createBookPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);
 });
@@ -59,8 +59,8 @@ routes.delete("/book", async (req, res) => {
   res.status(response.statusCode).send(response.body);
 });
 
-routes.delete("/bookshelf", async (req, res) => {
-  const request = new HttpRequest(req.body);
+routes.delete("/bookshelf/:userID", async (req, res) => {
+  const request = new HttpRequest({ userID: req.params.userID });
   const response = await deleteBookshelfPresenter(request, repo);
 
   res.status(response.statusCode).send(response.body);

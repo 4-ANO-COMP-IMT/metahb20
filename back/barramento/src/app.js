@@ -5,15 +5,34 @@ import axios from "axios";
 
 const app = express();
 app.use(express.json());
+const EVENTBUS_PORT = process.env.EVENTBUS_PORT;
+const mssUserURL = process.env.MSSUSER_URL;
+const mssBookURL = process.env.MSSBOOK_URL;
 
 app.get("/", (req, res) => {
   res.send("EventBus is running...");
 });
 
 app.post("/event", async (req, res) => {
-  const event = req.body;
-  console.log("Received event:", event);
-  await axios.post(`${process.env.POSTS_SERVICE_URL_MSS1}/event`, event);
-  await axios.post(`${process.env.POSTS_SERVICE_URL_MSS2}/event`, event);
-  await axios.post(`${process.env.POSTS_SERVICE_URL_MSS3}/event`, event);
+  try {
+    if (req.body.type === "UserCreated") {
+      const response = await axios.post(mssBookURL + "/bookshelf", req.body);
+      res.status(response.status).send(response.data);
+    }
+
+    if (req.body.type === "UserDeleted") {
+      console.log(req.body.userID);
+
+      const response = await axios.delete(
+        mssBookURL + "/bookshelf/" + req.body.userID
+      );
+      res.status(response.status).send(response.data);
+    }
+  } catch {
+    res.status(500).send("MSS is unavailable");
+  }
 });
+
+app.listen(EVENTBUS_PORT, () =>
+  console.log(`Barramento na Porta: ${EVENTBUS_PORT}`)
+);
