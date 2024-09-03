@@ -19,6 +19,15 @@ app.post("/event", async (req, res) => {
       const response = await axios.post(mssBookURL + "/bookshelf", req.body);
       res.status(response.status).send(response.data);
     }
+
+    if (req.body.type === "UserDeleted") {
+      console.log(req.body.userID);
+
+      const response = await axios.delete(
+        mssBookURL + "/bookshelf/" + req.body.userID
+      );
+      res.status(response.status).send(response.data);
+    }
   } catch {
     res.status(500).send("MSS is unavailable");
   }
