@@ -11,6 +11,7 @@ import {
 	faPenToSquare,
 	faTrash,
 	faBook,
+	faBookSkull,
 } from "@fortawesome/free-solid-svg-icons";
 import ErrorMessage from "../common/ErrorMessage";
 import SucessMessage from "../common/SucessMessage";
@@ -138,7 +139,11 @@ class BookCard extends React.Component {
 				<div className="card-body">
 					<div className="card-title d-flex justify-content-between align-items-center">
 						<h5 className="mb-0">
-							<FontAwesomeIcon icon={faBook} />
+							{this.state.author === "Pressman" ? (
+								<FontAwesomeIcon icon={faBookSkull} />
+							) : (
+								<FontAwesomeIcon icon={faBook} />
+							)}
 							&nbsp;{title}
 						</h5>
 						<button
