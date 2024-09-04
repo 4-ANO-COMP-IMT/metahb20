@@ -25,7 +25,7 @@ const BookShelfPage = () => {
 			<div className="row justify-content-center headline">
 				<div className="col-12">
 					<h1 className="display-5 text-center">
-						<strong>SUA ESTANTE</strong>
+						<strong>MINHA ESTANTE</strong>
 					</h1>
 				</div>
 			</div>
