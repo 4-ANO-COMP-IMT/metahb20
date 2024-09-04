@@ -56,7 +56,6 @@ class RowBookshelfComponent extends Component {
 				};
 				console.log(request);
 
-				// Add confirmation popup before removing the book
 				if (window.confirm("Are you sure you want to remove this book?")) {
 					axios
 						.put(
