@@ -164,9 +164,7 @@ class BookCard extends React.Component {
 								<br />
 								Edição: {edition}
 								<br />
-								Avaliação: {rating}
-								<br />
-								id: {id}
+								ID: {id}
 								<br />
 							</p>
 							<div className="text">
