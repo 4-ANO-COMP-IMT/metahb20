@@ -2,6 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import BookshelfTables from "../components/bookshelf/TablesBookshelf";
 import FloatingMenu from "../components/common/FloatingMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faRightFromBracket,
+	faUserPen,
+	faBook,
+} from "@fortawesome/free-solid-svg-icons";
 
 const BookShelfPage = () => {
 	const { userId } = useParams();
@@ -35,21 +41,24 @@ const BookShelfPage = () => {
 					className="btn btn-primary button-style2 m-2"
 					onClick={onClickAddBook}
 				>
-					Adicionar livro a estante
+					<FontAwesomeIcon icon={faBook} />
+					&nbsp;Adicionar livro
 				</button>
 
 				<button
 					className="btn btn-primary button-style2 m-2"
 					onClick={onClickUpdateUser}
 				>
-					Modificar usuario
+					<FontAwesomeIcon icon={faUserPen} />
+					&nbsp;Modificar usuario
 				</button>
 
 				<button
 					className="btn btn-primary button-style2 m-2"
 					onClick={onClickLogOut}
 				>
-					Logout
+					<FontAwesomeIcon icon={faRightFromBracket} />
+					&nbsp;Logout
 				</button>
 			</FloatingMenu>
 
