@@ -6,7 +6,6 @@ import SelectField from "./SelectField";
 import { Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft, faRightLeft } from "@fortawesome/free-solid-svg-icons";
-//
 
 class RowBookshelfComponent extends Component {
 	constructor(props) {
