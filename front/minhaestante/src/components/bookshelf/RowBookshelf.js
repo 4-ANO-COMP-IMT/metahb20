@@ -85,7 +85,7 @@ class RowBookshelfComponent extends Component {
 				<td>{this.state.author}</td>
 				<td>{this.state.pages}</td>
 				<td>{this.state.genre}</td>
-				<td>{this.state.rating}</td>
+
 				<td>
 					<button
 						type="button"
@@ -205,7 +205,7 @@ export class RowFavoritesComponent extends Component {
 				<td>{this.state.author}</td>
 				<td>{this.state.pages}</td>
 				<td>{this.state.genre}</td>
-				<td>{this.state.rating}</td>
+
 				<td>
 					<button
 						type="button"

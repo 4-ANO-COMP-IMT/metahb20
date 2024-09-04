@@ -25,7 +25,7 @@ class BookshelfTable extends Component {
 							<th scope="col">Autor</th>
 							<th scope="col">Páginas</th>
 							<th scope="col">Gênero</th>
-							<th scope="col">Avaliação</th>
+
 							<th scope="col" />
 						</tr>
 					</thead>
@@ -72,7 +72,7 @@ export class FavoriteTable extends Component {
 							<th scope="col">Autor</th>
 							<th scope="col">Páginas</th>
 							<th scope="col">Gênero</th>
-							<th scope="col">Avaliação</th>
+
 							<th scope="col" />
 						</tr>
 					</thead>
