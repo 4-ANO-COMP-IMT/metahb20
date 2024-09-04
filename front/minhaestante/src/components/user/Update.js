@@ -185,7 +185,7 @@ class UpdateForm extends React.Component {
 									className="btn btn-primary col-3  button-style"
 									onClick={this.onClickShelf}
 								>
-									Ver estante
+									Voltar à estante
 								</button>
 							</div>
 						</div>
