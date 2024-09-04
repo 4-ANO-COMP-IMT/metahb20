@@ -87,7 +87,7 @@ class BookshelfTables extends Component {
 					<motion.li key={3} className="item" variants={this.item}>
 						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Re-ler"
+							tableName="Reler"
 							bookList={this.state.bookShelf.reReading}
 							bookListName="reReading"
 							updateTables={this.updateTables}
