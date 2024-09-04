@@ -68,11 +68,11 @@ export class FavoriteTable extends Component {
 				<table className="table table-rounded responsive-table">
 					<thead className="thead-dark">
 						<tr>
-							<th scope="col">Title</th>
-							<th scope="col">Author</th>
-							<th scope="col">Pages</th>
-							<th scope="col">Genre</th>
-							<th scope="col">Rating</th>
+							<th scope="col">Título</th>
+							<th scope="col">Autor</th>
+							<th scope="col">Páginas</th>
+							<th scope="col">Gênero</th>
+							<th scope="col">Avaliação</th>
 							<th scope="col" />
 						</tr>
 					</thead>
