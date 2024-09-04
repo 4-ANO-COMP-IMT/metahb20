@@ -75,11 +75,11 @@ class BookshelfTables extends Component {
 					</motion.li>
 
 					<motion.li key={2} className="item" variants={this.item}>
-						<FavoriteTable
+						<BookshelfTable
 							userId={this.props.userId}
-							tableName="Favoritos"
-							bookList={this.state.bookShelf.favorites}
-							bookListName="favorites"
+							tableName="Vou ler"
+							bookList={this.state.bookShelf.willRead}
+							bookListName="willRead"
 							updateTables={this.updateTables}
 						/>
 					</motion.li>
@@ -105,11 +105,11 @@ class BookshelfTables extends Component {
 					</motion.li>
 
 					<motion.li key={5} className="item" variants={this.item}>
-						<BookshelfTable
+						<FavoriteTable
 							userId={this.props.userId}
-							tableName="Vou ler"
-							bookList={this.state.bookShelf.willRead}
-							bookListName="willRead"
+							tableName="Favoritos"
+							bookList={this.state.bookShelf.favorites}
+							bookListName="favorites"
 							updateTables={this.updateTables}
 						/>
 					</motion.li>
