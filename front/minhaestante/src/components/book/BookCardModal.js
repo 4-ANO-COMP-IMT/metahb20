@@ -4,7 +4,13 @@ import axios from "axios";
 import { Modal } from "react-bootstrap";
 import BookUpdateForm from "./BookUpdateForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+	faChevronDown,
+	faChevronUp,
+	faPlus,
+	faPenToSquare,
+	faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import ErrorMessage from "../common/ErrorMessage";
 import SucessMessage from "../common/SucessMessage";
 
@@ -164,19 +170,19 @@ class BookCard extends React.Component {
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.onClickAdd}
 								>
-									Adicionar
+									<FontAwesomeIcon icon={faPlus} beat />
 								</button>
 								<button
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.handleShowUpdate}
 								>
-									Editar
+									<FontAwesomeIcon icon={faPenToSquare} />
 								</button>
 								<button
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.onClickDelete}
 								>
-									Deletar
+									<FontAwesomeIcon icon={faTrash} />
 								</button>
 							</div>
 							{errorMessage && <ErrorMessage message={errorMessage} />}
