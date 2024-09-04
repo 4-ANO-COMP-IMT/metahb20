@@ -5,7 +5,7 @@ import ErrorManager from "../../shared/error/ErrorManager";
 import SelectField from "./SelectField";
 import { Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import { faDeleteLeft, faRightLeft } from "@fortawesome/free-solid-svg-icons";
 //
 
 class RowBookshelfComponent extends Component {
@@ -101,7 +101,7 @@ class RowBookshelfComponent extends Component {
 						className="mx-2  btn btn-primary button-style"
 						onClick={this.onClickRemove}
 					>
-						<FontAwesomeIcon icon={faTrash} />
+						<FontAwesomeIcon icon={faDeleteLeft} />
 					</button>
 					{this.state.errorMessage && (
 						<ErrorMessage message={this.state.errorMessage} />
@@ -214,7 +214,7 @@ export class RowFavoritesComponent extends Component {
 						className="mx-2  btn btn-primary button-style"
 						onClick={this.onClickRemove}
 					>
-						<FontAwesomeIcon icon={faTrash} />
+						<FontAwesomeIcon icon={faDeleteLeft} />
 					</button>
 					{this.state.errorMessage && (
 						<ErrorMessage message={this.state.errorMessage} />
