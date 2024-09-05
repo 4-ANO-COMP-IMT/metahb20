@@ -6,7 +6,7 @@ on:
       - feat-deploy-front
     paths:
       - front/minhaestante/**
-      - github/*
+      - .github/*
 
   workflow_dispatch:
 
