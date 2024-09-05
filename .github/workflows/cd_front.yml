@@ -46,7 +46,7 @@ jobs:
 
       - name: Installing Dependencies
         run: |
-          cd front/iac
+          cd front/minhaestante/iac
           npm install
           npm install -g aws-cdk
 
