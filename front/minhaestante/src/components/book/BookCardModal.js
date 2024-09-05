@@ -127,9 +127,7 @@ class BookCard extends React.Component {
 			author,
 			pages,
 			genre,
-			publicationDate,
 			publisher,
-			rating,
 		} = this.props;
 
 		const { isExpanded, errorMessage } = this.state;
