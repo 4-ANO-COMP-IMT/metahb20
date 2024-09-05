@@ -45,7 +45,8 @@ class RegistrationForm extends React.Component {
 
 				setTimeout(() => {
 					this.setState({ successMessage: "" });
-				}, 10000);
+					window.location.href = "/bookshelf/" + res.data.user.userId;
+				}, 1000);
 			})
 			.catch((error) => {
 				console.error(error);
