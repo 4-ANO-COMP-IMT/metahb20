@@ -3,12 +3,15 @@ import BookshelfTable from "./TableBookshef";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { FavoriteTable } from "./TableBookshef";
+import ErrorMessage from "../common/ErrorMessage";
+import errorMessageTranslator from "../../shared/error/ErrorManager";
 
 class BookshelfTables extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			bookShelf: {},
+			errorMessage: "",
 		};
 	}
 
@@ -48,6 +51,11 @@ class BookshelfTables extends Component {
 			})
 			.catch((err) => {
 				console.log("fetchBooks: ", err);
+				this.setState({
+					errorMessage: errorMessageTranslator.translateErrorMessage(
+						err.message
+					),
+				});
 			});
 	}
 
@@ -58,6 +66,9 @@ class BookshelfTables extends Component {
 	render() {
 		return (
 			<div>
+				{this.state.errorMessage && (
+					<ErrorMessage message={this.state.errorMessage} />
+				)}
 				<motion.ul
 					className="container"
 					variants={this.container}
