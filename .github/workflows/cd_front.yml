@@ -83,6 +83,6 @@ jobs:
           AWS_BUCKET=$(aws cloudformation --region ${{env.AWS_REGION}} describe-stacks --stack-name ${{env.STACK_NAME}} --query "Stacks[0].Outputs[?OutputKey=='${{env.PROJECT_NAME}}BucketName${{github.ref_name}}'].OutputValue" --output text)
           echo "AWS_BUCKET='$AWS_BUCKET'" >> $GITHUB_ENV
       - name: Upload to S3
-        run: aws s3 cp front/dist s3://${{env.AWS_BUCKET}}/ --recursive --region sa-east-1
+        run: aws s3 cp front/minhaestante/build s3://${{env.AWS_BUCKET}}/ --recursive --region sa-east-1
       - name: Clear CDN cache
         run: aws cloudfront create-invalidation --distribution-id ${{env.CLOUD_FRONT_ID}} --paths "/*" --region us-east-1
