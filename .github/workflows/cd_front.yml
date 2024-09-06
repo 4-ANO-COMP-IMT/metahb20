@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - dev
-      - feat-deploy-front
+
     paths:
       - front/minhaestante/**
       - .github/**
