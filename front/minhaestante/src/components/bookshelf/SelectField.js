@@ -71,7 +71,6 @@ const SelectField = (props) => {
 				value={selectedOption}
 				onChange={handleSelectChange}
 			>
-				<option value="">-- Selecione --</option>
 				<option value="reading">Lendo</option>
 				<option value="read">Lido</option>
 
