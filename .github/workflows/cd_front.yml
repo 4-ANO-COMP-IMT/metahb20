@@ -71,7 +71,7 @@ jobs:
 
       - name: Deploy with CDK
         run: |
-          cd front/iac
+          cd front/minhaestante/iac
           cdk synth
           cdk deploy --require-approval never
       - name: Set CloudFront ID
