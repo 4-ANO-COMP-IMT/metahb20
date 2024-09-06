@@ -18,19 +18,20 @@ const SelectField = (props) => {
 				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${props.userId}`
 			)
 			.then((res) => {
-				const goOption = res.data.bookshelf[selectedOption];
+				const selectedlist = selectedOption || "willRead";
+				const goOption = res.data.bookshelf[selectedlist];
 				const originOption = res.data.bookshelf[props.bookListName];
 				console.log(props.bookId);
 
 				if (!goOption.includes(props.bookId)) {
 					goOption.push(props.bookId);
-					if (selectedOption !== "favorites") {
+					if (selectedlist !== "favorites") {
 						originOption.splice(originOption.indexOf(props.bookId), 1);
 					}
 					const request = {
 						userID: props.userId,
 						[props.bookListName]: originOption,
-						[selectedOption]: goOption,
+						[selectedlist]: goOption,
 					};
 					console.log(request);
 
