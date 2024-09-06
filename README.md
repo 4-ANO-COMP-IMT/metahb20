@@ -30,7 +30,7 @@ O usuário pode adicionar novos livros, escolher a lista mais adequada para sua 
 
 ### O que é?
 
-A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas de acordo com sua necessidade, dando liberdade para o usuário acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade, atribuindo avaliações a suas leituras, e interagindo com a comunidade. A aplicação pode ser acessada em qualquer lugar, e é uma boa forma de ter com sí sua lista de leitura, ou sugestões de amigos, em qualquer lugar.
+A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas, de acordo com sua necessidade, dando liberdade para acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade, atribuindo avaliações às suas leituras e interagindo com outros membros. A aplicação pode ser acessada em qualquer lugar, o que é uma boa forma para ter sua lista de leitura ou sugestões de amigos sempre à disposição.
 
 ### Motivação
 
