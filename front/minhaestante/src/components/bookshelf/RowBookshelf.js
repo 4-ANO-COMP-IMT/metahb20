@@ -78,7 +78,10 @@ class RowBookshelfComponent extends Component {
 	};
 
 	handleShowMove = () => this.setState({ showMoveModal: true });
-	handleCloseMove = () => this.setState({ showMoveModal: false });
+	handleCloseMove = () => {
+		this.setState({ showMoveModal: false });
+		window.location.reload();
+	};
 
 	render() {
 		return (
