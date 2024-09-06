@@ -4,6 +4,8 @@ import ErrorMessage from "../common/ErrorMessage";
 import ErrorManager from "../../shared/error/ErrorManager";
 import SelectField from "./SelectField";
 import { Modal } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDeleteLeft, faRightLeft } from "@fortawesome/free-solid-svg-icons";
 
 class RowBookshelfComponent extends Component {
 	constructor(props) {
@@ -56,7 +58,6 @@ class RowBookshelfComponent extends Component {
 				};
 				console.log(request);
 
-				// Add confirmation popup before removing the book
 				if (window.confirm("Are you sure you want to remove this book?")) {
 					axios
 						.put(
@@ -85,21 +86,21 @@ class RowBookshelfComponent extends Component {
 				<td>{this.state.author}</td>
 				<td>{this.state.pages}</td>
 				<td>{this.state.genre}</td>
-				<td>{this.state.rating}</td>
+
 				<td>
 					<button
 						type="button"
 						className="mx-2 my-1 btn btn-primary button-style"
 						onClick={this.handleShowMove}
 					>
-						Transferir
+						<FontAwesomeIcon icon={faRightLeft} />
 					</button>
 					<button
 						type="button"
 						className="mx-2  btn btn-primary button-style"
 						onClick={this.onClickRemove}
 					>
-						Remover
+						<FontAwesomeIcon icon={faDeleteLeft} />
 					</button>
 					{this.state.errorMessage && (
 						<ErrorMessage message={this.state.errorMessage} />
@@ -205,14 +206,14 @@ export class RowFavoritesComponent extends Component {
 				<td>{this.state.author}</td>
 				<td>{this.state.pages}</td>
 				<td>{this.state.genre}</td>
-				<td>{this.state.rating}</td>
+
 				<td>
 					<button
 						type="button"
 						className="mx-2  btn btn-primary button-style"
 						onClick={this.onClickRemove}
 					>
-						Remover dos favoritos
+						<FontAwesomeIcon icon={faDeleteLeft} />
 					</button>
 					{this.state.errorMessage && (
 						<ErrorMessage message={this.state.errorMessage} />

@@ -7,7 +7,6 @@ import SelectField from "../common/SelectField";
 import SucessMessage from "../common/SucessMessage";
 import ErrorMessage from "../common/ErrorMessage";
 import errorMessageTranslator from "../../shared/error/ErrorManager";
-import AvaliationField from "../common/AvaliationFild";
 
 class BookForm extends React.Component {
 	constructor(props) {
@@ -46,7 +45,7 @@ class BookForm extends React.Component {
 
 		console.log(book);
 
-		const response = await axios
+		await axios
 			.post(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, book)
 			.then((res) => {
 				this.setState({

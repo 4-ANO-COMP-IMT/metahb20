@@ -76,7 +76,7 @@ const SelectField = (props) => {
 				<option value="read">Lido</option>
 
 				<option value="favorites">Favoritos</option>
-				<option value="reReading">Re-ler</option>
+				<option value="reReading">Reler</option>
 				<option value="willRead">Vou ler</option>
 				<option value="dropped">Abandonado</option>
 			</select>

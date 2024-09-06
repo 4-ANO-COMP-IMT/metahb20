@@ -63,7 +63,7 @@ class BookUpdateForm extends React.Component {
 
 		console.log(book);
 
-		const response = await axios
+		await axios
 			.put(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, book)
 			.then((res) => {
 				this.setState({
@@ -100,7 +100,7 @@ class BookUpdateForm extends React.Component {
 	serchBook = async (event) => {
 		if (this.state.id !== "") {
 			console.log(this.state.id);
-			const response = await axios
+			await axios
 				.get(
 					`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.id}`
 				)
