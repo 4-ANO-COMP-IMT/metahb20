@@ -65,6 +65,7 @@ export class UserRepositoryMock {
     newFavoriteBook = null
   ) {
     const user = this.users.find((user) => user.userId === userId);
+    if (!user) return null;
     if (newName) user.name = newName;
     if (newEmail) user.email = newEmail;
     if (newFavoriteGenres) user.favoriteGenres = newFavoriteGenres;

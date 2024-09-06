@@ -4,7 +4,15 @@ import axios from "axios";
 import { Modal } from "react-bootstrap";
 import BookUpdateForm from "./BookUpdateForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+	faChevronDown,
+	faChevronUp,
+	faPlus,
+	faPenToSquare,
+	faTrash,
+	faBook,
+	faBookSkull,
+} from "@fortawesome/free-solid-svg-icons";
 import ErrorMessage from "../common/ErrorMessage";
 import SucessMessage from "../common/SucessMessage";
 
@@ -119,9 +127,7 @@ class BookCard extends React.Component {
 			author,
 			pages,
 			genre,
-			publicationDate,
 			publisher,
-			rating,
 		} = this.props;
 
 		const { isExpanded, errorMessage } = this.state;
@@ -130,7 +136,14 @@ class BookCard extends React.Component {
 			<div className="card">
 				<div className="card-body">
 					<div className="card-title d-flex justify-content-between align-items-center">
-						<h5 className="mb-0">{title}</h5>
+						<h5 className="mb-0">
+							{this.state.author === "Pressman" ? (
+								<FontAwesomeIcon icon={faBookSkull} />
+							) : (
+								<FontAwesomeIcon icon={faBook} />
+							)}
+							&nbsp;{title}
+						</h5>
 						<button
 							className="btn btn-primary button-style2"
 							onClick={this.toggleExpand}
@@ -154,9 +167,7 @@ class BookCard extends React.Component {
 								<br />
 								Edição: {edition}
 								<br />
-								Avaliação: {rating}
-								<br />
-								id: {id}
+								ID: {id}
 								<br />
 							</p>
 							<div className="text">
@@ -164,19 +175,19 @@ class BookCard extends React.Component {
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.onClickAdd}
 								>
-									Adicionar
+									<FontAwesomeIcon icon={faPlus} beat />
 								</button>
 								<button
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.handleShowUpdate}
 								>
-									Editar
+									<FontAwesomeIcon icon={faPenToSquare} />
 								</button>
 								<button
 									className="btn btn-primary button-style2 m-2"
 									onClick={this.onClickDelete}
 								>
-									Deletar
+									<FontAwesomeIcon icon={faTrash} />
 								</button>
 							</div>
 							{errorMessage && <ErrorMessage message={errorMessage} />}

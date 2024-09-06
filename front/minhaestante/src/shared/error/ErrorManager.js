@@ -25,4 +25,5 @@ function translateErrorMessage(error) {
 	return errorMessages[error] || error;
 }
 
-export default { translateErrorMessage };
+const ErrorManager = { translateErrorMessage };
+export default ErrorManager;

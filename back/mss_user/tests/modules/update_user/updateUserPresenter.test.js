@@ -1,6 +1,7 @@
 import { updateUserPresenter } from "../../../src/modules/updateUser/updateUserPresenter.js";
 import { HttpRequest } from "../../../src/shared/helpers/externalInterfaces/httpModels.js";
 import { describe, test, expect } from "vitest";
+import { UserRepositoryMock } from "../../../src/shared/infra/repositories/userRepositoryMock.js";
 
 describe("Tests for UpdateUser Presenter", () => {
   test("Test UpdateUser Presenter", async () => {
@@ -11,8 +12,9 @@ describe("Tests for UpdateUser Presenter", () => {
       new_genre: "Conto",
       new_favoriteBook: "Phasma",
     };
+    const repo = new UserRepositoryMock();
     const event = new HttpRequest(example);
-    const response = await updateUserPresenter(event);
+    const response = await updateUserPresenter(event, repo);
     expect(response.statusCode).toBe(200);
     expect(response.body.message).toBe("the user was updated");
     expect(response.body["user"]["userId"]).toBe(

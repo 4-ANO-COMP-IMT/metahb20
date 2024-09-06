@@ -4,6 +4,11 @@ import BookForm from "../components/book/BookForm";
 import BookFinder from "../components/book/BookAll";
 import { useParams } from "react-router-dom";
 import FloatingMenu from "../components/common/FloatingMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faFileCirclePlus,
+	faCircleLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const BookPage = () => {
 	const [showAddModal, setShowAddModal] = useState(false);
@@ -30,14 +35,16 @@ const BookPage = () => {
 						className="btn btn-primary button-style2 m-2"
 						onClick={handleShowAdd}
 					>
-						Adicionar novo livro ao acervo
+						<FontAwesomeIcon icon={faFileCirclePlus} />
+						&nbsp; Adicionar novo livro ao acervo
 					</button>
 
 					<button
 						className="btn btn-primary button-style2 m-2"
 						onClick={OnClickShelf}
 					>
-						Voltar para a estante
+						<FontAwesomeIcon icon={faCircleLeft} />
+						&nbsp; Voltar para a estante
 					</button>
 				</FloatingMenu>
 			</div>

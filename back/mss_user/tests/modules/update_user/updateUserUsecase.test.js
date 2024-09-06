@@ -45,7 +45,7 @@ describe("Tests for Update User Usecase", () => {
 
     await expect(
       usecase.call("d5135e3e-646a-55e7-a38d-9724159b7f9a", "Amy Castro")
-    ).rejects.toThrow("User not found");
+    ).rejects.toThrow("No items found for userId");
   });
 
   test("Test updateUserUsecase userId not valid", async () => {

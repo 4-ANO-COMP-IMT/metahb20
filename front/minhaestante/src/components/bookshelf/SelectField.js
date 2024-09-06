@@ -18,19 +18,20 @@ const SelectField = (props) => {
 				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${props.userId}`
 			)
 			.then((res) => {
-				const goOption = res.data.bookshelf[selectedOption];
+				const selectedlist = selectedOption || "willRead";
+				const goOption = res.data.bookshelf[selectedlist];
 				const originOption = res.data.bookshelf[props.bookListName];
 				console.log(props.bookId);
 
 				if (!goOption.includes(props.bookId)) {
 					goOption.push(props.bookId);
-					if (selectedOption !== "favorites") {
+					if (selectedlist !== "favorites") {
 						originOption.splice(originOption.indexOf(props.bookId), 1);
 					}
 					const request = {
 						userID: props.userId,
 						[props.bookListName]: originOption,
-						[selectedOption]: goOption,
+						[selectedlist]: goOption,
 					};
 					console.log(request);
 
@@ -42,7 +43,7 @@ const SelectField = (props) => {
 						.then((res) => {
 							console.log(res.data);
 							props.updateTables();
-							setSuccess("Livro adicionado à estante com sucesso.");
+							window.location.reload();
 							setTimeout(() => {
 								setSuccess("");
 							}, 3000);
@@ -76,7 +77,7 @@ const SelectField = (props) => {
 				<option value="read">Lido</option>
 
 				<option value="favorites">Favoritos</option>
-				<option value="reReading">Re-ler</option>
+				<option value="reReading">Reler</option>
 				<option value="willRead">Vou ler</option>
 				<option value="dropped">Abandonado</option>
 			</select>
