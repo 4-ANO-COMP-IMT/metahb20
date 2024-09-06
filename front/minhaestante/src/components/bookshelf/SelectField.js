@@ -43,7 +43,7 @@ const SelectField = (props) => {
 						.then((res) => {
 							console.log(res.data);
 							props.updateTables();
-							setSuccess("Livro adicionado à estante com sucesso.");
+							window.location.reload();
 							setTimeout(() => {
 								setSuccess("");
 							}, 3000);
