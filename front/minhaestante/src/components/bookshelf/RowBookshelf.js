@@ -51,7 +51,7 @@ class RowBookshelfComponent extends Component {
 			)
 			.then((res) => {
 				const originOption = res.data.bookshelf[this.props.bookListName];
-				originOption.splice(originOption.indexOf(this.props.bookId), 1);
+				originOption.splice(originOption.indexOf(this.props.id), 1);
 				const request = {
 					userID: this.props.userId,
 					[this.props.bookListName]: originOption,
@@ -67,6 +67,7 @@ class RowBookshelfComponent extends Component {
 						.then((res) => {
 							console.log(res.data);
 							this.props.updateTables();
+							window.location.reload();
 						})
 						.catch((error) => {
 							console.log("Erro ao remover livro da estante.");
@@ -77,7 +78,10 @@ class RowBookshelfComponent extends Component {
 	};
 
 	handleShowMove = () => this.setState({ showMoveModal: true });
-	handleCloseMove = () => this.setState({ showMoveModal: false });
+	handleCloseMove = () => {
+		this.setState({ showMoveModal: false });
+		window.location.reload();
+	};
 
 	render() {
 		return (
@@ -170,14 +174,12 @@ export class RowFavoritesComponent extends Component {
 			)
 			.then((res) => {
 				const originOption = res.data.bookshelf[this.props.bookListName];
-				originOption.splice(originOption.indexOf(this.props.bookId), 1);
+				originOption.splice(originOption.indexOf(this.props.id), 1);
 				const request = {
 					userID: this.props.userId,
 					[this.props.bookListName]: originOption,
 				};
 				console.log(request);
-
-				// Add confirmation popup before removing the book
 				if (window.confirm("Are you sure you want to remove this book?")) {
 					axios
 						.put(
@@ -187,6 +189,7 @@ export class RowFavoritesComponent extends Component {
 						.then((res) => {
 							console.log(res.data);
 							this.props.updateTables();
+							window.location.reload();
 						})
 						.catch((error) => {
 							console.log("Erro ao remover livro da estante.");
