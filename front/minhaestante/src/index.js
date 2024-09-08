@@ -23,6 +23,25 @@ const App = () => {
 				<Route path="/:userId" element={<h1>User Profile</h1>} />
 				<Route path="*" element={<h1>Not Found</h1>} />
 			</Routes>
+			<footer class="background-default text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<p>
+								<i class="fa-solid fa-kiwi-bird" style="color: #ffffff;"></i>
+								<a
+									href="/test/d5135e3e-646a-55e7-a38d-9724159b7f9f"
+									target="_blank"
+									rel="noreferrer"
+									style="color: white"
+								>
+									Para ter acesso a todas as telas clique aqui!
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</Router>
 	);
 };
