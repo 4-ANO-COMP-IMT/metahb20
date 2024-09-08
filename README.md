@@ -38,7 +38,8 @@ O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - L
 
 ## Utilizando (link pro site, explicação de como usar)
 
-XXXXXX
+[Veja o vídeo explicativo no YouTube](https://youtu.be/VOmlbopKEFA)
+
 
 ## Features da Aplicação
 
