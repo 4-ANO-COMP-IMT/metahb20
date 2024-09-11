@@ -125,8 +125,8 @@ npm run dev
 
 ## Contribuidores
 
-- [Antonio Macedo Ferrite 21.00663-6](https://github.com/enzosakamoto) - Frontend
-- [Maria Fernanda Pinho Garcia - 21.00256-8](https://github.com/flaviomurata) - Backend
-- [Nicole Martins Fragnan - 21.00368-8](https://github.com/viniciusberti) - Frontend
-- [Raphael Fernandes Raymundo - 21.00334-3](https://github.com/JoaoVitorBranco) - Frontend
-- [Rafael Rubio Carnes - 20.00611-0](https://github.com/PedroMatumoto) - Backend e Infraestrutura
+- Antonio Macedo Ferrite 21.00663-6 - Frontend
+- Maria Fernanda Pinho Garcia - 21.00256-8 - Backend
+- Nicole Martins Fragnan - 21.00368-8 - Frontend
+- Raphael Fernandes Raymundo - 21.00334-3 - Frontend
+- Rafael Rubio Carnes - 20.00611-0 - Backend e Infraestrutura
