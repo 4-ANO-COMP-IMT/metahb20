@@ -46,7 +46,7 @@ class BookForm extends React.Component {
 		console.log(book);
 
 		await axios
-			.post(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, book)
+			.post(`${process.env.REACT_APP_URL_MssBook}/api/book`, book)
 			.then((res) => {
 				this.setState({
 					bookId: "",

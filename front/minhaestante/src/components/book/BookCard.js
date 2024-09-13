@@ -32,7 +32,7 @@ class BookCard extends React.Component {
 			};
 
 			axios
-				.delete(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, {
+				.delete(`${process.env.REACT_APP_URL_MssBook}/api/book`, {
 					data: request,
 				})
 				.then((response) => {

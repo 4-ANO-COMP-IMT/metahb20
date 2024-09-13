@@ -14,9 +14,7 @@ const SelectField = (props) => {
 
 	const onClickConfirm = () => {
 		axios
-			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${props.userId}`
-			)
+			.get(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${props.userId}`)
 			.then((res) => {
 				const selectedlist = selectedOption || "willRead";
 				const goOption = res.data.bookshelf[selectedlist];
@@ -36,10 +34,7 @@ const SelectField = (props) => {
 					console.log(request);
 
 					axios
-						.put(
-							`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`,
-							request
-						)
+						.put(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf`, request)
 						.then((res) => {
 							console.log(res.data);
 							props.updateTables();

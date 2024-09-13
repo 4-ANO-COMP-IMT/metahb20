@@ -50,7 +50,7 @@ class BookFinder extends React.Component {
 
 	fetchBooks = async () => {
 		await axios
-			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/books`)
+			.get(`${process.env.REACT_APP_URL_MssBook}/api/books`)
 			.then((response) => {
 				console.log(response.data.books);
 				this.setState({

@@ -53,7 +53,7 @@ class BookCard extends React.Component {
 	onClickAdd = (event) => {
 		axios
 			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+				`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
 				console.log(res.data.bookshelf.willRead);
@@ -72,7 +72,7 @@ class BookCard extends React.Component {
 					willRead.push(this.state.id);
 
 					axios
-						.put(`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`, {
+						.put(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf`, {
 							userID: this.state.userId,
 							willRead: willRead,
 						})
@@ -104,7 +104,7 @@ class BookCard extends React.Component {
 			};
 
 			axios
-				.delete(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, {
+				.delete(`${process.env.REACT_APP_URL_MssBook}/api/book`, {
 					data: request,
 				})
 				.then((response) => {
