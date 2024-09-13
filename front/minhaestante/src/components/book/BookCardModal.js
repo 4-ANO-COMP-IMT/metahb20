@@ -66,7 +66,8 @@ class BookCard extends React.Component {
 					//!bookshelf.favorites.includes(this.state.id) &&
 					!bookshelf.read.includes(this.state.id) &&
 					!bookshelf.reading.includes(this.state.id) &&
-					!bookshelf.willRead.includes(this.state.id)
+					!bookshelf.willRead.includes(this.state.id) &&
+					!bookshelf.reReading.includes(this.state.id)
 				) {
 					willRead.push(this.state.id);
 
@@ -120,15 +121,7 @@ class BookCard extends React.Component {
 	};
 
 	render() {
-		const {
-			id,
-			title,
-			edition,
-			author,
-			pages,
-			genre,
-			publisher,
-		} = this.props;
+		const { id, title, edition, author, pages, genre, publisher } = this.props;
 
 		const { isExpanded, errorMessage } = this.state;
 
