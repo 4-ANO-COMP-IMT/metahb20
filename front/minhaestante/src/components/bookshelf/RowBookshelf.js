@@ -25,7 +25,7 @@ class RowBookshelfComponent extends Component {
 
 	componentDidMount() {
 		axios
-			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.id}`)
+			.get(`${process.env.REACT_APP_URL_MssBook}/api/book/${this.state.id}`)
 			.then((response) => {
 				this.setState({
 					title: response.data.book.title,
@@ -47,7 +47,7 @@ class RowBookshelfComponent extends Component {
 	onClickRemove = () => {
 		axios
 			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+				`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
 				const originOption = res.data.bookshelf[this.props.bookListName];
@@ -60,10 +60,7 @@ class RowBookshelfComponent extends Component {
 
 				if (window.confirm("Are you sure you want to remove this book?")) {
 					axios
-						.put(
-							`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`,
-							request
-						)
+						.put(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf`, request)
 						.then((res) => {
 							console.log(res.data);
 							this.props.updateTables();
@@ -148,7 +145,7 @@ export class RowFavoritesComponent extends Component {
 
 	componentDidMount() {
 		axios
-			.get(`${process.env.REACT_APP_URL_MssBook}/mssbook/book/${this.state.id}`)
+			.get(`${process.env.REACT_APP_URL_MssBook}/api/book/${this.state.id}`)
 			.then((response) => {
 				this.setState({
 					title: response.data.book.title,
@@ -170,7 +167,7 @@ export class RowFavoritesComponent extends Component {
 	onClickRemove = () => {
 		axios
 			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+				`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
 				const originOption = res.data.bookshelf[this.props.bookListName];
@@ -182,10 +179,7 @@ export class RowFavoritesComponent extends Component {
 				console.log(request);
 				if (window.confirm("Are you sure you want to remove this book?")) {
 					axios
-						.put(
-							`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`,
-							request
-						)
+						.put(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf`, request)
 						.then((res) => {
 							console.log(res.data);
 							this.props.updateTables();

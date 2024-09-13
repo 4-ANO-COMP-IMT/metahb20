@@ -41,7 +41,7 @@ class BookshelfTables extends Component {
 	fetchBooks() {
 		axios
 			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+				`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
 				console.log(res.data.bookshelf);

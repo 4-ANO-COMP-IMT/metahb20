@@ -16,9 +16,9 @@ function translateErrorMessage(error) {
 		"Field pages is not valid": "Campo Páginas é inválido.",
 		"Field genre is not valid": "Campo Gênero é inválido",
 		"Field publisher is not valid": "Campo Editora é inválido",
-		'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mssbook/book/367f3e10-4649-5e8e-acc6-4669644a520e</pre>\n</body>\n</html>\n':
+		'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/book/367f3e10-4649-5e8e-acc6-4669644a520e</pre>\n</body>\n</html>\n':
 			"Erro com o servidor",
-		'<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title>Error</title> </head> <body> <pre>Cannot GET /mssbook/book/367f3e10-4649-5e8e-acc6-4669644a520e</pre> </body> </html>`':
+		'<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title>Error</title> </head> <body> <pre>Cannot GET /api/book/367f3e10-4649-5e8e-acc6-4669644a520e</pre> </body> </html>`':
 			"Erro com o servidor",
 	};
 

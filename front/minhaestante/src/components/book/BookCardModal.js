@@ -53,7 +53,7 @@ class BookCard extends React.Component {
 	onClickAdd = (event) => {
 		axios
 			.get(
-				`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf/${this.props.userId}`
+				`${process.env.REACT_APP_URL_MssBook}/api/bookshelf/${this.props.userId}`
 			)
 			.then((res) => {
 				console.log(res.data.bookshelf.willRead);
@@ -66,12 +66,13 @@ class BookCard extends React.Component {
 					//!bookshelf.favorites.includes(this.state.id) &&
 					!bookshelf.read.includes(this.state.id) &&
 					!bookshelf.reading.includes(this.state.id) &&
-					!bookshelf.willRead.includes(this.state.id)
+					!bookshelf.willRead.includes(this.state.id) &&
+					!bookshelf.reReading.includes(this.state.id)
 				) {
 					willRead.push(this.state.id);
 
 					axios
-						.put(`${process.env.REACT_APP_URL_MssBook}/mssbook/bookshelf`, {
+						.put(`${process.env.REACT_APP_URL_MssBook}/api/bookshelf`, {
 							userID: this.state.userId,
 							willRead: willRead,
 						})
@@ -103,7 +104,7 @@ class BookCard extends React.Component {
 			};
 
 			axios
-				.delete(`${process.env.REACT_APP_URL_MssBook}/mssbook/book`, {
+				.delete(`${process.env.REACT_APP_URL_MssBook}/api/book`, {
 					data: request,
 				})
 				.then((response) => {
@@ -120,15 +121,7 @@ class BookCard extends React.Component {
 	};
 
 	render() {
-		const {
-			id,
-			title,
-			edition,
-			author,
-			pages,
-			genre,
-			publisher,
-		} = this.props;
+		const { id, title, edition, author, pages, genre, publisher } = this.props;
 
 		const { isExpanded, errorMessage } = this.state;
 
