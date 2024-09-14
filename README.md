@@ -50,8 +50,6 @@ O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - L
 
 - **Deixar uma Avaliação no Livro**: Cada um dos usuários pode atribuir uma nota para o livro que leu, tanto de modo a deixar registrado para possíveis releituras ou recomendações, mas também para contribuir para o _rating_ daquele livro, auxiliando demais usuários a entenderem se gostariam ou não de ler aquele livro. [Essa parte da aplicação está em fase de construção e implementação.]
 
-- **Interagir com Estantes de Outro Usuário**: Usuários podem intergir com estantes públicas de outros usuários, acopanhando as leituras de amigos, recomendações e ate sugestões de leituras futuras.
-
 - **Ver Avaliações do Livro**: Conforme as avaliações de cada livro são fornecidas, é fornecido um _rating_ para aquele livro, calculado através das avaliações de cada um dos usuários. [Essa parte da aplicação está em fase de construção e implementação.]
 
 ## Folders
