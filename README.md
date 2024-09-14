@@ -32,6 +32,8 @@ O usuário pode adicionar novos livros, escolher a lista mais adequada para sua 
 
 A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas, de acordo com sua necessidade, dando liberdade para acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade, atribuindo avaliações às suas leituras e interagindo com outros membros. A aplicação pode ser acessada em qualquer lugar, o que é uma boa forma para ter sua lista de leitura ou sugestões de amigos sempre à disposição.
 
+A aplicação pode ser encontrada em [https://d2cw3g3xt7y8lw.cloudfront.net/](https://d2cw3g3xt7y8lw.cloudfront.net/).
+
 ### Motivação
 
 O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - Linguagens de Programação II, ECM516 - Arquitetura de Sistemas Computacionais e ECM231- Engenharia de Software do 4° ano do curso de Engenharia de Computação do Instituto Mauá de Tecnologia. A proposta foi a construção de uma aplicação _fullstack_, através das linguagens e conceitos abordados durante as disciplinas.
@@ -39,7 +41,6 @@ O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - L
 ## Utilizando (link pro site, explicação de como usar)
 
 [Veja o vídeo explicativo no YouTube](https://youtu.be/VOmlbopKEFA)
-
 
 ## Features da Aplicação
 
@@ -85,9 +86,15 @@ A parte de Frontend do projeto foi desenvolvido com React.js (html, JavaScript e
 
 ## Infraestrutura
 
-XXXXX
+### Front-end
 
-## Como rodar
+O Front-end está hospedado em um bucket S3 da aws utilizando o serviço de CDN CloudFront. O deploy é feito automaticamente através do GitHub Actions utilizado o CloudFormation.
+
+### Back-end
+
+Os microsserviços estão hospedados em Eco-dynos da plataforma Heroku. O deploy é feito automaticamente através do GitHub.
+
+## Como rodar localmente
 
 ### Backend
 
