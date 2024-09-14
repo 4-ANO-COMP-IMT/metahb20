@@ -92,7 +92,7 @@ class RegistrationForm extends React.Component {
               />
 
               <SelectField
-                label="Gênero Favoritos"
+                label="Gênero Favorito"
                 options={Object.values(GENRES)}
                 value={this.state.favoriteGenres}
                 onChange={(e) =>
