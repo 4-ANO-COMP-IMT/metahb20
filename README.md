@@ -30,9 +30,9 @@ O usuário pode adicionar novos livros, escolher a lista mais adequada para sua 
 
 ### O que é?
 
-A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas, de acordo com sua necessidade, dando liberdade para acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade, atribuindo avaliações às suas leituras e interagindo com outros membros. A aplicação pode ser acessada em qualquer lugar, o que é uma boa forma para ter sua lista de leitura ou sugestões de amigos sempre à disposição.
+A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas, de acordo com sua necessidade, dando liberdade para acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade. A aplicação pode ser acessada em qualquer lugar, o que é uma boa forma para ter sua lista de leitura ou sugestões de amigos sempre à disposição.
 
-A aplicação pode ser encontrada em [https://d2cw3g3xt7y8lw.cloudfront.net/](https://d2cw3g3xt7y8lw.cloudfront.net/).
+A aplicação pode ser encontrada em: [https://d2cw3g3xt7y8lw.cloudfront.net/](https://d2cw3g3xt7y8lw.cloudfront.net/).
 
 ### Motivação
 
@@ -49,8 +49,6 @@ O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - L
 - **Adicionar Livros em Diferentes Listas**: O livro então pode ser adicionado em diversas listas presentes na estante de cada usuário, de modo a acompanhar suas leituras. Dentre as opções de listas, temos "Quero Ler", "Lendo", "Já Li", "Abandonados" e "Favoritos".
 
 - **Deixar uma Avaliação no Livro**: Cada um dos usuários pode atribuir uma nota para o livro que leu, tanto de modo a deixar registrado para possíveis releituras ou recomendações, mas também para contribuir para o _rating_ daquele livro, auxiliando demais usuários a entenderem se gostariam ou não de ler aquele livro. [Essa parte da aplicação está em fase de construção e implementação.]
-
-- **Interagir com Estantes de Outro Usuário**: Usuários podem intergir com estantes públicas de outros usuários, acopanhando as leituras de amigos, recomendações e ate sugestões de leituras futuras.
 
 - **Ver Avaliações do Livro**: Conforme as avaliações de cada livro são fornecidas, é fornecido um _rating_ para aquele livro, calculado através das avaliações de cada um dos usuários. [Essa parte da aplicação está em fase de construção e implementação.]
 
