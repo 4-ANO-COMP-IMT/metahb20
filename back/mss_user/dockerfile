@@ -1,13 +1,14 @@
-FROM node:20.11.1
+FROM node:20
+
+ENV PORT_MSSUSER=4000
+ENV EVENTBUS_URL=http://eventbuss:4002/event
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
-COPY . .
-
-EXPOSE 4000
+EXPOSE ${PORT_MSSUSER}
 
 CMD ["npm", "start"]

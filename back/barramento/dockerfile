@@ -1,13 +1,15 @@
-FROM node:20.11.1
+FROM node:20
+
+ENV EVENTBUS_PORT=4002
+ENV MSSUSER_URL=http://mss_user:4000/api
+ENV MSSBOOK_URL=http://mss_book:4001/api
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
-COPY . .
-
-EXPOSE 4002
+EXPOSE ${EVENTBUS_PORT}
 
 CMD ["npm", "start"]
