@@ -1,20 +1,13 @@
-# Use uma imagem oficial do Node.js v20.11.1
 FROM node:20.11.1
 
-# Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-# Copia o arquivo package.json e package-lock.json (se existir)
 COPY package*.json ./
 
-# Instala as dependências do projeto
 RUN npm install
 
-# Copia o restante do código para o contêiner
 COPY . .
 
-# Expõe a porta que o app vai usar
 EXPOSE 4001
 
-# Comando para rodar a aplicação
 CMD ["npm", "start"]
