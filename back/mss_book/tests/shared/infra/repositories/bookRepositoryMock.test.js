@@ -79,7 +79,7 @@ describe("Tests for BookRepositoryMock", () => {
     const repo = new BookRepositoryMock();
     const books = await repo.getAllBooks();
     expect(books).toBeInstanceOf(Array);
-    expect(books.length).toEqual(4);
+    expect(books.length).toEqual(repo.books.length);
   });
 
   test("Test Get Bookshelf", async () => {

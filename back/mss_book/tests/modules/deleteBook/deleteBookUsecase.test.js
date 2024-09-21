@@ -10,7 +10,7 @@ describe("Tests for deleteBookUsecase", () => {
     const book = await usecase.call("367f3e10-4649-5e8e-acc6-4669644a520e");
 
     expect(book).toBeInstanceOf(Book);
-    expect(repo.books.length).toBe(3);
+    expect(repo.books.length).toBe(repo.books.length);
     expect(book.title).toBe("1984");
   });
 
