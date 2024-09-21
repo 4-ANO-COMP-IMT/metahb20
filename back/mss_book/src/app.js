@@ -6,6 +6,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/mssbook", routes);
+app.use("/api", routes);
 
 export default app;
