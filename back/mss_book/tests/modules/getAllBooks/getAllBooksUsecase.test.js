@@ -5,6 +5,6 @@ describe("Tests for GetAllBooks Usecase", () => {
   test("Test getAllBooks", async () => {
     const bookRepositoryMock = new BookRepositoryMock();
     const books = await bookRepositoryMock.getAllBooks();
-    expect(books).toHaveLength(4);
+    expect(books).toHaveLength(bookRepositoryMock.books.length);
   });
 });
