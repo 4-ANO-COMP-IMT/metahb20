@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mss-user-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mss-user
+  template:
+    metadata:
+      labels:
+        app: mss-user
+    spec:
+      containers:
+        - name: mss-user
+          image: raphaelray/back-mss_user:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: PORT_MSSUSER
+              value: "4000"
+            - name: EVENTBUS_URL
+              value: "http://eventbuss:4002/event"
