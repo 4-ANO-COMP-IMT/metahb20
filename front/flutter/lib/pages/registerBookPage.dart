@@ -22,7 +22,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
   String errorMessage = '';
 
   Future<void> registerBook() async {
-    final url = Uri.parse('https://minhaestante-mss-book-5096cba7f21c.herokuapp.com'); // Substitua pela sua URL
+    final url = Uri.parse('https://minhaestante-mss-book-5096cba7f21c.herokuapp.com:/api/book');
     final book = {
       'title': title,
       'edition': int.parse(edition),
@@ -31,7 +31,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
       'genre': genre,
       'publishDate': convertToTimestamp(publishDate),
       'publisher': publisher,
-      'rating': int.parse(rating),
+      'rating': 0,
     };
 
     try {
