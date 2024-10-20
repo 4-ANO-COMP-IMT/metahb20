@@ -30,8 +30,8 @@ class BookForm extends State<TextForm> {
         Container(
           width: screenWidth * 0.6,
           height: 40,
-          margin: EdgeInsets.all(1.0),
-          padding: EdgeInsets.all(2.0),
+          margin: EdgeInsets.all(0.0),
+          padding: EdgeInsets.all(0.0),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(color: Colors.grey, width: 2.0),
@@ -53,5 +53,6 @@ class BookForm extends State<TextForm> {
         ),
       ],
     );
+    
   }
 }

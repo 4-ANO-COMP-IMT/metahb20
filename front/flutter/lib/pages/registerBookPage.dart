@@ -26,7 +26,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
     final book = {
       'title': title,
       'edition': int.parse(edition),
-      'author': author,
+      'autor': author,
       'pages': int.parse(pages),
       'genre': genre,
       'publishDate': convertToTimestamp(publishDate),
@@ -76,7 +76,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
     return Scaffold(
       appBar: AppBar(
         title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'CADASTRO DO LIVRO',
             style: TextStyle(
@@ -86,10 +86,10 @@ class RegisterBookPageState extends State<RegisterBookPage> {
             ),
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFF5a0f19),
       ),
       body: Container(
-        color: Colors.grey[200],
+        color: Color(0xFFe5cc9f),
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: SingleChildScrollView(
@@ -163,7 +163,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: Color(0xFF700000),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 40.0,
                         vertical: 10.0,
@@ -171,18 +171,19 @@ class RegisterBookPageState extends State<RegisterBookPage> {
                     ),
                     child: const Text(
                       'Cadastrar Livro',
-                      style: TextStyle(fontSize: 18.0),
+                      style: TextStyle(fontSize: 18.0,color:Colors.white),
+
                     ),
                   ),
                   if (successMessage.isNotEmpty)
                     Text(
                       successMessage,
-                      style: TextStyle(color: Colors.green, fontSize: 16),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   if (errorMessage.isNotEmpty)
                     Text(
                       errorMessage,
-                      style: TextStyle(color: Colors.red, fontSize: 16),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                 ],
               ),
