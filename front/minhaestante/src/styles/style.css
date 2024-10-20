@@ -1,0 +1,128 @@
+html,
+div#root {
+	background-color: #643200;
+	font-family: "Sedan", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+.background-default {
+	background-color: #643200;
+}
+
+.headline {
+	background-color: #5a0f19;
+	color: white;
+}
+
+.background-form {
+	background-color: #e5cc9f;
+}
+
+button {
+	white-space: nowrap;
+	display: inline-block;
+	min-width: fit-content;
+}
+
+.button-style {
+	background-color: #700000;
+	color: white;
+	border: black;
+}
+
+.button-style:hover {
+	background-color: #580000 !important;
+}
+
+.button-style2 {
+	background-color: #bc0000;
+	color: white;
+	border: black;
+}
+.button-style2:hover {
+	background-color: #580000 !important;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.card-title {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+
+.card-body,
+.card-footer {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+
+table {
+	width: 50%;
+	border-collapse: collapse;
+	border: 2px solid #333;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	width: 2%;
+}
+
+th {
+	background-color: #f2f2f2;
+	font-family: "Sedan", serif;
+	font-style: normal;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.floating-menu-container {
+	position: relative;
+}
+
+.menu-button {
+	background-color: #bc0000;
+	color: white;
+	border: none;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.menu-button:hover {
+	background-color: #580000 !important;
+}
+
+.floating-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	margin-top: 5px;
+	z-index: 1000;
+	border-radius: 5px;
+}
+.floating-menu button {
+	width: 90%;
+	padding: 10px;
+	text-align: center;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}

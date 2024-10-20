@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mss-book-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mss-book
+  template:
+    metadata:
+      labels:
+        app: mss-book
+    spec:
+      containers:
+      - name: mss-book
+        image: raphaelray/back-mss_book:latest 
+        ports:
+        - containerPort: 4001
+        env:
+        - name: PORT_MSSBOOK
+          value: "4001"
+        - name: EVENTBUS_URL
+          value: "http://eventbuss:4002/event"
