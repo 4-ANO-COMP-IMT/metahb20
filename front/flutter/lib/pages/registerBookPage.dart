@@ -44,6 +44,7 @@ class RegisterBookPageState extends State<RegisterBookPage> {
       if (response.statusCode == 201) {
         setState(() {
           print("livro cadastradp");
+          Navigator.pushNamed(context, '/library');
           successMessage = 'Livro cadastrado com sucesso!';
           errorMessage = '';
         });
