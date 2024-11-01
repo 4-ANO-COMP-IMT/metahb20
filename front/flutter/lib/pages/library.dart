@@ -137,43 +137,58 @@ class _BookListScreenState extends State<BookListScreen> {
       ),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: books.length,
-              itemBuilder: (context, index) {
-                final book = books[index];
-                return Card(
-                  margin: EdgeInsets.all(10.0),
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          book['title'],
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+          : Stack(
+              children: [
+                ListView.builder(
+                  itemCount: books.length,
+                  itemBuilder: (context, index) {
+                    final book = books[index];
+                    return Card(
+                      margin: EdgeInsets.all(10.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              book['title'],
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 5.0),
+                            Text('Autor: ${book['autor']}'),
+                            Text('Editora: ${book['publisher']}'),
+                            Text('Páginas: ${book['pages']}'),
+                            Text('Gênero: ${book['genre']}'),
+                            SizedBox(height: 10.0),
+                            ElevatedButton(
+                              onPressed: () => deleteBook(book['bookId']),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFFbc0000),
+                                foregroundColor: Colors.white,
+                              ),
+                              child: Text('Excluir Livro'),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 5.0),
-                        Text('Autor: ${book['autor']}'),
-                        Text('Editora: ${book['publisher']}'),
-                        Text('Páginas: ${book['pages']}'),
-                        Text('Gênero: ${book['genre']}'),
-                        SizedBox(height: 10.0),
-                        ElevatedButton(
-                          onPressed: () => deleteBook(book['bookId']),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFbc0000),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: Text('Excluir Livro'),
-                        ),
-                      ],
-                    ),
+                      ),
+                    );
+                  },
+                ),
+                Positioned(
+                  bottom: 16.0,
+                  right: 16.0,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/registerbook');
+                    },
+                    backgroundColor: Color(0xFF700000),
+                    child: Icon(Icons.add, color: Colors.white),
                   ),
-                );
-              },
+                ),
+              ],
             ),
     );
   }
