@@ -22,7 +22,8 @@ class RegisterBookPageState extends State<RegisterBookPage> {
   String errorMessage = '';
 
   Future<void> registerBook() async {
-    final url = Uri.parse('https://minhaestante-mss-book-5096cba7f21c.herokuapp.com:/api/book');
+    final url = Uri.parse(
+        'https://minhaestante-mss-book-5096cba7f21c.herokuapp.com:/api/book');
     final book = {
       'title': title,
       'edition': int.parse(edition),
@@ -144,7 +145,8 @@ class RegisterBookPageState extends State<RegisterBookPage> {
                     padding: EdgeInsets.only(bottom: 3.0),
                     child: TextForm(
                       value1: 'Data de Publicação',
-                      value2: 'Campo Data de Publicação inválida. Esperado: data.',
+                      value2:
+                          'Campo Data de Publicação inválida. Esperado: data.',
                       onSaved: (value) => publishDate = value!,
                     ),
                   ),
@@ -156,24 +158,40 @@ class RegisterBookPageState extends State<RegisterBookPage> {
                       onSaved: (value) => publisher = value!,
                     ),
                   ),
-                  ElevatedButton(
+                    ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        registerBook(); // Chama a função para registrar o livro
+                      _formKey.currentState!.save();
+                      registerBook(); // Chama a função para registrar o livro
                       }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF700000),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 40.0,
-                        vertical: 10.0,
+                      horizontal: 40.0,
+                      vertical: 10.0,
                       ),
                     ),
                     child: const Text(
                       'Cadastrar Livro',
-                      style: TextStyle(fontSize: 18.0,color:Colors.white),
-
+                      style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    ),
+                    ),
+                    SizedBox(height: 10.0), // Espaço entre os botões
+                    ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/library');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF700000),
+                      padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0,
+                      vertical: 10.0,
+                      ),
+                    ),
+                    child: const Text(
+                      'Ir para Biblioteca',
+                      style: TextStyle(fontSize: 18.0, color: Colors.white),
                     ),
                   ),
                   if (successMessage.isNotEmpty)
