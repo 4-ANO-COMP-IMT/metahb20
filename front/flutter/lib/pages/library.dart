@@ -2,57 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class Library extends StatelessWidget {
-  Library({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Minha Estante',
-      theme: ThemeData(
-        primaryColor: Color(0xFF643200),
-        colorScheme:
-            ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF700000)),
-        scaffoldBackgroundColor: Color(0xFFe5cc9f),
-        textTheme: TextTheme(
-          titleLarge: TextStyle(
-            color: Colors.white,
-            fontFamily: 'Sedan',
-            fontWeight: FontWeight.bold,
-          ),
-          bodyMedium: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Sedan',
-          ),
-        ),
-        buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFFbc0000),
-          textTheme: ButtonTextTheme.primary,
-        ),
-        cardTheme: CardTheme(
-          color: Colors.white,
-          margin: EdgeInsets.all(10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Color(0xFF5a0f19),
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-            fontFamily: 'Sedan',
-          ),
-        ),
-      ),
-      home: BookListScreen(),
-    );
-  }
-}
-
 class BookListScreen extends StatefulWidget {
   BookListScreen({super.key});
   @override
-  // ignore: library_private_types_in_public_api
   _BookListScreenState createState() => _BookListScreenState();
 }
 
@@ -98,7 +50,6 @@ class _BookListScreenState extends State<BookListScreen> {
           books.removeWhere((book) => book['bookId'] == bookId);
         });
       } else {
-        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Erro ao excluir livro')),
         );
@@ -131,65 +82,104 @@ class _BookListScreenState extends State<BookListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Livros Disponíveis'),
+    return MaterialApp(
+      title: 'Minha Estante',
+      theme: ThemeData(
+        primaryColor: Color(0xFF643200),
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF700000)),
+        scaffoldBackgroundColor: Color(0xFFe5cc9f),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Sedan',
+            fontWeight: FontWeight.bold,
+          ),
+          bodyMedium: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Sedan',
+          ),
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Color(0xFFbc0000),
+          textTheme: ButtonTextTheme.primary,
+        ),
+        cardTheme: CardTheme(
+          color: Colors.white,
+          margin: EdgeInsets.all(10.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color(0xFF5a0f19),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20.0,
+            fontFamily: 'Sedan',
+          ),
+        ),
       ),
-      body: isLoading
-          ? Center(child: CircularProgressIndicator())
-          : Stack(
-              children: [
-                ListView.builder(
-                  itemCount: books.length,
-                  itemBuilder: (context, index) {
-                    final book = books[index];
-                    return Card(
-                      margin: EdgeInsets.all(10.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              book['title'],
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Livros Disponíveis'),
+        ),
+        body: isLoading
+            ? Center(child: CircularProgressIndicator())
+            : Stack(
+                children: [
+                  ListView.builder(
+                    itemCount: books.length,
+                    itemBuilder: (context, index) {
+                      final book = books[index];
+                      return Card(
+                        margin: EdgeInsets.all(10.0),
+                        child: Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                book['title'],
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 5.0),
-                            Text('Autor: ${book['autor']}'),
-                            Text('Editora: ${book['publisher']}'),
-                            Text('Páginas: ${book['pages']}'),
-                            Text('Gênero: ${book['genre']}'),
-                            SizedBox(height: 10.0),
-                            ElevatedButton(
-                              onPressed: () => deleteBook(book['bookId']),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFbc0000),
-                                foregroundColor: Colors.white,
+                              SizedBox(height: 5.0),
+                              Text('Autor: ${book['autor']}'),
+                              Text('Editora: ${book['publisher']}'),
+                              Text('Páginas: ${book['pages']}'),
+                              Text('Gênero: ${book['genre']}'),
+                              SizedBox(height: 10.0),
+                              ElevatedButton(
+                                onPressed: () => deleteBook(book['bookId']),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFFbc0000),
+                                  foregroundColor: Colors.white,
+                                ),
+                                child: Text('Excluir Livro'),
                               ),
-                              child: Text('Excluir Livro'),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                Positioned(
-                  bottom: 16.0,
-                  right: 16.0,
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/registerbook');
+                      );
                     },
-                    backgroundColor: Color(0xFF700000),
-                    child: Icon(Icons.add, color: Colors.white),
                   ),
-                ),
-              ],
-            ),
+                  Positioned(
+                    bottom: 16.0,
+                    right: 16.0,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/registerbook');
+                      },
+                      backgroundColor: Color(0xFF700000),
+                      child: Icon(Icons.add, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+      ),
     );
   }
 }
