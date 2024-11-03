@@ -42,6 +42,8 @@ O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - L
 
 [Veja o vídeo explicativo no YouTube](https://youtu.be/VOmlbopKEFA)
 
+[Veja o vídeo parte 2 explicativo no YouTube](https://youtu.be/SQTGqKcpzuk)
+
 ## Features da Aplicação
 
 - **Criação de Livros**: Os usuários podem adicionar livros a suas estantes, criando novos caso queiram adicionar um livro que não tenha sido criado antes por outro usuário. Atributos como título, autor, edição, quantidade de páginas etc estão disponíveis nessa _feature_.
