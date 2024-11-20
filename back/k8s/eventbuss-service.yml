@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: eventbuss-service
 spec:
+  type: NodePort
   selector:
     app: eventbuss
   ports:

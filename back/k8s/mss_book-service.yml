@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: mss-book-service
 spec:
+  type: NodePort
   selector:
     app: mss-book
   ports:
