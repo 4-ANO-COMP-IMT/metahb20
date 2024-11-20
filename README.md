@@ -1,51 +1,139 @@
-# Bem-vindo a seu Projeto
+# MinhaEstante
 
-## Clonando repositório
+A MinhaEstante é uma aplicação desenvolvida para facilitar e auxiliar seus usuários a terem fácil acesso e controle de seus livros e leituras. Funcionando como uma estante virtual, de forma rápida, intuitiva e em qualquer lugar, a qualquer momento.
 
-Para começar seu projeto, primeiro abra a pasta que deseja utilizar, copie o URL do seu projeto, entre no terminal e digite:
+O usuário pode adicionar novos livros, escolher a lista mais adequada para sua necessidade e atribuir avalições para os livros que leu, auxiliando outros usuários da comunidade a escolherem seu próximo livro.
+
+## Sumário
+
+1. [MinhaEstante](#minhaestante)
+2. [Sumário](#sumário)
+3. [Introdução](#introdução)
+   - [O que é?](#o-que-é)
+   - [Motivação](#motivação)
+4. [Utilizando](#utilizando-link-pro-site-explicação-de-como-usar)
+5. [Features da Aplicação](#features-da-aplicação)
+6. [Folders](#folders)
+7. [Deploys](#deploys)
+8. [Backend Modules](#backend-modules)
+   - [MSS](#mss)
+   - [Barramento](#barramento)
+   - [Testes](#testes)
+9. [Frontend Modules](#frontend-modules)
+10. [Infraestrutura](#infraestrutura)
+11. [Como rodar](#como-rodar)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+12. [Contribuidores](#contribuidores)
+
+## Introdução
+
+### O que é?
+
+A MinhaEstante é uma forma de acompanhar suas leituras de forma rápida, fácil e interativa. A plataforma permite ao usuário colocar seus livros em diferentes listas, de acordo com sua necessidade, dando liberdade para acompanhar cada um de seus estilos de leitura. O usuário pode cadastrar livros novos ou utilizar livros anteriormente cadastrados na comunidade. A aplicação pode ser acessada em qualquer lugar, o que é uma boa forma para ter sua lista de leitura ou sugestões de amigos sempre à disposição.
+
+A aplicação pode ser encontrada em: [https://d2cw3g3xt7y8lw.cloudfront.net/](https://d2cw3g3xt7y8lw.cloudfront.net/).
+
+### Motivação
+
+O desenvolvimento desse projeto foi possível graças às disciplinas ECM252 - Linguagens de Programação II, ECM516 - Arquitetura de Sistemas Computacionais e ECM231- Engenharia de Software do 4° ano do curso de Engenharia de Computação do Instituto Mauá de Tecnologia. A proposta foi a construção de uma aplicação _fullstack_, através das linguagens e conceitos abordados durante as disciplinas.
+
+## Utilizando (link pro site, explicação de como usar)
+
+[Veja o vídeo explicativo no YouTube](https://youtu.be/VOmlbopKEFA)
+
+[Veja o vídeo parte 2 explicativo no YouTube](https://youtu.be/SQTGqKcpzuk)
+
+## Features da Aplicação
+
+- **Criação de Livros**: Os usuários podem adicionar livros a suas estantes, criando novos caso queiram adicionar um livro que não tenha sido criado antes por outro usuário. Atributos como título, autor, edição, quantidade de páginas etc estão disponíveis nessa _feature_.
+
+- **Adicionar Livros em Diferentes Listas**: O livro então pode ser adicionado em diversas listas presentes na estante de cada usuário, de modo a acompanhar suas leituras. Dentre as opções de listas, temos "Quero Ler", "Lendo", "Já Li", "Abandonados" e "Favoritos".
+
+- **Deixar uma Avaliação no Livro**: Cada um dos usuários pode atribuir uma nota para o livro que leu, tanto de modo a deixar registrado para possíveis releituras ou recomendações, mas também para contribuir para o _rating_ daquele livro, auxiliando demais usuários a entenderem se gostariam ou não de ler aquele livro. [Essa parte da aplicação está em fase de construção e implementação.]
+
+- **Ver Avaliações do Livro**: Conforme as avaliações de cada livro são fornecidas, é fornecido um _rating_ para aquele livro, calculado através das avaliações de cada um dos usuários. [Essa parte da aplicação está em fase de construção e implementação.]
+
+## Folders
+
+- **back**: Back-end folder | Node.js com Express
+- **front/minhaestante**: Front-end folder | React.js
+
+**O projeto MinhaEstante foi desenvolvido em JavaScript.**
+
+## Backend Modules
+
+A parte de Backend da aplicação foi desenvolvida em Node.js com a utilização do Express, utilizando conceitos de arquitetura limpa de microsserviços, similarmente à utilizada pela entidade Dev Community Mauá. Dessa forma, o código foi estruturado em camadas, dividido em módulos com cada funcionalidade específica, de forma a facilitar a reutilização e manutenção do código em manutenções e versões posteriores.
+
+### MSS
+
+Os microsserviços da aplicação são:
+
+- `Book` - responsável pela criação dos livros e suas relações.
+- `User` - responsável pela criação do do usuário e suas relações.
+
+### Barramento
+
+A pasta `Barramento` é responsável pela entrega dos eventos da aplicação.
+
+### Testes
+
+Os testes de cada um dos microsserviços foi realizado em seu próprio módulo.
+
+## Frontend Modules
+
+A parte de Frontend do projeto foi desenvolvido com React.js (html, JavaScript e CSS). O frontend foi desenvolvido tendo em mente os mesmos conceitos utilziados anteriormente no backend.
+
+## Infraestrutura
+
+### Front-end
+
+O Front-end está hospedado em um bucket S3 da aws utilizando o serviço de CDN CloudFront. O deploy é feito automaticamente através do GitHub Actions utilizado o CloudFormation.
+
+### Back-end
+
+Os microsserviços estão hospedados em Eco-dynos da plataforma Heroku. O deploy é feito automaticamente através do GitHub.
+
+## Como rodar localmente
+
+### Backend
+
+Clone o repositório em sua máquina, entre na pasta "back" e rode os seguintes comandos:
 
 ```bash
-git clone https://github.com/4-ANO-COMP-IMT/[$TRABALHO]_[$GRUPO].git
+npm install
 ```
 
-## Iniciando o projeto
+Para rodar cada microsserviço, utilize o comando:
 
-Após criar entrar no repostório, crie o arquivo <strong> .gitignore </strong> na pasta raiz do projeto. Adicione as informações baseadas nesse [link](https://github.com/github/gitignore).
-
-## Branches
-Todas as alterações devem ser realizadas em branches criadas pelos alunos e mescladas com a <strong>dev</strong> após a aprovação do grupo.<br>
-Para a entrega final, o professor realizará a review e mesclagem com a <strong>prod</strong>. Esta review conterá comentários sobre o projeto e possíveis melhorias.
-<br>
-<br>
-<strong>ATENÇÃO</strong>:
- - Não faça nenhuma alteração na branch <strong>prod</strong>.
- - Jamais faça push diretamente na <strong>dev</strong> ou <strong>prod</strong>.
- -  Não aceite o pull request de sua branch para a <strong>dev</strong> sem a aprovação do grupo.
-
-## Pull Request
-O pull request deve ser feito da branch do aluno para a <strong>dev</strong>.<br>
-
-
-## Commits 
-Para os commits, siga os <strong>[conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)</strong> para facilitar a leitura do histórico do projeto.
-
-Boas práticas:
-- Commits pequenos e frequentes.
-- Mensagens claras e objetivas.
-
-Base:
-
-
-```
-<tipo>(<escopo>): <resumo curto>
-  │       │             │
-  │       │             └─⫸ Resumo no presente. Não capitalizado. Sem ponto final no final.
-  │       │
-  │       └─⫸ Escopo do commit: geralmente o nome do módulo afetado
-  │
-  └─⫸ Tipo do commit: build|ci|docs|feat|fix|perf|refactor|test
+```bash
+npm dev:<nome do microsserviço>
 ```
 
-## Conclusão
+### Frontend
 
-Siga as instruções do professor e boa sorte! 😎
+Clone o repositório em sua máquina, entre na pasta "front" e rode os seguintes comandos:
+
+```bash
+npm install
+```
+
+Para buildar o frontend, utilize o comando:
+
+```bash
+npm run build
+```
+
+Para rodar o frontend, utilize o comando:
+
+```bash
+npm run dev
+```
+
+## Contribuidores
+
+- Antonio Macedo Ferrite 21.00663-6 - Frontend
+- Maria Fernanda Pinho Garcia - 21.00256-8 - Backend
+- Nicole Martins Fragnan - 21.00368-8 - Frontend
+- Raphael Fernandes Raymundo - 21.00334-3 - Frontend
+- Rafael Rubio Carnes - 20.00611-0 - Backend e Infraestrutura

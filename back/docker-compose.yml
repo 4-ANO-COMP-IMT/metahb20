@@ -1,0 +1,32 @@
+services:
+  eventbuss:
+    build:
+      context: ./barramento
+    ports:
+      - "4002:4002"
+    networks:
+      - app-network
+
+  mss_book:
+    build:
+      context: ./mss_book
+    ports:
+      - "4001:4001"
+    depends_on:
+      - eventbuss
+    networks:
+      - app-network
+
+  mss_user:
+    build:
+      context: ./mss_user
+    ports:
+      - "4000:4000"
+    depends_on:
+      - eventbuss
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
