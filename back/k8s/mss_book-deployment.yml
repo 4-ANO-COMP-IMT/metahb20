@@ -22,3 +22,17 @@ spec:
           value: "4001"
         - name: EVENTBUS_URL
           value: "http://eventbuss:4002/event"
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: mss-book-service
+spec:
+  type: NodePort  
+  selector:
+    app: mss-book
+  ports:
+    - protocol: TCP
+      port: 4001
+      targetPort: 4001
+      nodePort: 30001  

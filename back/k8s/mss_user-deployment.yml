@@ -22,3 +22,17 @@ spec:
               value: "4000"
             - name: EVENTBUS_URL
               value: "http://eventbuss:4002/event"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mss-user-service
+spec:
+  type: NodePort  
+  selector:
+    app: mss-user
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30000  
